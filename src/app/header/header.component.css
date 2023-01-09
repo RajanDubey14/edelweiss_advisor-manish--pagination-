@@ -1,0 +1,83 @@
+.header-wrap {
+  width: 100%;
+  height: 70px;
+  background: #2049a7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.brand-logo {
+  width: 200px;
+}
+
+.brand-logo img {
+  width: 100%;
+}
+.nav-links {
+  display: flex;
+}
+
+.nav-links ul li {
+  display: inline-block;
+  line-height: 45px;
+  padding: 0 20px;
+}
+.user_name {
+  color: white;
+  line-height: 22px;
+  vertical-align: bottom;
+  margin: 0px;
+  margin-left: 10px;
+  margin-right: 13px;
+  text-transform:uppercase;
+}
+
+
+.nav-links ul li a {
+  display: inline-block;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+
+  line-height: 25px;
+}
+
+.nav-links > span {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  background: #fff;
+  line-height: 45px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.userDetailsBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: flex-end;
+}
+
+.userDetailsBox .logoutBtn {
+  padding: 1px 8px;
+  margin: 0;
+  background-color: #ffffff;
+  color: #2049a7;
+  border: none;
+  font-size: 11px;
+  margin-right: 13px;
+  margin-bottom: -16px;
+  width: fit-content;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.edelWeisslogo {
+  width: 140%;
+  max-width: 140% !important;
+}

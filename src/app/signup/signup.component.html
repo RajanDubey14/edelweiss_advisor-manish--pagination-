@@ -1,0 +1,225 @@
+<div class="signup-wrapper">
+  <div class="left-side">
+    <div class="bg-image-box">
+      <img src="assets/images/logo.png" alt="" />
+      <div class="clearfix"></div>
+      <div class="image-box-text">
+        <p class="p1" style="color: white">
+          Manange and grow your business with
+        </p>
+        <h2 class="h2">Edelweiss Alternative <br />Asset Advisors</h2>
+        <ul class="ul-main">
+          <li style="color: white">
+            Fully <br />Digital <span class="line"></span>
+          </li>
+          <li style="color: white">
+            Track <br />Status <span class="line"></span>
+          </li>
+          <li style="color: white">Manange <br />Clients</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="right-side">
+    <div class="content-wrap login" *ngIf="!showSuccessSignin">
+      <!-- <button class="close-btn" type="button" routerLink="/login">
+        &#10006;
+      </button> -->
+      <h3 class="heading weight600 bmargin10">Signup</h3>
+      <p class="subheading bmargin30">
+        Please provide below details to proceed
+      </p>
+      <form [formGroup]="registerForm">
+        <div class="row">
+          <div class="col-md-7">
+            <div class="form-group mb-3">
+              <input
+                type="text"
+                placeholder="Full Name"
+                formControlName="fullName"
+                class="form-control input-style"
+                [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }"
+              />
+              <div
+                *ngIf="submitted && f.fullName.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.fullName.errors.required">
+                  Full Name is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="form-group mb-3">
+              <div
+                style="
+                  display: flex;
+                  border: 1px solid #d1cfcf !important;
+                  border-radius: 4px;
+                "
+              >
+                <input
+                  type="text"
+                  placeholder="Enter Email Id"
+                  formControlName="email"
+                  class="form-control input-style"
+                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                  style="border: 0px solid !important"
+                />
+                <span
+                  style="
+                    padding-right: 10px;
+                    margin: auto;
+                    color: #212529;
+                    font-size: 17px;
+                  "
+                  >@camsonline.com</span
+                >
+              </div>
+              <div
+                *ngIf="submitted && f.email.errors"
+                style="color: #b70000; font-size: 14px; font-weight: 400"
+              >
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email || f.email.errors.pattern">
+                  Email must be a valid email address
+                </div>
+              </div>
+              <!-- <input
+                type="text"
+                placeholder="Enter Email Id"
+                formControlName="email"
+                class="form-control input-style"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+              /> -->
+              <!-- <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email || f.email.errors.pattern">
+                  Email must be a valid email address
+                </div>
+              </div> -->
+              <div *ngIf="emailexists" class="">
+                <p
+                  class=""
+                  style="color: #b70000; font-size: 14px; font-weight: 400"
+                >
+                  User name already exists with email
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-7">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <ng-select
+                    [items]="fundList"
+                    placeholder="Select Fund"
+                    bindLabel="fundName"
+                    bindValue="fundID"
+                    [multiple]="true"
+                    formControlName="fund"
+                    class="form-control input-style"
+                    clearAllText="Clear"
+                    [clearable]="false"
+                  >
+                    <!-- <ng-template ng-label-tmp let-item="item">
+                      <span
+                        class="ng-value-label"
+                        [attr.title]="item.fundName"
+                        >{{ item.fundName }}</span
+                      >
+                    </ng-template>
+                    <ng-template ng-option-tmp let-item="item">
+                      <span
+                        class="ng-option-label"
+                        [attr.title]="item.fundName"
+                        >{{ item.fundName }}</span
+                      >
+                    </ng-template> -->
+                  </ng-select>
+                  <div *ngIf="submitted && f.fund.errors" class="">
+                    <div *ngIf="f.fund.errors.required">
+                      <p
+                        class=""
+                        style="
+                          color: #b70000;
+                          font-size: 14px;
+                          font-weight: 400;
+                        "
+                      >
+                        Fund is required
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <ng-select
+                    placeholder="Select Admin"
+                    [items]="adminList"
+                    bindLabel="name"
+                    bindValue="id"
+                    formControlName="admin"
+                    [multiple]="false"
+                    class="form-control input-style"
+                    clearAllText="Clear"
+                    [clearable]="false"
+                  >
+                  </ng-select>
+                  <div *ngIf="submitted && f.admin.errors" class="">
+                    <div *ngIf="f.admin.errors.required">
+                      <p
+                        class=""
+                        style="
+                          color: #b70000;
+                          font-size: 14px;
+                          font-weight: 400;
+                        "
+                      >
+                        Admin is required
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-9 tmargin20">
+            <button class="btn btn-primary mt-1 loginbtn" (click)="signup()">
+              Sign up
+            </button>
+          </div>
+
+          <div class="tmargin20 signupLink">
+            <span
+              >I already have an account!
+              <a routerLink="/login"> Login </a>
+            </span>
+          </div>
+        </div>
+      </form>
+
+      <div class="watermarkImage"></div>
+      <footer>
+        <p>
+          © all copyrights reserved by Edelweiss Alternative Asset Advisors
+          Limited.
+        </p>
+      </footer>
+    </div>
+    <div class="content-wrap signed-in" *ngIf="showSuccessSignin">
+      <div class="successfully-signin">
+        <div class="tick-img bmargin30">
+          <img src="assets/images/green-tick.png" alt="" />
+        </div>
+        <p class="subheading bmargin10">You have successfully signed in</p>
+        <p class="subheading resend"><a routerLink="/login">Login</a></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+.pdf-header {
+  background: #1d409d;
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  color: #ffffff;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  height: 43px;
+  box-shadow: 0px 2px 4px #0000004b;
+}
+
+
+#custumscroll pdf-viewer .ng2-pdf-viewer-container {
+  overflow-x: unset !important;
+}
+
+.scrollbar {
+  max-height: 472px;
+  overflow: scroll;
+}
+
+.scrollbar::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+  margin-right: 2px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #eaeaea;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.img-view-hideen .ivh-item {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0px;
+}
+
+.ngxImageZoomContainer {
+  width: auto !important;
+  height: auto !important;
+}
+
+::ng-deep .ngxImageZoomContainer {
+  width: 100% !important;
+}
+
+::ng-deep .ngxImageZoomThumbnail {
+  width: 100% !important;
+}
+
+
+.pledge_heading{
+  font-size: 22px;
+  font-weight: 500;
+}
+
+
+.sub_heading_img{
+
+}
+
+.sub_heading{
+  font-size: 15px;
+  margin-top: 6px;
+  /* margin-right: 1%; */
+
+}
+.sub_heading2{
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 1%;
+  margin-bottom: 1%;
+
+}
+
+.inputfields_pledge{
+  width: 12em;
+  /* margin-bottom: 2%; */
+}
+
+.pledge_content{
+  display: flex;
+  justify-content: space-between;
+  padding: 1%
+}
+
+.pledge_content_p{
+  font-size: 14px;
+}
+
+
+.pledge_check_content{
+  display: flex;
+   justify-content: space-around;
+}
+
+.pledge_check_content_p{
+  font-size: 15px;
+   font-weight: 500;
+}

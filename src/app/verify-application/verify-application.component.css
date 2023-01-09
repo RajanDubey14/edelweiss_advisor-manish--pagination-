@@ -1,0 +1,268 @@
+.application-details {
+  background: #b5c0dc;
+  display: flex;
+  padding: 10px 0;
+}
+
+.display {
+  background-color: #f3f3f9;
+}
+
+.table > :not(caption) > * > * {
+  padding: 12px 0.5rem;
+}
+
+.tableCard {
+  border: none;
+  margin: 20px 0px;
+  box-shadow: 0px 1px 4px #15223214;
+  border-radius: 6px;
+}
+.lightBorderBottom {
+  border-bottom: 2px solid #eaeaea;
+  text-transform: uppercase;
+  color: #131523;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.87px;
+}
+
+.table-container {
+  margin: 0 auto;
+  width: 97%;
+  background-color: #ffffff;
+}
+
+.pdf-container {
+  margin: auto;
+  width: 100%;
+  height: 472px;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+hr.style1 {
+  border-top: 1px solid #8c8b8b;
+}
+
+.details-inner {
+  width: 19%;
+  margin: 0 18px;
+}
+
+.details-inner:nth-child(2) {
+  width: 26%;
+}
+
+.details-inner:nth-child(3) {
+  width: 20%;
+}
+.details-inner:nth-child(4) {
+  width: 26%;
+}
+.details-inner:last-child {
+  width: 22%;
+}
+
+.details-inner p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.details-inner .detail-p {
+  background: #fff;
+  padding: 3px 6px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.details-inner:first-child .detail-p,
+.details-inner:nth-child(3) .detail-p {
+  text-align: center;
+}
+
+/* .pdf-form-wrap {
+} */
+
+.pdf-view-wrap {
+
+  /* height: 472px; */
+}
+
+.pdf-view-left,
+.pdf-view-right {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.pdf-view-modal {
+  width: 100%;
+  background: #ddd;
+  padding: 5px;
+}
+
+.pdf-view-left {
+}
+
+.pdf-view-right {
+}
+
+.comment-box {
+  margin-top: 1%;
+}
+
+.comment-box .comment label {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.comment-box .comment textarea::placeholder {
+  color: #abaec1;
+}
+
+.comment-box .comment textarea {
+  width: 100%;
+  border: 0;
+  border-radius: 6px;
+  background: #ffffff;
+  padding: 1%;
+  box-shadow: 0px 1px 4px #15223214;
+}
+
+  .buttons{
+    margin-right: 2%;
+  }
+
+.submit-btns {
+  text-align: end;
+   display: flex;
+  justify-content: end;
+}
+
+.confirm-submit {
+  height: 500px;
+}
+
+.parent {
+  background-color: rgba(255, 255, 255, 0.098) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.confirm-submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.confirm-submit img {
+  padding: 5px;
+  width: 55px;
+}
+#outerContainer {
+  background-color: #ffffff;
+  margin: 0px 8px;
+  padding-right: 4px;
+}
+
+.btn {
+  padding: 8px 40px;
+  line-height: normal;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-white {
+  background-color: #ffffff;
+  color: #5a607f;
+  border: 1px solid #d7dbec;
+}
+
+.pdf-header {
+  background: #1d409d;
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  color: #ffffff;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  height: 43px;
+  box-shadow: 0px 2px 4px #0000004b;
+}
+
+.pdf-buttons button {
+  background-color: transparent;
+  border: none;
+  margin: 0 5px;
+}
+
+#custumscroll pdf-viewer .ng2-pdf-viewer-container {
+  overflow-x: unset !important;
+}
+
+.scrollbar {
+  max-height: 472px;
+  overflow: scroll;
+}
+
+.scrollbar::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+  margin-right: 2px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #eaeaea;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.img-view-hideen .ivh-item {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0px;
+}
+
+.ngxImageZoomContainer {
+  width: auto !important;
+  height: auto !important;
+}
+
+::ng-deep .ngxImageZoomContainer {
+  width: 100% !important;
+}
+
+::ng-deep .ngxImageZoomThumbnail {
+  width: 100% !important;
+}
+
+
+.pledge_heading{
+  font-size: 22px;
+  font-weight: 500;
+}
+
+
+.sub_heading_img{
+
+}
+
+.sub_heading{
+  font-size: 18px;
+  margin-top: 6px;
+  /* margin-right: 1%; */
+
+}
+.sub_heading2{
+  font-size: 14px;
+  font-weight: 500;
+
+}

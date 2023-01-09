@@ -1,0 +1,368 @@
+<div class="dashboard-wrapper">
+  <app-header></app-header>
+  <div class="contrainer">
+    <div
+      class="row topFilterBox"
+      style="background-color: #f3f3f9; padding: 10px"
+    >
+      <div
+        class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12"
+        style="margin-top: 5px; margin-bottom: 5px"
+      >
+        <div
+          class="card {{ recordType == 'Submitted to CAMS' ? 'active' : '' }}"
+          (click)="SubmittedtoCams()"
+        >
+          <div class="card-content">
+            <div class="card-body">
+              <div class="dashboard_subheading">Submitted to Cams</div>
+              <div class="d-flex justify-content-between">
+                <!-- <div>
+                  <i class="icon-pencil primary font-large-2 float-left"></i>
+                </div> -->
+
+                <div
+                  class="col-xl-8 col-lg-8 col-sm-8 col-12"
+                  style="align-self: center"
+                >
+                  <h3>{{ submittedCount }} New</h3>
+                </div>
+                <div
+                  class="col-xl-4 col-lg-4 col-sm-4  col-12"
+                  style="text-align: right"
+                >
+                  <img  src="assets/images/ic-sessions (2).svg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- resubmitted -->
+
+      <div
+        class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12"
+        style="margin-top: 5px; margin-bottom: 5px"
+      >
+        <div
+          class="card {{ recordType == 'Resubmitted' ? 'active' : '' }}"
+          (click)="ReSubmittedtoCams()"
+        >
+          <div class="card-content">
+            <div class="card-body">
+              <div class="dashboard_subheading" >Resubmitted</div>
+              <div class="d-flex justify-content-between">
+                <!-- <div>
+                  <i class="icon-pencil primary font-large-2 float-left"></i>
+                </div> -->
+                <div
+                  class="col-xl-8 col-lg-8 col-sm-8 col-12"
+                  style="align-self: center"
+                >
+                  <h3>{{ ResubmittedCount }} Total</h3>
+                </div>
+                <div
+                  class="col-xl-4 col-lg-4 col-sm-4 col-12"
+                  style="text-align: right"
+                >
+                  <img src="assets/images/ic-sessions (5).svg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- recheck -->
+      <div
+        class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 d-flex justify-content-around"
+        style="margin-top: 5px; margin-bottom: 5px"
+      >
+        <div class="card w-100">
+          <div class="card-content lightBorder">
+            <div class="card-body d-flex p-0">
+              <div
+                class="card customCard {{
+                  recordType == 'Recheck New' ? 'active' : ''
+                }}"
+                (click)="Rechecknew()"
+              >
+                <div class="dashboard_subheading" >Recheck</div>
+                <div class="media d-flex justify-content-between">
+                  <!-- <div
+                    class="align-self-center"
+                    style="text-align: right; line-height: 55px"
+                  >
+                    <i class="icon-pencil primary font-large-2 float-left"></i>
+                  </div> -->
+                  <div
+                    class="col-xl-8 col-lg-8 col-sm-8 col-12"
+                    style="align-self: center"
+                  >
+                    <h3>{{ recheckCount }} New</h3>
+                  </div>
+                  <div
+                    class="col-xl-4 col-lg-4 col-sm-4 col-12"
+                    style="text-align: right"
+                  >
+                    <img src="assets/images/ic-sessions (3).svg" />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card customCard {{
+                  recordType == 'Recheck Pending' ? 'active' : ''
+                }}"
+                (click)="Recheckpending()"
+              >
+                <div
+                  class="media d-flex justify-content-between ;"
+                  style="margin-top: 20px"
+                >
+                  <!-- <div>
+                    <i class="icon-pencil primary font-large-2 float-left"></i>
+                  </div> -->
+                  <div
+                    class="col-xl-7 col-lg-8 col-sm-8 col-12"
+                    style="align-self: center"
+                  >
+                    <!-- <span>&nbsp;</span> -->
+                    <h3>{{ recheckpendingCount }} Pending</h3>
+                  </div>
+                  <div
+                    class="col-xl-4 col-lg-4 col-sm-4 col-12"
+                    style="text-align: right"
+                  >
+                    <img src="assets/images/ic-sessions (4).svg" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- recheck -->
+
+      <div
+        class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12"
+        style="margin-top: 5px; margin-bottom: 5px"
+      >
+        <div
+          class="card {{ recordType == 'Verified' ? 'active' : '' }}"
+          (click)="Verified()"
+        >
+          <div class="card-content">
+            <div class="card-body">
+              <div class="dashboard_subheading" >Verified</div>
+              <div class="d-flex justify-content-between">
+                <!-- <div class="align-self-center">
+                  <i class="icon-pencil primary font-large-2 float-left"></i>
+                </div> -->
+                <div
+                  class="col-xl-8 col-lg-8 col-sm-8 col-12"
+                  style="align-self: center"
+                >
+                  <h3>{{ verifiedCount }} Total</h3>
+                </div>
+                <div
+                  class="col-xl-4 col-lg-4 col-sm-4 col-12"
+                  style="text-align: right"
+                >
+                  <img src="assets/images/ic-sessions.svg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12"
+        style="margin-top: 5px; margin-bottom: 5px"
+      >
+        <div
+          class="card lastCard {{ recordType == 'Onboarded' ? 'active' : '' }}"
+          (click)="onboarded()"
+        >
+          <div class="card-content">
+            <div class="card-body">
+              <div class="dashboard_subheading" >Onboarded</div>
+              <div class="d-flex justify-content-between">
+                <!-- <div class="align-self-center">
+                  <i class="icon-pencil primary font-large-2 float-left"></i>
+                </div> -->
+                <div
+                  class="col-xl-8 col-lg-8 col-sm-8 col-12"
+                  style="align-self: center"
+                >
+                  <h3>{{ onboardedCount }} Total</h3>
+                </div>
+                <div
+                  class="col-xl-4 col-lg-4 col-sm-4 col-12"
+                  style="text-align: right"
+                >
+                  <img src="assets/images/ic-sessions (1).svg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid lightBackgroundColor">
+    <div class="col pb-4">
+      <div class="card">
+        <div class="card-header">
+          <div class="tableFilterBox">
+            <div
+              class="form-group has-search input-style"
+              style="width: 30%; display: inline-block"
+            >
+              <span
+                class="fa fa-search form-control-feedback"
+                style="line-height: 2.8rem"
+              ></span>
+              <input
+                class="form-control input-style"
+                type="text"
+                name="search"
+                [(ngModel)]="searchText"
+                autocomplete="off"
+                placeholder="Search"
+                (ngModelChange)="hello()"
+                (input)="searchchange($event)"
+              />
+            </div>
+            <select class="selectpicker" (change)="categorychange($event)">
+              >
+              <option value="" selected>All Category</option>
+              <option *ngFor="let item of categories" [value]="item.category">
+                {{ item.category }}
+              </option>
+            </select>
+
+            <select class="selectpicker" (change)="monthchange($event)">
+              <option selected>--Month--</option>
+              <option
+                *ngFor="let month of monthandyear"
+                [value]="month.monthname"
+              >
+                {{ month.monthname }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped" style="width: 100%">
+            <thead style="background: #1d409d21 0% 0% no-repeat padding-box">
+              <tr>
+                <th>Application Number</th>
+                <th>CXO Name</th>
+                <th>CATEGORY</th>
+                <th>PAN</th>
+                <th>SCHEME Name</th>
+                <th>TYPE</th>
+                <th>CHECKER NAME</th>
+                <th>STATUS</th>
+                <th>LAST MODIFIED</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of pageSlice">
+                <td>{{ data.applicationNumber }}</td>
+                <td>{{ data.cxoName }}</td>
+                <td>{{ data.category }}</td>
+                <td>{{ data.pan }}</td>
+                <td>{{ data.schemeName }}</td>
+                <td>{{ data.type }}</td>
+                <td>{{ data.checkerName }}</td>
+                <td>{{ data.status }}</td>
+                <td>
+                  {{ data.lastModified | date : "d/MM/y" }}
+                </td>
+                <!-- <td class="text-center"> -->
+                <td class="">
+                  <button
+                    *ngIf="
+                      data.recordtype !== verifiedbutton &&
+                      data.recordtype !== onboardedbutton &&
+                      data.recordtype !== Resubmittedbutton
+                    "
+                    type="button"
+                    class="btn btn-primary btn-sm smallBtnPrimary"
+                    (click)="verifyAppication(data.applicationNumber)"
+                  >
+                    Verify
+                  </button>
+                  <button
+                    *ngIf="data.recordtype == verifiedbutton"
+                    type="button"
+                    class="btn bg-transparent"
+                    (click)="downloadverified(data)"
+                    style="padding-left: 12px !important"
+                  >
+                    <img
+                      style="max-width: 500px"
+                      src="assets/images/Icon feather-download.svg"
+                    />
+                  </button>
+                  <button
+                    *ngIf="data.recordtype == onboardedbutton"
+                    type="button"
+                    class="btn bg-transparent"
+                    (click)="downloadEsign(data)"
+                    style="padding-left: 12px !important"
+                  >
+                    <img
+                      style="max-width: 500px"
+                      src="assets/images/Icon feather-download.svg"
+                    />
+                  </button>
+                  <!-- <button
+                    *ngIf="data.recordtype == onboardedbutton"
+                    type="button"
+                    class="btn bg-transparent"
+                    (click)="downloadEsign(data)"
+                  >
+                    <img
+                      style="max-width: 500px"
+                      src="assets/images/Icon feather-download.svg"
+                    />
+                  </button> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="paginationSection">
+            <div class="paginationBox">
+              <p class="paginationText">Records per page</p>
+              <select
+                class="form-select selectPerPage"
+                aria-label="Default select example"
+                [(ngModel)]="pageSize"
+                (change)="pageLimit($event)"
+              >
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
+              <p class="paginationText">{{ startIndex + "-" + endIndex }}</p>
+              <p class="paginationText">{{ "of  " + showData.length }}</p>
+              <button class="previousPage" (click)="onPageChangeMinus()">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+              </button>
+              <button class="nextPage" (click)="onPageChangePlus()">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- <div style="position: relative; width: 100%; height: 40px"></div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

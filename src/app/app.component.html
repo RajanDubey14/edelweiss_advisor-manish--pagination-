@@ -1,0 +1,292 @@
+<router-outlet></router-outlet>
+<app-spinner></app-spinner>
+
+<!-- <div class="dashboard-wrapper">
+  <div class="header-wrap">
+    <div class="brand-logo">
+      <img src="assets/images/edelweiss-group-logo.png" alt="logo">
+    </div>
+    <div class="nav-links">
+      <ul>
+        <li>
+          <a href="javascript:void(0)" title="Dashboard">Dashboard</a>
+        </li>
+      </ul>
+      <span class="profile-image">UN</span>
+    </div>
+  </div>
+  <div class="count-bar-wrap">
+    <div class="count-inner">
+      <h2 class="count-head">Submitted to Cams</h2>
+      <div class="count-type">
+        <p><button type="button">12
+          <img src="assets/images/exclamation-icon.PNG" alt="">
+        </button></p>
+        <p class="count-name">New</p>
+      </div>
+    </div>
+    <div class="count-inner">
+      <h2 class="count-head">Recheck</h2>
+      <div class="count-type">
+        <div class="count-type-inner">
+          <p><button type="button">16
+            <img src="assets/images/exclamation-icon.PNG" alt="">
+          </button></p>
+          <p class="count-name">New</p>
+        </div>
+        <div class="count-type-inner">
+          <p><button type="button">17</button></p>
+          <p class="count-name">Pending</p>
+        </div>
+      </div>
+    </div>
+    <div class="count-inner">
+      <h2 class="count-head">Verified</h2>
+      <div class="count-type">
+        <p><button type="button">9</button></p>
+        <p class="count-name">Total</p>
+      </div>
+    </div>
+    <div class="count-inner">
+      <h2 class="count-head">On-boarded</h2>
+      <div class="count-type last">
+        <p><button type="button">22</button></p>
+        <p class="count-name">Overall</p>
+      </div>
+    </div>
+  </div>
+  <div class="filter-wrap">
+    <div class="filter-inner">
+      <form class="filter-form">
+        <div class="form-group">
+          <ng-select [items]="fundList" bindLabel="name" bindValue="id" [multiple]="false" placeholder="Category" class="form-control modified" clearAllText="Clear" [clearable]="false">
+          </ng-select>
+        </div>
+        <div class="form-group">
+          <ng-select [items]="fundList" bindLabel="name" bindValue="id" [multiple]="false" placeholder="Month" class="form-control modified" clearAllText="Clear" [clearable]="false">
+          </ng-select>
+        </div>
+        <div class="form-group">
+          <div class="search-field">
+            <input type="text" class="form-control input-modified" placeholder="Global Filter">
+            <button type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table class="table-view">
+      <thead>
+        <tr>
+          <th>Application number</th>
+          <th>Name & PAN</th>
+          <th>Status</th>
+          <th>Scheme Name</th>
+          <th>Type</th>
+          <th>Category</th>
+          <th>Checker Name</th>
+          <th>Last Modified</th>
+          <th>Proceed to verify</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TISF-123-0004</td>
+          <td>Rohaan Shaikh JEFPS6885R</td>
+          <td>Submitted to Cams</td>
+          <td>ISAF-III</td>
+          <td>Individual</td>
+          <td>Top-Up</td>
+          <td>John</td>
+          <td>04-11-2022 10:40</td>
+          <td>
+            <button type="button">Verify</button>
+          </td>
+        </tr>
+        <tr>
+          <td>TISF-123-0004</td>
+          <td>Rohaan Shaikh JEFPS6885R</td>
+          <td>Submitted to Cams</td>
+          <td>ISAF-III</td>
+          <td>Individual</td>
+          <td>Top-Up</td>
+          <td>John</td>
+          <td>04-11-2022 10:40</td>
+          <td>
+            <button type="button">Verify</button>
+          </td>
+        </tr>
+        <tr>
+          <td>TISF-123-0004</td>
+          <td>Rohaan Shaikh JEFPS6885R</td>
+          <td>Submitted to Cams</td>
+          <td>ISAF-III</td>
+          <td>Individual</td>
+          <td>Top-Up</td>
+          <td>John</td>
+          <td>04-11-2022 10:40</td>
+          <td>
+            <button type="button">Verify</button>
+          </td>
+        </tr>
+        <tr>
+          <td>TISF-123-0004</td>
+          <td>Rohaan Shaikh JEFPS6885R</td>
+          <td>Submitted to Cams</td>
+          <td>ISAF-III</td>
+          <td>Individual</td>
+          <td>Top-Up</td>
+          <td>John</td>
+          <td>04-11-2022 10:40</td>
+          <td>
+            <button type="button">Verify</button>
+          </td>
+        </tr>
+        <tr>
+          <td>TISF-123-0004</td>
+          <td>Rohaan Shaikh JEFPS6885R</td>
+          <td>Submitted to Cams</td>
+          <td>ISAF-III</td>
+          <td>Individual</td>
+          <td>Top-Up</td>
+          <td>John</td>
+          <td>04-11-2022 10:40</td>
+          <td>
+            <button type="button">Verify</button>
+          </td>
+        </tr>
+        <tr>
+          <td>TISF-123-0004</td>
+          <td>Rohaan Shaikh JEFPS6885R</td>
+          <td>Submitted to Cams</td>
+          <td>ISAF-III</td>
+          <td>Individual</td>
+          <td>Top-Up</td>
+          <td>John</td>
+          <td>04-11-2022 10:40</td>
+          <td>
+            <button type="button">Verify</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
+
+<!-- <div class="signup-wrapper">
+  <div class="left-side">
+    <div class="bg-image-box"></div>
+  </div>
+  <div class="right-side">
+    <div class="content-wrap">
+      <button class="close-btn" type="button">&#10006;</button>
+      <h3 class="heading weight600 bmargin25">Signup</h3>
+      <p class="subheading bmargin30">Please provide below details to proceed</p>
+      <form >
+        <div class="row">
+          <div class="col-md-7">
+            <div class="form-group">
+              <input type="text" placeholder="Full Name" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <ng-select [items]="fundList" bindLabel="name" bindValue="id" [multiple]="false" placeholder="Select Fund" class="form-control" clearAllText="Clear" [clearable]="false">
+              </ng-select>
+            </div>
+          </div>
+        <div class="col-md-5">
+          <div class="form-group">
+            <ng-select [items]="fundList" bindLabel="name" bindValue="id" [multiple]="false" placeholder="Select Admin" class="form-control" clearAllText="Clear" [clearable]="false">
+            </ng-select>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <input type="text" placeholder="Enter Email Id" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <button class="btn btn-primary mt-1">Continue</button>
+        </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<!-- Login html -->
+
+<!-- <div class="signup-wrapper">
+  <div class="left-side">
+    <div class="bg-image-box"></div>
+  </div>
+  <div class="right-side">
+    <div class="content-wrap login">
+      <h3 class="heading weight600 bmargin30">CAMS Login</h3>
+      <p class="subheading bmargin40">Welcome Edelweiss Alternative Asset Advisors Limited</p>
+      <form >
+        <div class="row">
+          <div class="col-md-9">
+            <div class="form-group">
+              <input type="text" placeholder="Enter Email ID" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-9 tmargin20 d-flex justify-content-between">
+            <button class="btn btn-outline-primary mt-1">Signup</button>            
+            <button class="btn btn-primary mt-1">Submit</button>
+          </div>
+        </div>
+      </form>
+      <div class="invalid-email-msg">Invalid Email ID: please signup to continue</div>
+    </div>
+  </div>
+</div> -->
+
+<!-- confirm OTP -->
+
+<!-- <div class="signup-wrapper">
+  <div class="left-side">
+    <div class="bg-image-box"></div>
+  </div>
+  <div class="right-side">
+    <div class="content-wrap">
+      <h3 class="heading weight600 bmargin30">Confirm OTP</h3>
+      <p class="subheading otp-message bmargin30">Please enter OTP sent to your admin: abcd@camsonline.com</p>
+      <p class="subheading resend bmargin30">Didn't receive OTP? <a href="javascript:void(0)">click here</a> to Resend.</p>
+      <form >
+        <div class="row">
+          <div class="col-md-9">
+            <div class="form-group">
+              <input type="text" placeholder="OTP" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-9 tmargin20 d-flex justify-content-between">
+            <button class="btn btn-outline-primary mt-1">Cancel</button>            
+            <button class="btn btn-primary mt-1">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<!-- successfully signin -->
+
+<!-- <div class="signup-wrapper">
+  <div class="left-side">
+    <div class="bg-image-box"></div>
+  </div>
+  <div class="right-side">
+    <div class="content-wrap signed-in">
+      <div class="successfully-signin">
+        <div class="tick-img bmargin30">
+          <img src="assets/images/green-tick.png" alt="">
+        </div>
+        <p class="subheading">You have successfully signed in</p>
+      </div>
+    </div>
+  </div>
+</div> -->

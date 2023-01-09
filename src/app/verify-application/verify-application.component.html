@@ -1,0 +1,301 @@
+<div class="display">
+  <app-header></app-header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+        <div class=" col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 tableCard card" style="margin-bottom: 15px; margin-top: 15px;">
+          <div class="table-container">
+            <table class="table table-borderless mb-0">
+              <thead>
+                <tr class="lightBorderBottom">
+                  <th scope="col">Application No.</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">PAN</th>
+                  <th scope="col">Individual/Non-Individual</th>
+                  <th scope="col">CKYC</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{ showData.applicationNumber }}</td>
+                  <td *ngIf="showData.firstName">
+                    {{ showData.firstName + " " + showData.lastName }}
+                  </td>
+                  <td *ngIf="!showData.firstName"></td>
+                  <td>{{ showData.pan }}</td>
+                  <td>{{ showData.type }}</td>
+                  <td>{{ showData.ckycNumber }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+          <div class="row">
+
+
+
+
+
+
+
+
+                <!-- left pdf start  -->
+
+
+                <div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12" >
+                    <div class="pdf-view-left" >
+
+                     <app-pledge></app-pledge>
+                     <!-- <app-unpledge></app-unpledge> -->
+
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- left pdf end -->
+
+               <div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                  <div class="pdf-view-right" >
+                    <div class="pdf-header">
+                      <div class="pdf-heading">KYC Document</div>
+
+                      <div class="pdf-buttons"></div>
+                    </div>
+
+                    <div id="outerContainer">
+                      <div class="pdf-container scrollbar overflow-auto">
+                            <div class="img-view-hideen">
+                              <div
+                                class="ivh-item"
+                                *ngFor="let img of scrRightImages; let i = index"
+                              >
+                                <lib-ngx-image-zoom
+                                  class="img-fluid"
+                                  [thumbImage]="img.fileURL"
+                                  [fullImage]="img.fileURL"
+                                  [magnification]="2"
+                                  [enableScrollZoom]="true"
+                                  [enableLens]="true"
+                                  [lensWidth]="200"
+                                ></lib-ngx-image-zoom>
+                              </div>
+                              <div
+                                class="pdf-container scrollbar"
+                                *ngFor="let pdf of scrRightPdf"
+                                id="custumscroll"
+                              >
+                                <embed
+                                  *ngIf="pdf.fileURL"
+                                  [src]="pdf.fileURL"
+                                  type="application/pdf"
+                                  width="100%"
+                                  height="100%"
+                                />
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+               </div>
+
+          </div>
+
+              <div class="row comment-box">
+                <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div class="comment">
+                    <label for="">Comment</label>
+                    <textarea
+                      [(ngModel)]="comment"
+                      rows="3"
+                      placeholder="Do not enter comments if there is no discrepancy"
+                      >{{ comment }}</textarea
+                    >
+                  </div>
+
+                  <div *ngIf="resubmitted">
+                    <p
+                      class=""
+                      style="color: #b70000; font-size: 14px; font-weight: 400"
+                    >
+                      Comments are required
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+                <div class="row" style="margin-top: 1%; margin-bottom: 4%;">
+                  <div class="submit-btns col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                     <div class="buttons">
+                      <button
+                      class="btn btn-white"
+                      (click)="showsavedSuccessfully(savedSuccessfully); save()"
+                    >
+                      Save
+                    </button>
+                     </div>
+
+                     <div class="buttons">
+                       <button
+                         class="btn btn-primary "
+                         (click)="showResubmitModal(confirmReSubmit)"
+                       >
+                         Resubmit
+                       </button>
+                     </div>
+
+                     <div class="buttons">
+                       <button
+                         class="btn btn-primary "
+                         (click)="showConfirmModal(confirmSubmit)"
+                       >
+                         Approve
+                       </button>
+                     </div>
+                  </div>
+                </div>
+
+
+
+
+        <!-- modal one -->
+
+        <ng-template #confirmSubmit>
+          <div class="parent">
+            <div class="confirm-submit text-center">
+              <img src="assets/images/exclamation.png" alt="" />
+
+              <p class="subheading bmargin30">
+                Do you really Want to verify the application of
+                <b>{{ showData.firstName + " " + showData.lastName }}</b
+                >?
+              </p>
+              <div>
+                <button
+                  class="btn btn-outline-primary mt-1"
+                  (click)="modalRef?.hide()"
+                >
+                  Cancel
+                </button>
+                <button
+                  class="btn btn-primary mt-1"
+                  (click)="
+                    modalRef?.hide(); showVerifiedModal(verified); submit()
+                  "
+                >
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+
+        <!-- modal2 -->
+        <ng-template #confirmReSubmit>
+          <div class="parent">
+            <div class="confirm-submit text-center">
+              <img src="assets/images/resubmit.png" alt="" />
+
+              <p class="subheading bmargin30">
+                Do you really Want to send application of
+                <b>{{ showData.firstName + " " + showData.lastName }}</b> for
+                Resubmit?
+              </p>
+              <div>
+                <button
+                  class="btn btn-outline-primary mt-1"
+                  (click)="modalRef2?.hide()"
+                >
+                  Cancel
+                </button>
+                <button
+                  class="btn btn-primary mt-1"
+                  (click)="
+                    modalRef2?.hide();
+                    showSuccessfullyResubmitModal(ReSubmit);
+                    resubmit()
+                  "
+                >
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+
+        <!-- modal 3 -->
+        <ng-template #savedSuccessfully>
+          <div class="parent">
+            <div class="confirm-submit text-center">
+              <img src="assets/images/savefile.png" alt="" />
+
+              <p class="subheading bmargin30">
+                Application is Saved successfully
+              </p>
+            </div>
+          </div>
+        </ng-template>
+
+        <!-- modal 4 -->
+        <ng-template #verified>
+          <div class="parent">
+            <div class="confirm-submit text-center">
+              <div class="tick-img bmargin20">
+                <img src="assets/images/green-tick.png" alt="" />
+              </div>
+              <p class="subheading bmargin30">Application is now verified</p>
+            </div>
+          </div>
+        </ng-template>
+
+        <!-- modal 5-->
+        <ng-template #ReSubmit>
+          <div class="parent">
+            <div class="confirm-submit text-center">
+              <div class="tick-img bmargin20">
+                <img src="assets/images/green-tick.png" alt="" />
+              </div>
+              <p class="subheading bmargin30">Application sent for Resubmit</p>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

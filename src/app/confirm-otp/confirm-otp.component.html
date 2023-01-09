@@ -1,0 +1,84 @@
+<div class="signup-wrapper">
+  <div class="left-side">
+    <div class="bg-image-box">
+      <img src="assets/images/logo.png" alt="" />
+      <div class="clearfix"></div>
+      <div class="image-box-text">
+        <p class="p1" style="color: white">
+          Manange and grow your business with
+        </p>
+        <h2 class="h2">Edelweiss Alternative <br />Asset Advisors</h2>
+        <ul class="ul-main">
+          <li style="color: white">
+            Fully <br />Digital <span class="line"></span>
+          </li>
+          <li style="color: white">
+            Track <br />Status <span class="line"></span>
+          </li>
+          <li style="color: white">Manange <br />Clients</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="right-side">
+    <div class="content-wrap login">
+      <h3 class="heading weight600 bmargin10">Confirm OTP</h3>
+      <p class="subheading bmargin30">
+        Please enter OTP sent to your email:<br />
+        {{ userDetails.email }}
+      </p>
+      <form [formGroup]="registerForm">
+        <div class="row">
+          <div class="col-md-7">
+            <div class="form-group">
+              <input
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                type="number"
+                maxlength="4"
+                placeholder="OTP"
+                class="form-control input-style"
+                formControlName="otp"
+                [ngClass]="{ 'is-invalid': submitted && f.otp.errors }"
+              />
+              <div *ngIf="submitted && f.otp.errors" class="invalid-feedback">
+                <div *ngIf="f.otp.errors.required">OTP is required</div>
+              </div>
+              <div *ngIf="invalidOtp">
+                <div *ngIf="invalidOtp" class="errorTextMsg">
+                  Incorrect OTP entered
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7 tmargin20">
+            <button class="btn btn-primary mt-1 loginbtn" (click)="onSubmit()">
+              Verify
+            </button>
+          </div>
+
+          <div class="tmargin20 signupLink">
+            <span
+              >Didn't receive OTP?
+              <!-- <a href="" (click)="resendOtp()">Resend</a> -->
+              <button
+                type="button"
+                class="resend btn btn-link"
+                style="color: #1d409d; text-decoration: none; font-weight: 500"
+                (click)="resendOtp()"
+              >
+                Resend
+              </button>
+            </span>
+          </div>
+        </div>
+      </form>
+      <div class="watermarkImage"></div>
+      <footer>
+        <p>
+          © all copyrights reserved by Edelweiss Alternative Asset Advisors
+          Limited.
+        </p>
+      </footer>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="header-wrap">
+    <div class="brand-logo">
+      <img src="assets/images/edelweiss-group-logo.png" alt="logo" />
+    </div>
+    <div class="nav-links">
+      <ul>
+        <li>
+          <a
+            routerLink="/dashboard"
+            title="Dashboard"
+            style="text-decoration: none"
+            >Dashboard</a
+          >
+        </li>
+      </ul>
+  
+      <p class="user_name">{{ username.toUpperCase() }}</p>
+      <span class="profile-image">{{
+        username.substring(0, 1).toUpperCase()
+      }}</span>
+      <button type="button" class="btn btn-primary" (click)="logout()">
+        LogOut
+      </button>
+    </div>
+  </div>
+  
