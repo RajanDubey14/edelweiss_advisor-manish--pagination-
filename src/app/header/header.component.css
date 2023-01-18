@@ -1,22 +1,24 @@
 .header-wrap {
-  width: 100%;
-  height: 70px;
   background: #2049a7;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+
 }
 
 .brand-logo {
-  width: 200px;
+  align-self : "center";
+
+  /* margin-left: 1%; */
 }
 
 .brand-logo img {
-  width: 100%;
+  width: auto;
+  height: auto;
+  align-self : "center"
 }
 .nav-links {
   display: flex;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 .nav-links ul li {
@@ -80,4 +82,12 @@
 .edelWeisslogo {
   width: 140%;
   max-width: 140% !important;
+}
+
+
+.header_dashboard{
+  text-decoration: none ;
+    vertical-align: text-bottom;
+    margin-right: 25px;
+   
 }

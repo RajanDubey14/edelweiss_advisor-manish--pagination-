@@ -103,3 +103,193 @@ display: flex;
    font-weight: 500;
 }
 
+
+.inputfields_pledge{
+  width: 16em;
+  border-radius: 5px;
+}
+.inputfields_pledge2{
+  width: 19em;
+  border-radius: 5px;
+}
+
+.selectfields_pledge{
+  width: 14em;
+  height: 2em;
+  border-radius: 5px;
+}
+
+.inputfields_pledge3{
+  width: 22em;
+  border-radius: 5px;
+}
+
+.inputfields_account_type{
+  width: 19em;
+  border-radius: 5px;
+}
+
+.selectfields_account_type{
+  width: 19em;
+  height: 2em;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 1700px) {
+  .inputfields_pledge{
+    width: 14em;
+  }
+
+  .inputfields_pledge2{
+    width: 15em;
+  }
+
+  .selectfields_pledge{
+    width: 12em;
+
+  }
+
+}
+
+
+
+@media screen and (max-width: 1630px) {
+  .inputfields_pledge{
+    width: 13em;
+  }
+
+  .selectfields_pledge{
+    width: 12em;
+
+  }
+
+}
+
+
+@media screen and (max-width: 1560px) {
+
+  .inputfields_pledge{
+    width: 11em;
+  }
+
+  .selectfields_pledge{
+    width: 10.5em;
+
+  }
+  .inputfields_pledge2{
+    width: 14em;
+  }
+
+
+
+  }
+
+
+  @media screen and (max-width: 1450px) {
+
+    .inputfields_pledge{
+      width: 11em;
+    }
+
+    .selectfields_pledge{
+      width: 8.5em;
+
+    }
+    .inputfields_pledge2{
+      width: 11em;
+      margin-right: 1%;
+    }
+
+    .inputfields_account_type{
+      width: 15em;
+    }
+
+
+    }
+
+
+  @media screen and (max-width: 1435px) {
+
+    .inputfields_pledge{
+      width: 11em;
+    }
+
+    .selectfields_pledge{
+      width: 11em;
+
+    }
+    .inputfields_pledge2{
+      width: 11em;
+      margin-right: 1%;
+    }
+
+
+    }
+
+
+/* @media screen and (max-width: 1400px) {
+
+} */
+
+/* @media screen and (max-width: 1395px) {
+
+} */
+
+
+/* @media screen and (max-width: 1270px) {
+
+
+} */
+
+
+@media screen and (max-width: 1190px) {
+
+  .inputfields_account_type{
+    width: 15em;
+    border-radius: 5px;
+  }
+
+  .selectfields_account_type{
+    width: 15em;
+    height: 2em;
+    border-radius: 5px;
+  }
+
+}
+
+
+/* @media screen and (max-width: 1099px) {
+
+}
+
+@media screen and (max-width: 1000px) {
+
+} */
+
+@media screen and (max-width: 998px) {
+
+
+  .inputfields_pledge{
+    width: 18em;
+  }
+
+  .selectfields_pledge{
+    width: 18em;
+
+  }
+  .inputfields_pledge2{
+    width: 18em;
+    margin-right: 1%;
+  }
+
+  .inputfields_account_type{
+    width: 22em;
+    border-radius: 5px;
+  }
+
+  .selectfields_account_type{
+    width: 22em;
+    height: 2em;
+    border-radius: 5px;
+  }
+}

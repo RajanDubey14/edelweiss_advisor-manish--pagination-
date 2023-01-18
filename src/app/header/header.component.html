@@ -1,94 +1,64 @@
-<div class="header-wrap">
-  <div class="brand-logo">
-    <img
-      class="edelWeisslogo"
-      style="width: 140%; max-width: 140"
-      src="assets/images/logo.png"
-      alt="logo"
-    />
-  </div>
-  <!-- <div class="btn-group" dropdown placement="bottom right">
-    <button
-      id="button-alignment"
-      dropdownToggle
-      type="button"
-      class="btn btn-primary dropdown-toggle"
-      aria-controls="dropdown-alignment"
-    >
-      This dropdown's menu is right-aligned <span class="caret"></span>
-    </button>
-    <ul
-      id="dropdown-alignment"
-      *dropdownMenu
-      class="dropdown-menu dropdown-menu-right"
-      role="menu"
-      aria-labelledby="button-alignment"
-    >
-      <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-      <li role="menuitem">
-        <a class="dropdown-item" href="#">Another action</a>
-      </li>
-      <li role="menuitem">
-        <a class="dropdown-item" href="#">Something else here</a>
-      </li>
-      <li class="divider dropdown-divider"></li>
-      <li role="menuitem">
-        <a class="dropdown-item" href="#">Separated link</a>
-      </li>
-    </ul>
-  </div> -->
-  <div class="nav-links">
-    <ul>
-      <li>
-        <a
-          routerLink="/dashboard"
-          title="Dashboard"
-          style="text-decoration: none"
-          >Dashboard</a
-        >
-      </li>
-    </ul>
-    <div
-      class="btn-group"
-      dropdown
-      placement="bottom right top_right_header_menu"
-    >
-      <button
-        dropdownToggle
-        type="button"
-        style="text-transform: uppercase;"
-        class="btn btn-light profile-image"
-        (mouseenter)="isHidden = !isHidden"
-        (mouseleave)="isHidden = !isHidden"
-        (click)="isHidden = !isHidden"
-      >
-        {{ initial1 + initial2 }}
-        <div class="username_tooltip">{{ userName }}</div>
-      </button>
-      <ul
-        id="dropdown-alignment"
-        *dropdownMenu
-        class="dropdown-menu dropdown-menu-right p-0"
-        role="menu"
-        aria-labelledby="button-alignment"
-      >
-        <li role="menuitem">
-          <p class="user_name" style="color: black">{{ userName }}</p>
-        </li>
-        <li role="menuitem" (click)="logout()">
-          <button class="logoutBtn">Logout</button>
-        </li>
-      </ul>
-      <!-- <ng-container *ngIf="isHidden">
-        <p class="user_name" style="color: rgb(255, 255, 255)">nihal sangole</p>
-      </ng-container> -->
+<div class=" header-wrap" >
+  <div class="row">
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 brand-logo " style="align-self : center;  ">
+      <img
+        class="edelWeisslogo"
+        src="assets/images/logo.png"
+        alt="logo"
+        style="margin-left: 30px;"
+      />
     </div>
-    <!-- <div class="userDetailsBox">-->
-    <!-- <p class="user_name">{{ username }}</p> -->
-    <!--<p class="user_name">nihal sangole</p>
-      <button class="logoutBtn" (click)="logout()">Logout</button>
-    </div> -->
-    <!-- <span class="profile-image">{{ username.substring(0, 1) }}</span> -->
-    <!-- <span class="profile-image">ns</span> -->
+
+    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 nav-links">
+       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="display: flex; justify-content: flex-end;">
+        <ul>
+          <li>
+            <a
+              routerLink="/dashboard"
+              title="Dashboard"
+              class="header_Dashboard"
+              style="font-weight: 900; font-size: 26px; margin-top: 10px;"
+              >Dashboard</a
+            >
+          </li>
+        </ul>
+
+      <div
+        class="btn-group"
+        dropdown
+        placement="bottom right top_right_header_menu"
+        style="margin-right: 30px;"
+      >
+        <button
+          dropdownToggle
+          type="button"
+          style="text-transform: uppercase;"
+          class="btn btn-light profile-image"
+          (mouseenter)="isHidden = !isHidden"
+          (mouseleave)="isHidden = !isHidden"
+          (click)="isHidden = !isHidden"
+        >
+          {{ initial1 + initial2 }}
+          <div class="username_tooltip">{{ userName }}</div>
+        </button>
+        <ul
+          id="dropdown-alignment"
+          *dropdownMenu
+          class="dropdown-menu dropdown-menu-right p-0"
+          role="menu"
+          aria-labelledby="button-alignment"
+        >
+          <li role="menuitem">
+            <p class="user_name" style="color: black">{{ userName }}</p>
+          </li>
+          <li role="menuitem" (click)="logout()">
+            <button class="logoutBtn">Logout</button>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+    </div>
   </div>
+
 </div>
