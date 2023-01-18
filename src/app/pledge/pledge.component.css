@@ -17,7 +17,7 @@
 }
 
 .scrollbar {
-  max-height: 472px;
+  max-height: 483px;
   overflow: scroll;
 }
 
@@ -29,7 +29,7 @@
 
 .scrollbar::-webkit-scrollbar-thumb {
   border-radius: 8px;
-  background-color: #eaeaea;
+  background-color: white;
 }
 
 .scrollbar::-webkit-scrollbar-track {
