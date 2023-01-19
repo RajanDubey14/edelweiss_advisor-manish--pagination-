@@ -109,32 +109,38 @@
 .inputfields_pledge{
   width: 16em;
   border-radius: 5px;
+  border-color: #9CA1BB;
 }
 .inputfields_pledge2{
   width: 19em;
   border-radius: 5px;
+  border-color: #9CA1BB;
 }
 
 .selectfields_pledge{
   width: 14em;
   height: 2em;
   border-radius: 5px;
+  border-color: #9CA1BB;
 }
 
 .inputfields_pledge3{
   width: 22em;
   border-radius: 5px;
+  border-color: #9CA1BB;
 }
 
 .inputfields_account_type{
   width: 19em;
   border-radius: 5px;
+  border-color: #9CA1BB;
 }
 
 .selectfields_account_type{
   width: 19em;
   height: 2em;
   border-radius: 5px;
+  border-color: #9CA1BB;
 }
 
 @media screen and (max-width: 1700px) {
