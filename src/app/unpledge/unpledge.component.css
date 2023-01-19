@@ -16,7 +16,7 @@
 }
 
 .scrollbar {
-  max-height: 472px;
+  max-height: 483px;
   overflow: scroll;
 }
 
@@ -28,11 +28,11 @@
 
 .scrollbar::-webkit-scrollbar-thumb {
   border-radius: 8px;
-  background-color: #eaeaea;
+  background-color: white;
 }
 
 .scrollbar::-webkit-scrollbar-track {
-  background-color: #ffffff;
+  background-color: #eaeaea;
   border-radius: 8px;
 }
 
@@ -227,9 +227,22 @@ display: flex;
     }
 
 
-/* @media screen and (max-width: 1400px) {
+@media screen and (max-width: 1400px) {
 
-} */
+  .inputfields_pledge{
+    width: 11em;
+  }
+
+  .selectfields_pledge{
+    width: 10em;
+
+  }
+  .inputfields_pledge2{
+    width: 11em;
+    margin-right: 1%;
+  }
+
+}
 
 /* @media screen and (max-width: 1395px) {
 
