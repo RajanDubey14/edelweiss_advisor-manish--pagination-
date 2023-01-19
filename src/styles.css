@@ -218,14 +218,15 @@ img {
 
 .right-side .watermarkImage {
   background-image: url("assets/images/backgroundimage.png");
-  width: 600px;
-  height: 600px;
+  width: 550px;
+  height: 550px;
   position: absolute;
-  bottom: -160px;
-  right: -230px;
+  bottom: -140px;
+  right: -190px;
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.7;
+  position: fixed;
 }
 
 .right-side footer {

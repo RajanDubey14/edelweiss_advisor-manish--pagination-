@@ -697,6 +697,7 @@ thead th {
   background-color: #f3f3f9;
   height: 100vh;
 } */
+
 .dashboard-wrapper .lightBackgroundColor {
   background-color: #f3f3f9;
 }
@@ -827,14 +828,14 @@ thead th {
 .filter-form .form-group .search-field button i {
   font-size: 18px;
 }
-.table-view {
+/* .table-view {
   width: 100%;
-}
-.table-view thead {
+} */
+/* .table-view thead {
   background: #0a5897;
   color: #fff;
   text-align: center;
-}
+} */
 .table-view thead tr th {
   font-weight: 500;
 }
@@ -1019,4 +1020,19 @@ thead th {
 
 th {
   text-transform: uppercase;
+}
+
+
+tbody :hover{
+  background-color: #f2f2f2;
+}
+
+tbody .hoverbtn:hover{
+  background-color: #0a36a7;
+
+}
+
+.scrollit {
+  overflow:scroll;
+  height:100px;
 }

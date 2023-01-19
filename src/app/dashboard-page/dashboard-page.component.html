@@ -1,6 +1,6 @@
 <div class="dashboard-wrapper">
   <app-header></app-header>
-  <div class="contrainer" >
+  <div class="" >
     <div
       class="row topFilterBox"
       style="background-color: #f3f3f9; padding: 1.5% "
@@ -210,61 +210,64 @@
     </div>
   </div>
 
-  <div class="container-fluid lightBackgroundColor" style="padding: 1% ">
-    <div class="col">
-      <div class="card">
-        <div class="card-header">
-          <div class="tableFilterBox">
-            <div
-              class="form-group has-search input-style"
-              style="width: 25%; display: inline-block"
+
+    <div style="padding: 2%;">
+      <div class="card-header" style="margin-bottom: 2%;">
+        <div class="tableFilterBox">
+          <div
+            class="form-group has-search input-style"
+
+          >
+            <span
+              class="fa fa-search form-control-feedback"
+              style="line-height: 2.8rem"
+            ></span>
+            <input
+              class="form-control input-style"
+              style="width: 32em;"
+              type="text"
+              name="search"
+              [(ngModel)]="searchText"
+              autocomplete="off"
+              placeholder="Global Search"
+              (ngModelChange)="hello()"
+              (input)="searchchange($event)"
+            />
+          </div>
+
+
+            <div >
+
+          <select class="selectpicker" (change)="categorychange($event)" style="width: 14em">
             >
-              <span
-                class="fa fa-search form-control-feedback"
-                style="line-height: 2.8rem"
-              ></span>
-              <input
-                class="form-control input-style"
-                type="text"
-                name="search"
-                [(ngModel)]="searchText"
-                autocomplete="off"
-                placeholder="Global Search"
-                (ngModelChange)="hello()"
-                (input)="searchchange($event)"
-              />
+            <option value="" selected>All Category</option>
+            <option *ngFor="let item of categories" [value]="item.category">
+              {{ item.category }}
+            </option>
+          </select>
             </div>
 
-
-              <div >
-
-            <select class="selectpicker" (change)="categorychange($event)" style="width: 12em">
-              >
-              <option value="" selected>All Category</option>
-              <option *ngFor="let item of categories" [value]="item.category">
-                {{ item.category }}
-              </option>
-            </select>
-              </div>
-
-              <div>
-                <select class="selectpicker" (change)="monthchange($event)" style="width: 12em" >
-                  <option selected>
-                    --Month--</option>
-                  <option
-                    *ngFor="let month of monthandyear"
-                    [value]="month.monthname"
-                  >
-                    {{ month.monthname }}
-                  </option>
-                </select>
-              </div>
-          </div>
+            <div>
+              <select class="selectpicker" (change)="monthchange($event)" style="width: 14em" >
+                <option selected>
+                  --Month--</option>
+                <option
+                  *ngFor="let month of monthandyear"
+                  [value]="month.monthname"
+                >
+                  {{ month.monthname }}
+                </option>
+              </select>
+            </div>
         </div>
-        <div class="card-body">
-          <table class="table table-striped" style="width: 100%">
-            <thead style="background: #1d409d21 0% 0% no-repeat padding-box">
-              <tr>
+      </div>
+
+
+      <div class="container-fluid" style=" height: 500px!important; overflow-y: scroll; ">
+          <table class="table table-striped "
+           >
+            <thead style="background: #1d409d21 ; position: sticky; top: 0 ;" >
+              <tr style="background-color: #e2e6f2;">
                 <th>Application Number</th>
                 <th>CXO Name</th>
                 <th>CATEGORY</th>
@@ -277,7 +280,7 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody >
               <tr *ngFor="let data of pageSlice">
                 <td>{{ data.applicationNumber }}</td>
                 <td>{{ data.cxoName }}</td>
@@ -299,9 +302,9 @@
                       data.recordtype !== Resubmittedbutton
                     "
                     type="button"
-                    class="btn btn-primary btn-sm smallBtnPrimary"
+                    class="btn btn-primary btn-sm smallBtnPrimary hoverbtn"
                     (click)="verifyAppication(data.applicationNumber)"
-                    
+
                   >
                     Verify
                   </button>
@@ -344,34 +347,35 @@
               </tr>
             </tbody>
           </table>
+      </div>
 
-          <div class="paginationSection">
-            <div class="paginationBox">
-              <p class="paginationText">Records per page</p>
-              <select
-                class="form-select selectPerPage"
-                aria-label="Default select example"
-                [(ngModel)]="pageSize"
-                (change)="pageLimit($event)"
-              >
-                <option value="20">20</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-              </select>
-              <p class="paginationText">{{ startIndex + "-" + endIndex }}</p>
-              <p class="paginationText">{{ "of  " + showData.length }}</p>
-              <button class="previousPage" (click)="onPageChangeMinus()">
-                <i class="fa fa-angle-left" aria-hidden="true"></i>
-              </button>
-              <button class="nextPage" (click)="onPageChangePlus()">
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-              </button>
-            </div>
-          </div>
 
-          <!-- <div style="position: relative; width: 100%; height: 40px"></div> -->
+      <div class="paginationSection"  style="margin-top: 2%;">
+        <div class="paginationBox">
+          <p class="paginationText">Records per page</p>
+          <select
+            class="form-select selectPerPage"
+            aria-label="Default select example"
+            [(ngModel)]="pageSize"
+            (change)="pageLimit($event)"
+          >
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          <p class="paginationText">{{ startIndex + "-" + endIndex }}</p>
+          <p class="paginationText">{{ "of  " + showData.length }}</p>
+          <button class="previousPage" (click)="onPageChangeMinus()">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+          </button>
+          <button class="nextPage" (click)="onPageChangePlus()">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
+
     </div>
-  </div>
+
+
+
 </div>
