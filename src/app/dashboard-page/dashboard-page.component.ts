@@ -29,6 +29,7 @@ export class DashboardPageComponent implements OnInit {
 
   getData: any = [];
   searchText: any;
+  space = '&';
   submittedCount: number;
   ResubmittedCount: number;
   recheckCount: number;

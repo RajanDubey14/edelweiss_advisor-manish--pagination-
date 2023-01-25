@@ -128,4 +128,18 @@ export class AuthServiceService {
       `https://uatapis.edelweissalternatives.com/swiftapi/api/v1/esign/downloadAfterSigning/${investmentID}/ApplicationPDF`
     );
   }
+
+  getPledgeAndUnpledgeData(data: any): Observable<any> {
+    return this.http.post(
+      'https://uatapis.edelweissalternatives.com/swiftapi/api/v1/Pledge/getPledeUnpledgeRquestData',
+      data
+    );
+  }
+
+  irChecklist(data: any): Observable<any> {
+    return this.http.post(
+      'https://uatapis.edelweissalternatives.com/swiftapi/api/v1/cams/getPledgeUnpledgeCheckListMaster',
+      data
+    );
+  }
 }

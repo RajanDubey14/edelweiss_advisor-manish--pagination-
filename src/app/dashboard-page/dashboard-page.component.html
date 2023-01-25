@@ -1,9 +1,9 @@
 <div class="dashboard-wrapper">
   <app-header></app-header>
-  <div class="" >
+  <div class="">
     <div
       class="row topFilterBox"
-      style="background-color: #f3f3f9; padding: 1.5% "
+      style="background-color: #f3f3f9; padding: 1.5%"
     >
       <div
         class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12"
@@ -28,10 +28,13 @@
                   <p class="dashboardlist">{{ submittedCount }} New</p>
                 </div>
                 <div
-                  class="col-xl-3 col-lg-3 col-sm-3  col-12"
+                  class="col-xl-3 col-lg-3 col-sm-3 col-12"
                   style="text-align: right"
                 >
-                  <img  src="assets/images/ic-sessions (2).svg" style="height: 70%; width: 70%;" />
+                  <img
+                    src="assets/images/ic-sessions (2).svg"
+                    style="height: 70%; width: 70%"
+                  />
                 </div>
               </div>
             </div>
@@ -51,7 +54,7 @@
         >
           <div class="card-content">
             <div class="card-body">
-              <div class="dashboard_subheading" >Resubmitted</div>
+              <div class="dashboard_subheading">Resubmitted</div>
               <div class="d-flex justify-content-between">
                 <!-- <div>
                   <i class="icon-pencil primary font-large-2 float-left"></i>
@@ -66,7 +69,10 @@
                   class="col-xl-3 col-lg-3 col-sm-3 col-12"
                   style="text-align: right"
                 >
-                  <img src="assets/images/ic-sessions (5).svg" style="height: 70%; width: 70%;"/>
+                  <img
+                    src="assets/images/ic-sessions (5).svg"
+                    style="height: 70%; width: 70%"
+                  />
                 </div>
               </div>
             </div>
@@ -87,7 +93,7 @@
                 }}"
                 (click)="Rechecknew()"
               >
-                <div class="dashboard_subheading" >Recheck</div>
+                <div class="dashboard_subheading">Recheck</div>
                 <div class="media d-flex justify-content-between">
                   <!-- <div
                     class="align-self-center"
@@ -105,7 +111,10 @@
                     class="col-xl-3 col-lg-3 col-sm-3 col-12"
                     style="text-align: right"
                   >
-                    <img src="assets/images/ic-sessions (3).svg" style="height: 70%; width: 70%;" />
+                    <img
+                      src="assets/images/ic-sessions (3).svg"
+                      style="height: 70%; width: 70%"
+                    />
                   </div>
                 </div>
               </div>
@@ -127,13 +136,18 @@
                     style="align-self: center"
                   >
                     <!-- <span>&nbsp;</span> -->
-                    <p class="dashboardlist">{{ recheckpendingCount }} Pending</p>
+                    <p class="dashboardlist">
+                      {{ recheckpendingCount }} Pending
+                    </p>
                   </div>
                   <div
                     class="col-xl-3 col-lg-3 col-sm-3 col-12"
                     style="text-align: right"
                   >
-                    <img src="assets/images/ic-sessions (4).svg" style="height: 70%; width: 70%;"/>
+                    <img
+                      src="assets/images/ic-sessions (4).svg"
+                      style="height: 70%; width: 70%"
+                    />
                   </div>
                 </div>
               </div>
@@ -153,7 +167,7 @@
         >
           <div class="card-content">
             <div class="card-body">
-              <div class="dashboard_subheading" >Verified</div>
+              <div class="dashboard_subheading">Verified</div>
               <div class="d-flex justify-content-between">
                 <!-- <div class="align-self-center">
                   <i class="icon-pencil primary font-large-2 float-left"></i>
@@ -168,7 +182,10 @@
                   class="col-xl-3 col-lg-3 col-sm-3 col-12"
                   style="text-align: right"
                 >
-                  <img src="assets/images/ic-sessions.svg" style="height: 70%; width: 70%;"/>
+                  <img
+                    src="assets/images/ic-sessions.svg"
+                    style="height: 70%; width: 70%"
+                  />
                 </div>
               </div>
             </div>
@@ -185,7 +202,7 @@
         >
           <div class="card-content">
             <div class="card-body">
-              <div class="dashboard_subheading" >Onboarded</div>
+              <div class="dashboard_subheading">Onboarded</div>
               <div class="d-flex justify-content-between">
                 <!-- <div class="align-self-center">
                   <i class="icon-pencil primary font-large-2 float-left"></i>
@@ -200,7 +217,10 @@
                   class="col-xl-3 col-lg-3 col-sm-3 col-12"
                   style="text-align: right"
                 >
-                  <img src="assets/images/ic-sessions (1).svg" style="height: 70%; width: 70%;" />
+                  <img
+                    src="assets/images/ic-sessions (1).svg"
+                    style="height: 70%; width: 70%"
+                  />
                 </div>
               </div>
             </div>
@@ -210,22 +230,18 @@
     </div>
   </div>
 
-
-    <div style="padding: 1%; background-color: #f3f3f9;">
-    <div style="background-color: #ffffff; padding: 1%;">
-      <div class="card-header" style="margin-bottom: 2%;">
+  <div style="padding: 1%; background-color: #f3f3f9">
+    <div style="background-color: #ffffff; padding: 1%">
+      <div class="card-header" style="margin-bottom: 2%">
         <div class="tableFilterBox">
-          <div
-            class="form-group has-search input-style"
-
-          >
+          <div class="form-group has-search input-style">
             <span
               class="fa fa-search form-control-feedback"
               style="line-height: 2.8rem"
             ></span>
             <input
               class="form-control input-style"
-              style="width: 32em;"
+              style="width: 32em"
               type="text"
               name="search"
               [(ngModel)]="searchText"
@@ -236,104 +252,117 @@
             />
           </div>
 
-
-            <div >
-
-          <select class="selectpicker" (change)="categorychange($event)" style="width: 14em">
+          <div>
+            <select
+              class="selectpicker"
+              (change)="categorychange($event)"
+              style="width: 14em"
             >
-            <option value="" selected>All Category</option>
-            <option *ngFor="let item of categories" [value]="item.category">
-              {{ item.category }}
-            </option>
-          </select>
-            </div>
+              >
+              <option value="" selected>All Category</option>
+              <option *ngFor="let item of categories" [value]="item.category">
+                {{ item.category }}
+              </option>
+            </select>
+          </div>
 
-            <div>
-              <select class="selectpicker" (change)="monthchange($event)" style="width: 14em" >
-                <option selected>
-                  --Month--</option>
-                <option
-                  *ngFor="let month of monthandyear"
-                  [value]="month.monthname"
-                >
-                  {{ month.monthname }}
-                </option>
-              </select>
-            </div>
+          <div>
+            <select
+              class="selectpicker"
+              (change)="monthchange($event)"
+              style="width: 14em"
+            >
+              <option selected>--Month--</option>
+              <option
+                *ngFor="let month of monthandyear"
+                [value]="month.monthname"
+              >
+                {{ month.monthname }}
+              </option>
+            </select>
+          </div>
         </div>
       </div>
 
-
-      <div class="container-fluid" style=" height: 500px!important; overflow-y: scroll;">
-          <table class="table table-striped "
-           >
-            <thead style="background: #1d409d21 ; position: sticky; top: 0 ;" >
-              <tr style="background-color: #e2e6f2;">
-                <th>Application Number</th>
-                <th>CXO Name</th>
-                <th>CATEGORY</th>
-                <th>PAN</th>
-                <th>SCHEME Name</th>
-                <th>TYPE</th>
-                <th>CHECKER NAME</th>
-                <th>STATUS</th>
-                <th>LAST MODIFIED</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody >
-              <tr *ngFor="let data of pageSlice">
-                <td>{{ data.applicationNumber }}</td>
-                <td>{{ data.cxoName }}</td>
-                <td>{{ data.category }}</td>
-                <td>{{ data.pan }}</td>
-                <td>{{ data.schemeName }}</td>
-                <td>{{ data.type }}</td>
-                <td>{{ data.checkerName }}</td>
-                <td>{{ data.status }}</td>
-                <td>
-                  {{ data.lastModified | date : "d/MM/y" }}
-                </td>
-                <!-- <td class="text-center"> -->
-                <td class="">
-                  <button
-                    *ngIf="
-                      data.recordtype !== verifiedbutton &&
-                      data.recordtype !== onboardedbutton &&
-                      data.recordtype !== Resubmittedbutton
-                    "
-                    type="button"
-                    class="btn btn-primary btn-sm smallBtnPrimary hoverbtn"
-                    (click)="verifyAppication(data.applicationNumber)"
-
-                  >
-                    Verify
-                  </button>
-                  <button
-                    *ngIf="data.recordtype == verifiedbutton"
-                    type="button"
-                    class="btn bg-transparent"
-                    (click)="downloadverified(data)"
-                    style="padding-left: 12px !important"
-                  >
-                    <img
-                      style="max-width: 500px"
-                      src="assets/images/Icon feather-download.svg"
-                    />
-                  </button>
-                  <button
-                    *ngIf="data.recordtype == onboardedbutton"
-                    type="button"
-                    class="btn bg-transparent"
-                    (click)="downloadEsign(data)"
-                    style="padding-left: 12px !important"
-                  >
-                    <img
-                      style="max-width: 500px"
-                      src="assets/images/Icon feather-download.svg"
-                    />
-                  </button>
-                  <!-- <button
+      <div
+        class="container-fluid"
+        style="height: 500px !important; overflow-y: scroll"
+      >
+        <table class="table table-striped">
+          <thead style="background: #1d409d21; position: sticky; top: 0">
+            <tr style="background-color: #e2e6f2">
+              <th>Application Number</th>
+              <th>CXO Name</th>
+              <th>CATEGORY</th>
+              <th>PAN</th>
+              <th>SCHEME Name</th>
+              <th>TYPE</th>
+              <th>CHECKER NAME</th>
+              <th>STATUS</th>
+              <th>LAST MODIFIED</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of pageSlice">
+              <td>{{ data.applicationNumber }}</td>
+              <td>{{ data.cxoName }}</td>
+              <td>{{ data.category }}</td>
+              <td>{{ data.pan }}</td>
+              <td>{{ data.schemeName }}</td>
+              <td>{{ data.type }}</td>
+              <td>{{ data.checkerName }}</td>
+              <td>{{ data.status }}</td>
+              <td>
+                {{ data.lastModified | date : "d/MM/y" }}
+              </td>
+              <!-- <td class="text-center"> -->
+              <td class="">
+                <button
+                  *ngIf="
+                    data.recordtype !== verifiedbutton &&
+                    data.recordtype !== onboardedbutton &&
+                    data.recordtype !== Resubmittedbutton
+                  "
+                  type="button"
+                  class="btn btn-primary btn-sm smallBtnPrimary hoverbtn"
+                  (click)="
+                    verifyAppication(
+                      data.applicationNumber +
+                        space +
+                        data.pledgeId +
+                        space +
+                        data.category
+                    )
+                  "
+                >
+                  Verify
+                </button>
+                <button
+                  *ngIf="data.recordtype == verifiedbutton"
+                  type="button"
+                  class="btn bg-transparent"
+                  (click)="downloadverified(data)"
+                  style="padding-left: 12px !important"
+                >
+                  <img
+                    style="max-width: 500px"
+                    src="assets/images/Icon feather-download.svg"
+                  />
+                </button>
+                <button
+                  *ngIf="data.recordtype == onboardedbutton"
+                  type="button"
+                  class="btn bg-transparent"
+                  (click)="downloadEsign(data)"
+                  style="padding-left: 12px !important"
+                >
+                  <img
+                    style="max-width: 500px"
+                    src="assets/images/Icon feather-download.svg"
+                  />
+                </button>
+                <!-- <button
                     *ngIf="data.recordtype == onboardedbutton"
                     type="button"
                     class="btn bg-transparent"
@@ -344,14 +373,13 @@
                       src="assets/images/Icon feather-download.svg"
                     />
                   </button> -->
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-
-      <div class="paginationSection"  style="margin-top: 2%;">
+      <div class="paginationSection" style="margin-top: 2%">
         <div class="paginationBox">
           <p class="paginationText">Records per page</p>
           <select
@@ -375,9 +403,5 @@
         </div>
       </div>
     </div>
-
-    </div>
-
-
-
+  </div>
 </div>

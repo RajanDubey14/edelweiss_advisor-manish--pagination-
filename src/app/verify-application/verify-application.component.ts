@@ -19,7 +19,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class VerifyApplicationComponent implements OnInit, AfterViewInit {
   @ViewChild('iframe') iframe: ElementRef;
   applicationId: any = '';
+  pledgeId: any = '';
+  category: any = '';
   showData: any = [];
+  pledgeData: any;
+  unpledgeData: any;
+
   data: any = '';
   user_name: string = 'User_Name';
   zoomleft: number = 1;
@@ -44,6 +49,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
   ];
 
   comment: string = '';
+  checklist: any = [];
 
   modalRef: BsModalRef | undefined;
   modalRef1: BsModalRef | undefined;
@@ -77,14 +83,38 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {}
 
   getDatas() {
-    this.applicationId = atob(this.activatedRoute.snapshot.params['id']);
+    let param = atob(this.activatedRoute.snapshot.params['id']).split('&');
+    this.applicationId = param[0];
+    this.pledgeId = param[1];
+    this.category = param[2];
 
-    this.authservice.getApplications2().subscribe(
+    console.log(
+      this.applicationId,
+      'appID with PledgeId',
+      this.pledgeId,
+      param
+    );
+
+    let input = {
+      recordType: '',
+      month: '',
+      year: 0,
+      category: '',
+      globalsearch: '',
+    };
+
+    this.authservice.getApplicationsWithFilter(input).subscribe(
       (res) => {
         this.showData = res.data.filter((item: any) => {
-          return item.applicationNumber === this.applicationId;
+          return (
+            item.applicationNumber === this.applicationId &&
+            item.pledgeId === this.pledgeId
+          );
         })[0];
         console.log('showdata ...................', this.showData);
+        if (this.pledgeId !== '') {
+          this.pledgeAndunpledge(this.pledgeId);
+        }
         let data: any = localStorage.getItem('userdetails');
         let userDetails = JSON.parse(data);
         let logsinput = {
@@ -280,12 +310,51 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
   }
 
   save() {
-    let input = {
+    let input: any = {
       InvestmentId: this.showData.investmentID,
       UserId: this.showData.userId,
       Remark: this.comment,
       type: 'save',
     };
+
+    if (this.category == 'Pledge') {
+      input = {
+        InvestmentId: this.showData.investmentID,
+        UserId: this.showData.userId,
+        Remarks: this.comment,
+        type: 'save',
+        RequestType: 'pledge',
+        PledgeId: +this.pledgeId,
+        checkList: [],
+      };
+      this.checklist.map((item: any) => {
+        return input.checkList.push({
+          checkListId: item.checkListId,
+          checkListVal: item.value,
+        });
+      });
+    }
+
+    if (this.category == 'Unpledge') {
+      input = {
+        InvestmentId: this.showData.investmentID,
+        UserId: this.showData.userId,
+        Remarks: this.comment,
+        type: 'save',
+        RequestType: 'unpledge',
+        PledgeId: +this.pledgeId,
+        checkList: [],
+      };
+      this.checklist.map((item: any) => {
+        return input.checkList.push({
+          checkListId: item.checkListId,
+          checkListVal: item.value,
+        });
+      });
+    }
+
+    console.log(input);
+    return;
 
     // console.log(input);
     // setTimeout(() => {
@@ -312,12 +381,51 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
   }
 
   resubmit() {
-    let input = {
+    let input: any = {
       InvestmentId: this.showData.investmentID,
       UserId: this.showData.userId,
       Remark: this.comment,
       type: 'recheck',
     };
+
+    if (this.category == 'Pledge') {
+      input = {
+        InvestmentId: this.showData.investmentID,
+        UserId: this.showData.userId,
+        Remarks: this.comment,
+        type: 'recheck',
+        RequestType: 'pledge',
+        PledgeId: +this.pledgeId,
+        checkList: [],
+      };
+      this.checklist.map((item: any) => {
+        return input.checkList.push({
+          checkListId: item.checkListId,
+          checkListVal: item.value,
+        });
+      });
+    }
+
+    if (this.category == 'Unpledge') {
+      input = {
+        InvestmentId: this.showData.investmentID,
+        UserId: this.showData.userId,
+        Remarks: this.comment,
+        type: 'recheck',
+        RequestType: 'unpledge',
+        PledgeId: +this.pledgeId,
+        checkList: [],
+      };
+      this.checklist.map((item: any) => {
+        return input.checkList.push({
+          checkListId: item.checkListId,
+          checkListVal: item.value,
+        });
+      });
+    }
+
+    console.log(input);
+    return;
 
     this.authservice.submit(input).subscribe(
       (res) => {
@@ -339,12 +447,50 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
   }
 
   submit() {
-    let input = {
+    let input: any = {
       InvestmentId: this.showData.investmentID,
       UserId: this.showData.userId,
       Remarks: this.comment,
       type: 'approve',
     };
+
+    if (this.category == 'Pledge') {
+      input = {
+        InvestmentId: this.showData.investmentID,
+        UserId: this.showData.userId,
+        Remarks: this.comment,
+        type: 'approve',
+        RequestType: 'pledge',
+        PledgeId: +this.pledgeId,
+        checkList: [],
+      };
+      this.checklist.map((item: any) => {
+        return input.checkList.push({
+          checkListId: item.checkListId,
+          checkListVal: item.value,
+        });
+      });
+    }
+
+    if (this.category == 'Unpledge') {
+      input = {
+        InvestmentId: this.showData.investmentID,
+        UserId: this.showData.userId,
+        Remarks: this.comment,
+        type: 'approve',
+        RequestType: 'unpledge',
+        PledgeId: +this.pledgeId,
+        checkList: [],
+      };
+      this.checklist.map((item: any) => {
+        return input.checkList.push({
+          checkListId: item.checkListId,
+          checkListVal: item.value,
+        });
+      });
+    }
+    console.log(input);
+    return;
 
     this.authservice.submit(input).subscribe(
       (res) => {
@@ -376,5 +522,38 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
         console.log(err.error);
       }
     );
+  }
+
+  pledgeAndunpledge(data: any) {
+    let input = {
+      PledgeId: +data,
+    };
+
+    this.authservice.getPledgeAndUnpledgeData(input).subscribe(
+      (res) => {
+        this.pledgeData = res[0];
+        console.log('pledge data', this.pledgeData);
+        this.getChecklst();
+      },
+      (err) => {}
+    );
+  }
+
+  getChecklst() {
+    let input = {
+      ListType: this.category,
+    };
+
+    this.authservice.irChecklist(input).subscribe(
+      (res) => {
+        this.checklist = res;
+        console.log(res, 'checklist');
+      },
+      (err) => {}
+    );
+  }
+
+  consolecheck() {
+    console.log(this.checklist);
   }
 }
