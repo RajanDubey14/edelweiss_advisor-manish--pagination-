@@ -199,6 +199,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       template,
       Object.assign({ class: 'gray modal-lg' })
     );
+    return;
     setTimeout(() => {
       this.modalService.hide();
       this.router.navigate(['dashboard']);
@@ -271,16 +272,33 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
     );
   }
 
-  async rightside() {
-    let input = {
+  rightside() {
+    let input: any = {
       // InvestmentId: this.showData.investmentID,
       // InvestmentId: 1490,
       // UserId: this.showData.userId,
       InvestmentId: this.showData.investmentID,
       UserId: this.showData.userId,
     };
+
+    if (this.category == 'Pledge') {
+      input = {
+        InvestmentId: 52,
+        UserId: 484,
+        Doctype: 'pledge',
+      };
+    }
+
+    if (this.category == 'Unpledge') {
+      input = {
+        InvestmentId: 49,
+        UserId: 484,
+        Doctype: 'unpledge',
+      };
+    }
+
     // console.log(input);
-    await this.authservice.getPDFFile(input).subscribe(
+    this.authservice.getPDFFile(input).subscribe(
       (res) => {
         // console.log('right side data', res);
         this.scrRight = res.data;
@@ -330,7 +348,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       this.checklist.map((item: any) => {
         return input.checkList.push({
           checkListId: item.checkListId,
-          checkListVal: item.value,
+          checkListVal: +item.value,
         });
       });
     }
@@ -348,13 +366,12 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       this.checklist.map((item: any) => {
         return input.checkList.push({
           checkListId: item.checkListId,
-          checkListVal: item.value,
+          checkListVal: +item.value,
         });
       });
     }
 
     console.log(input);
-    return;
 
     // console.log(input);
     // setTimeout(() => {
@@ -401,7 +418,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       this.checklist.map((item: any) => {
         return input.checkList.push({
           checkListId: item.checkListId,
-          checkListVal: item.value,
+          checkListVal: +item.value,
         });
       });
     }
@@ -419,7 +436,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       this.checklist.map((item: any) => {
         return input.checkList.push({
           checkListId: item.checkListId,
-          checkListVal: item.value,
+          checkListVal: +item.value,
         });
       });
     }
@@ -467,7 +484,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       this.checklist.map((item: any) => {
         return input.checkList.push({
           checkListId: item.checkListId,
-          checkListVal: item.value,
+          checkListVal: +item.value,
         });
       });
     }
@@ -485,7 +502,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       this.checklist.map((item: any) => {
         return input.checkList.push({
           checkListId: item.checkListId,
-          checkListVal: item.value,
+          checkListVal: +item.value,
         });
       });
     }

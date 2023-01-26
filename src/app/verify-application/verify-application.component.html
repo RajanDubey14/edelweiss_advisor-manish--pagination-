@@ -1047,13 +1047,15 @@
                           <div
                             class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12"
                           >
-                            <div class="sub_heading2">Enter Folio Number</div>
+                            <div class="sub_heading2">Folio Number</div>
                             <div>
                               <input
                                 type="email"
                                 class="inputfields_pledge2"
                                 name="loginEmail"
                                 id="loginEmail"
+                                [value]="pledgeData.folioNo"
+                                [readOnly]="true"
                                 required
                                 autofocus
                               />
@@ -1086,7 +1088,9 @@
                                 class="inputfields_pledge"
                                 name="loginEmail"
                                 id="loginEmail"
+                                [readOnly]="true"
                                 required
+                                [value]="pledgeData.pan"
                                 autofocus
                               />
                             </div>
@@ -1098,8 +1102,9 @@
                             <div class="sub_heading2">Fund</div>
                             <div>
                               <select class="selectfields_pledge">
-                                <option selected>--Test1--</option>
-                                <option>Test2</option>
+                                <option selected>
+                                  {{ pledgeData.fundName }}"
+                                </option>
                               </select>
                             </div>
                           </div>
@@ -1114,14 +1119,15 @@
                           <div
                             class="col col-xxl-5 col-xl-5 col-lg-6 col-md-6 col-sm-12"
                           >
-                            <div class="sub_heading2">Enter PAN</div>
+                            <div class="sub_heading2">Financer</div>
                             <div>
                               <select
                                 class="inputfields_account_type"
                                 style="height: 2em"
                               >
-                                <option selected>--Test1--</option>
-                                <option>Test2</option>
+                                <option selected>
+                                  {{ pledgeData.financerName }}
+                                </option>
                               </select>
                             </div>
                           </div>
@@ -1129,13 +1135,15 @@
                           <div
                             class="col col-xxl-5 col-xl-5 col-lg-6 col-md-6 col-sm-12"
                           >
-                            <div class="sub_heading2">Enter DOI</div>
+                            <div class="sub_heading2">Unit Pledged</div>
                             <div>
                               <input
                                 type="email"
                                 class="inputfields_account_type"
                                 name="loginEmail"
                                 id="loginEmail"
+                                [readOnly]="true"
+                                [value]="pledgeData.unitsPledgeUnpledge"
                                 required
                                 autofocus
                               />
@@ -1160,7 +1168,7 @@
                           style="display: flex"
                         >
                           <div class="pledge_content_p">Investor Name :</div>
-                          <div class="pledge_content_p">Rahul Tiwari</div>
+                          <div class="pledge_content_p">{{ pledgeData }}</div>
                         </div>
 
                         <div
@@ -1168,14 +1176,18 @@
                           style="display: flex"
                         >
                           <div class="pledge_content_p">Commitment :</div>
-                          <div class="pledge_content_p">2,00,00,000</div>
+                          <div class="pledge_content_p">
+                            {{ pledgeData.commitmentAmount }}
+                          </div>
                         </div>
                         <div
                           class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                           style="display: flex"
                         >
                           <div class="pledge_content_p">Unit Class :</div>
-                          <div class="pledge_content_p">A1</div>
+                          <div class="pledge_content_p">
+                            {{ pledgeData.class }}
+                          </div>
                         </div>
                       </div>
 
@@ -1185,7 +1197,9 @@
                           style="display: flex"
                         >
                           <div class="pledge_content_p">Total Unit :</div>
-                          <div class="pledge_content_p">500</div>
+                          <div class="pledge_content_p">
+                            {{ pledgeData.inv_TotalUnits }}
+                          </div>
                         </div>
 
                         <div
@@ -1195,14 +1209,18 @@
                           <div class="pledge_content_p">
                             Total Pledged Units :
                           </div>
-                          <div class="pledge_content_p">300</div>
+                          <div class="pledge_content_p">
+                            {{ pledgeData.inv_UnitsPledged }}
+                          </div>
                         </div>
                         <div
                           class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                           style="display: flex"
                         >
                           <div class="pledge_content_p">Available Units :</div>
-                          <div class="pledge_content_p">200</div>
+                          <div class="pledge_content_p">
+                            {{ pledgeData.inv_AvailableUnits }}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1237,15 +1255,14 @@
                         style="display: flex; justify-content: space-between"
                       >
                         <div>
-                          <div class="sub_heading2">
-                            Enter Unit to be Pledge
-                          </div>
+                          <div class="sub_heading2">Unit to be Unpledge</div>
                           <div>
                             <input
                               type="email"
                               class="inputfields_pledge3"
                               name="loginEmail"
                               id="loginEmail"
+                              [readOnly]="true"
                               required
                               autofocus
                             />
