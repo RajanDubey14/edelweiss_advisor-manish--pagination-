@@ -41,7 +41,10 @@
           <div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
             <div class="pdf-view-left">
               <!-- normal pdf viewer -->
-              <div *ngIf="category == 'Normal'" class="pdf-view-left">
+              <div
+                *ngIf="category == 'Normal' || category == 'Topup'"
+                class="pdf-view-left"
+              >
                 <div class="pdf-header">
                   <div class="pdf-heading">Application PDF</div>
                   <!-- <div class="pdf-zoom-value">100%</div> -->
@@ -1263,6 +1266,7 @@
                               name="loginEmail"
                               id="loginEmail"
                               [readOnly]="true"
+                              [value]="pledgeData.unitsPledgeUnpledge"
                               required
                               autofocus
                             />
