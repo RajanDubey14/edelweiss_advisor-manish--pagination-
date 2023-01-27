@@ -283,16 +283,16 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
 
     if (this.category == 'Pledge') {
       input = {
-        InvestmentId: 52,
-        UserId: 484,
+        InvestmentId: +this.pledgeId,
+        UserId: +this.showData.userId,
         Doctype: 'pledge',
       };
     }
 
     if (this.category == 'Unpledge') {
       input = {
-        InvestmentId: 49,
-        UserId: 484,
+        InvestmentId: +this.pledgeId,
+        UserId: +this.showData.userId,
         Doctype: 'unpledge',
       };
     }
@@ -318,8 +318,8 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
             item.fileURL + '#toolbar=1'
           ));
         });
-        // console.log('images', this.scrRightImages);
-        // console.log('pdf', this.scrRightPdf);
+        console.log('images', this.scrRightImages);
+        console.log('pdf', this.scrRightPdf);
       },
       (err) => {
         console.log(err.error);
