@@ -234,14 +234,14 @@
     <div style="background-color: #ffffff; padding: 1%">
       <div class="card-header" style="margin-bottom: 2%">
         <div class="tableFilterBox">
+
           <div class="form-group has-search input-style">
             <span
               class="fa fa-search form-control-feedback"
               style="line-height: 2.8rem"
             ></span>
             <input
-              class="form-control input-style"
-              style="width: 32em"
+              class="form-control input_field"
               type="text"
               name="search"
               [(ngModel)]="searchText"
@@ -256,7 +256,7 @@
             <select
               class="selectpicker"
               (change)="categorychange($event)"
-              style="width: 14em"
+            
             >
               >
               <option value="" selected>All Category</option>
@@ -270,7 +270,7 @@
             <select
               class="selectpicker"
               (change)="monthchange($event)"
-              style="width: 14em"
+
             >
               <option selected>--Month--</option>
               <option
@@ -281,25 +281,26 @@
               </option>
             </select>
           </div>
+
         </div>
       </div>
 
       <div
         class="container-fluid"
-        style="height: 500px !important; overflow-y: scroll"
+        style="max-height: 500px !important; overflow-y: scroll"
       >
         <table class="table table-striped">
           <thead style="background: #1d409d21; position: sticky; top: 0">
             <tr style="background-color: #e2e6f2">
               <th>Application Number</th>
               <th>CXO Name</th>
-              <th>CATEGORY</th>
+              <th>Category</th>
               <th>PAN</th>
-              <th>SCHEME Name</th>
-              <th>TYPE</th>
-              <th>CHECKER NAME</th>
-              <th>STATUS</th>
-              <th>LAST MODIFIED</th>
+              <th>Scheme Name</th>
+              <th>Type</th>
+              <th>Checker Name</th>
+              <th>Status</th>
+              <th>Last Modified</th>
               <th>Action</th>
             </tr>
           </thead>
