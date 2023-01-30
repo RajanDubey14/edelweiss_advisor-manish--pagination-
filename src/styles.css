@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  font-family: sans-serif;
+}
 
 body {
   font-size: 14px;
@@ -10,6 +13,7 @@ body {
   height: 100%;
   overflow-y: scroll;
   padding: 0;
+
 }
 
 html {
@@ -421,8 +425,8 @@ mat-paginator.mat-paginator.pagination-fix .mat-paginator-page-size-select {
 button.profile-image {
   padding: 0;
   margin: 0;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 38px;
   border-radius: 100% !important;
   position: relative;
 }

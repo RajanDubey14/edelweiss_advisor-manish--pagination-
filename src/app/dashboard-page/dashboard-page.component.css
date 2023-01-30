@@ -133,8 +133,7 @@
 .table-view thead tr th {
   font-weight: 500;
 }
-.table-view tbody {
-}
+
 .table-view tbody tr {
   border-bottom: 1px solid #ccc;
   border-top: 1px solid #ccc;
@@ -227,6 +226,15 @@ thead th {
   text-transform: capitalize;
   color: #131523;
   font-weight: 600;
+  font-family: sans-serif;
+
+}
+
+tbody td {
+  font-size: 14px;
+  text-transform: capitalize;
+  color: #131523;
+  font-family: sans-serif;
 
 }
 
@@ -287,6 +295,13 @@ thead th {
 
 .selectpicker{
   width: 15em
+}
+
+
+.lightBorderBottom{
+  background-color: #e2e6f2 ;
+   text-transform: uppercase;
+
 }
 
 @media screen and (max-width: 990px) {

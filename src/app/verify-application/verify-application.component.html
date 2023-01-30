@@ -103,7 +103,7 @@
                   <div style="background-color: #ffffff">
                     <div
                       class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                      style="background-color: #ffffff; padding: 1%"
+                      style="background-color: #ffffff;"
                     >
                       <p class="pledge_heading">PLEDGE</p>
                     </div>
@@ -316,7 +316,7 @@
                             <div>
                               <input
                                 type="email"
-                                class="inputfields_pledge3"
+                                class="inputfields_pledge2"
                                 name="loginEmail"
                                 id="loginEmail"
                                 [value]="pledgeData.unitsPledgeUnpledge"
@@ -510,11 +510,11 @@
                       >
                         <div style="padding: 1%">
                           <div
-                            style="display: flex; justify-content: space-around"
+                            style="display: flex;"
                           >
                             <p
                               style="
-                                font-size: 15px;
+                                font-size: 14px;
                                 font-weight: 500;
                                 text-transform: capitalize;
                               "
@@ -523,9 +523,10 @@
                             </p>
                             <p
                               style="
-                                font-size: 13px;
+                                font-size: 12px;
                                 font-weight: 200;
                                 text-transform: capitalize;
+                                margin-left: 1%;
                               "
                             >
                               Branch Name Mira Bhayander, JAIN BUNGALOw 100 FT.
@@ -705,7 +706,7 @@
               <!-- unpledge  start -->
 
               <div *ngIf="category == 'Unpledge'" class="pdf-header">
-                <div>UnPledge Document</div>
+                <div>Unpledge Document</div>
               </div>
               <div
                 *ngIf="category == 'Unpledge'"
@@ -755,7 +756,7 @@
                             <div>
                               <input
                                 type="email"
-                                class="inputfields_pledge2"
+                                class="inputfields_unpledge2"
                                 name="loginEmail"
                                 id="loginEmail"
                                 [value]="pledgeData.folioNo"
@@ -789,7 +790,7 @@
                             <div>
                               <input
                                 type="email"
-                                class="inputfields_pledge"
+                                class="inputfields_unpledge2"
                                 name="loginEmail"
                                 id="loginEmail"
                                 [readOnly]="true"
@@ -805,56 +806,60 @@
                           >
                             <div class="sub_heading2">Fund</div>
                             <div>
-                              <select class="selectfields_pledge">
+                              <select class="selectfields_unpledge">
                                 <option selected>
-                                  {{ pledgeData.fundName }}"
-                                </option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div
-                        class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                        style="padding: 2%"
-                      >
-                        <div class="row">
-                          <div
-                            class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12"
-                          >
-                            <div class="sub_heading2">Financer</div>
-                            <div>
-                              <select
-                                class="inputfields_account_type"
-                                style="height: 2em"
-                              >
-                                <option selected>
-                                  {{ pledgeData.financerName }}
+                                  {{ pledgeData.fundName }}
                                 </option>
                               </select>
                             </div>
                           </div>
 
+
                           <div
-                            class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12"
-                          >
-                            <div class="sub_heading2">Unit Pledged</div>
-                            <div>
-                              <input
-                                type="email"
-                                class="selectfields_account_type"
-                                name="loginEmail"
-                                id="loginEmail"
-                                [readOnly]="true"
-                                [value]="pledgeData.unitsPledgeUnpledge"
-                                required
-                                autofocus
-                              />
-                            </div>
+                          class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12"
+                          style="margin-top: 1%;"
+                        >
+                          <div class="sub_heading2">Financer</div>
+                          <div>
+                            <select
+                              class="selectfields_unpledge2"
+
+                            >
+                              <option selected>
+                                {{ pledgeData.financerName }}
+                              </option>
+                            </select>
                           </div>
                         </div>
+
+                        <div
+                          class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12"
+                          style="margin-top: 1%;"
+                        >
+                          <div class="sub_heading2">Unit Pledged</div>
+                          <div>
+                            <input
+                              type="email"
+                              class="inputfields_unpledge2"
+                              name="loginEmail"
+                              id="loginEmail"
+                              [readOnly]="true"
+                              [value]="pledgeData.unitsPledgeUnpledge"
+                              required
+                              autofocus
+                            />
+                          </div>
+                        </div>
+
+
+                        </div>
                       </div>
+
+
+
+
+
+
                     </div>
 
                     <div
@@ -963,7 +968,7 @@
                           <div>
                             <input
                               type="email"
-                              class="inputfields_pledge3"
+                              class="inputfields_pledge2"
                               name="loginEmail"
                               id="loginEmail"
                               [readOnly]="true"
@@ -1112,8 +1117,9 @@
         <div class="row comment-box">
           <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="comment">
-              <label for="">Comment</label>
+              <label for="" class="comment_label">Comment</label>
               <textarea
+              class="comment_textarea"
                 [(ngModel)]="comment"
                 rows="3"
                 placeholder="Do not enter comments if there is no discrepancy"
