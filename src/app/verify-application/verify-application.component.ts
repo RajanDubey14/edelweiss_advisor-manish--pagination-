@@ -442,7 +442,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
     }
 
     console.log(input);
-    return;
+
 
     this.authservice.submit(input).subscribe(
       (res) => {
@@ -507,7 +507,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       });
     }
     console.log(input);
-    return;
+
 
     this.authservice.submit(input).subscribe(
       (res) => {
