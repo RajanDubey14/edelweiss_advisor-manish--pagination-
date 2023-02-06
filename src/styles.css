@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-*{
-  font-family: sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+* {
+  font-family: 'Montserrat', sans-serif;
 }
+
 
 body {
   font-size: 14px;
@@ -13,7 +15,6 @@ body {
   height: 100%;
   overflow-y: scroll;
   padding: 0;
-
 }
 
 html {
@@ -222,15 +223,14 @@ img {
 
 .right-side .watermarkImage {
   background-image: url("assets/images/backgroundimage.png");
-  width: 550px;
-  height: 550px;
+  width: 600px;
+  height: 600px;
   position: absolute;
-  bottom: -140px;
-  right: -190px;
+  bottom: -160px;
+  right: -230px;
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.7;
-  position: fixed;
 }
 
 .right-side footer {
@@ -425,8 +425,8 @@ mat-paginator.mat-paginator.pagination-fix .mat-paginator-page-size-select {
 button.profile-image {
   padding: 0;
   margin: 0;
-  width: 40px;
-  height: 38px;
+  width: 45px;
+  height: 45px;
   border-radius: 100% !important;
   position: relative;
 }

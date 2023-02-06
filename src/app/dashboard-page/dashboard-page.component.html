@@ -1,9 +1,9 @@
 <div class="dashboard-wrapper">
   <app-header></app-header>
-  <div class="">
+  <div>
     <div
       class="row topFilterBox"
-      style="background-color: #f3f3f9; padding: 1.5%"
+      style="background-color: #f3f3f9; padding: 10px"
     >
       <div
         class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12"
@@ -126,7 +126,7 @@
               >
                 <div
                   class="media d-flex justify-content-between ;"
-                  style="margin-top: 20px"
+                  style="margin-top: 26px"
                 >
                   <!-- <div>
                     <i class="icon-pencil primary font-large-2 float-left"></i>
@@ -230,178 +230,182 @@
     </div>
   </div>
 
-  <div style="padding: 1%; background-color: #f3f3f9">
-    <div style="background-color: #ffffff; padding: 1%">
-      <div class="card-header" style="margin-bottom: 2%">
-        <div class="tableFilterBox">
+  <div class="container-fluid lightBackgroundColor">
+    <div class="col pb-4" >
+      <div class="card">
+        <div class="card-header" >
+          <div class="tableFilterBox">
 
-          <div class="form-group has-search input-style">
+            <div
+            class="form-group has-search input-style"
+            style="width: 30%; display: inline-block"
+          >
             <span
               class="fa fa-search form-control-feedback"
               style="line-height: 2.8rem"
             ></span>
             <input
-              class="form-control input_field"
+              class="form-control input-style"
               type="text"
               name="search"
               [(ngModel)]="searchText"
               autocomplete="off"
-              placeholder="Global Search"
+              placeholder="Search"
               (ngModelChange)="hello()"
               (input)="searchchange($event)"
             />
           </div>
 
-          <div>
-            <select
-              class="selectpicker"
-              (change)="categorychange($event)"
+            <div>
+              <select
+                class="selectpicker"
+                (change)="categorychange($event)"
 
-            >
               >
-              <option value="" selected>All Category</option>
-              <option *ngFor="let item of categories" [value]="item.category">
-                {{ item.category }}
-              </option>
-            </select>
-          </div>
+                >
+                <option value="" selected>All Category</option>
+                <option *ngFor="let item of categories" [value]="item.category">
+                  {{ item.category }}
+                </option>
+              </select>
+            </div>
 
-          <div>
-            <select
-              class="selectpicker"
-              (change)="monthchange($event)"
+            <div>
+              <select
+                class="selectpicker"
+                (change)="monthchange($event)"
 
-            >
-              <option selected>--Month--</option>
-              <option
-                *ngFor="let month of monthandyear"
-                [value]="month.monthname"
               >
-                {{ month.monthname }}
-              </option>
-            </select>
-          </div>
+                <option selected>--Month--</option>
+                <option
+                  *ngFor="let month of monthandyear"
+                  [value]="month.monthname"
+                >
+                  {{ month.monthname }}
+                </option>
+              </select>
+            </div>
 
+          </div>
         </div>
-      </div>
 
-      <div
-        class="container-fluid"
-        style="max-height: 500px !important; overflow-y: scroll"
-      >
-        <table class="table table-striped">
-          <thead style="background: #1d409d21; position: sticky; top: 0">
-            <tr class="lightBorderBottom">
-              <th>APPLICATION NUMBER</th>
-              <th>CXO NAME</th>
-              <th>CATEGORY</th>
-              <th>PAN</th>
-              <th>SCHEME NAME</th>
-              <th>TYPE</th>
-              <th>CHECKER NAME</th>
-              <th>STATUS</th>
-              <th>LAST MODIFIED</th>
-              <th>ACTION</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let data of pageSlice">
-              <td>{{ data.applicationNumber }}</td>
-              <td>{{ data.cxoName }}</td>
-              <td>{{ data.category }}</td>
-              <td>{{ data.pan }}</td>
-              <td>{{ data.schemeName }}</td>
-              <td>{{ data.type }}</td>
-              <td>{{ data.checkerName }}</td>
-              <td>{{ data.status }}</td>
-              <td>
-                {{ data.lastModified | date : "d/MM/y" }}
-              </td>
-              <!-- <td class="text-center"> -->
-              <td class="">
-                <button
-                  *ngIf="
-                    data.recordtype !== verifiedbutton &&
-                    data.recordtype !== onboardedbutton &&
-                    data.recordtype !== Resubmittedbutton
-                  "
-                  type="button"
-                  class="btn btn-primary btn-sm smallBtnPrimary hoverbtn"
-                  (click)="
-                    verifyAppication(
-                      data.applicationNumber +
-                        space +
-                        data.pledgeId +
-                        space +
-                        data.category
-                    )
-                  "
-                >
-                  Verify
-                </button>
-                <button
-                  *ngIf="data.recordtype == verifiedbutton"
-                  type="button"
-                  class="btn bg-transparent"
-                  (click)="downloadverified(data)"
-                  style="padding-left: 12px !important"
-                >
-                  <img
-                    style="max-width: 500px"
-                    src="assets/images/Icon feather-download.svg"
-                  />
-                </button>
-                <button
-                  *ngIf="data.recordtype == onboardedbutton"
-                  type="button"
-                  class="btn bg-transparent"
-                  (click)="downloadEsign(data)"
-                  style="padding-left: 12px !important"
-                >
-                  <img
-                    style="max-width: 500px"
-                    src="assets/images/Icon feather-download.svg"
-                  />
-                </button>
-                <!-- <button
-                    *ngIf="data.recordtype == onboardedbutton"
+        <div
+          class="card-body"
+        >
+          <table class="table table-striped" style="width: 100%">
+            <thead style="background: #1d409d21 0% 0% no-repeat padding-box">
+              <tr class="lightBorderBottom">
+                <th>APPLICATION NUMBER</th>
+                <th>CXO NAME</th>
+                <th>CATEGORY</th>
+                <th>PAN</th>
+                <th>SCHEME NAME</th>
+                <th>TYPE</th>
+                <th>CHECKER NAME</th>
+                <th>STATUS</th>
+                <th>LAST MODIFIED</th>
+                <th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of pageSlice">
+                <td>{{ data.applicationNumber }}</td>
+                <td>{{ data.cxoName }}</td>
+                <td>{{ data.category }}</td>
+                <td>{{ data.pan }}</td>
+                <td>{{ data.schemeName }}</td>
+                <td>{{ data.type }}</td>
+                <td>{{ data.checkerName }}</td>
+                <td>{{ data.status }}</td>
+                <td>
+                  {{ data.lastModified | date : "d/MM/y" }}
+                </td>
+                <!-- <td class="text-center"> -->
+                <td class="">
+                  <button
+                    *ngIf="
+                      data.recordtype !== verifiedbutton &&
+                      data.recordtype !== onboardedbutton &&
+                      data.recordtype !== Resubmittedbutton
+                    "
+                    type="button"
+                    class="btn btn-primary btn-sm smallBtnPrimary hoverbtn"
+                    (click)="
+                      verifyAppication(
+                        data.applicationNumber +
+                          space +
+                          data.pledgeId +
+                          space +
+                          data.category
+                      )
+                    "
+                  >
+                    Verify
+                  </button>
+                  <button
+                    *ngIf="data.recordtype == verifiedbutton"
                     type="button"
                     class="btn bg-transparent"
-                    (click)="downloadEsign(data)"
+                    (click)="downloadverified(data)"
+                    style="padding-left: 12px !important"
                   >
                     <img
                       style="max-width: 500px"
                       src="assets/images/Icon feather-download.svg"
                     />
-                  </button> -->
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="paginationSection" style="margin-top: 2%">
-        <div class="paginationBox">
-          <p class="paginationText">Records per page</p>
-          <select
-            class="form-select selectPerPage"
-            aria-label="Default select example"
-            [(ngModel)]="pageSize"
-            (change)="pageLimit($event)"
-          >
-            <option value="20">20</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-          </select>
-          <p class="paginationText">{{ startIndex + "-" + endIndex }}</p>
-          <p class="paginationText">{{ "of  " + showData.length }}</p>
-          <button class="previousPage" (click)="onPageChangeMinus()">
-            <i class="fa fa-angle-left" aria-hidden="true"></i>
-          </button>
-          <button class="nextPage" (click)="onPageChangePlus()">
-            <i class="fa fa-angle-right" aria-hidden="true"></i>
-          </button>
+                  </button>
+                  <button
+                    *ngIf="data.recordtype == onboardedbutton"
+                    type="button"
+                    class="btn bg-transparent"
+                    (click)="downloadEsign(data)"
+                    style="padding-left: 12px !important"
+                  >
+                    <img
+                      style="max-width: 500px"
+                      src="assets/images/Icon feather-download.svg"
+                    />
+                  </button>
+                  <!-- <button
+                      *ngIf="data.recordtype == onboardedbutton"
+                      type="button"
+                      class="btn bg-transparent"
+                      (click)="downloadEsign(data)"
+                    >
+                      <img
+                        style="max-width: 500px"
+                        src="assets/images/Icon feather-download.svg"
+                      />
+                    </button> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="paginationSection" style="">
+            <div class="paginationBox">
+              <p class="paginationText">Records per page</p>
+              <select
+                class="form-select selectPerPage"
+                aria-label="Default select example"
+                [(ngModel)]="pageSize"
+                (change)="pageLimit($event)"
+              >
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
+              <p class="paginationText">{{ startIndex + "-" + endIndex }}</p>
+              <p class="paginationText">{{ "of  " + showData.length }}</p>
+              <button class="previousPage" (click)="onPageChangeMinus()">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+              </button>
+              <button class="nextPage" (click)="onPageChangePlus()">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>

@@ -1,12 +1,12 @@
 <div class="display">
   <app-header></app-header>
 
-  <div class="container-fluid" style="padding: 2%">
+  <div class="container-fluid">
     <div class="row">
       <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div
           class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 tableCard card"
-          style="margin-bottom: 15px; margin-top: 15px"
+          style="margin-bottom: 4px;"
         >
           <div class="table-container">
             <table class="table table-borderless mb-0">
@@ -101,17 +101,13 @@
               >
 
                   <div style="background-color: #ffffff">
-                    <div
-                      class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                      style="background-color: #ffffff;"
-                    >
-                      <p class="pledge_heading">PLEDGE</p>
-                    </div>
+
 
                     <div
                       class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                      style="padding: 2%"
+                      style="padding: 10px"
                     >
+                      <p class="pledge_heading">PLEDGE</p>
                       <div
                         class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
                         style="display: flex"
@@ -124,7 +120,7 @@
                             alt="logo"
                           />
                         </div>
-                        <div>
+                        <div style="margin-top: 4px;">
                           <p class="sub_heading">Investor details</p>
                         </div>
                       </div>
@@ -212,8 +208,8 @@
                             class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                             style="display: flex"
                           >
-                            <div class="pledge_content_p">Investor Name :</div>
-                            <div class="pledge_content_p">
+                            <div class="pledge_content_p">Investor Name:</div>
+                            <div class="pledge_content_p1">
                               {{
                                 pledgeData.firstName +
                                   " " +
@@ -228,8 +224,8 @@
                             class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                             style="display: flex"
                           >
-                            <div class="pledge_content_p">Commitment :</div>
-                            <div class="pledge_content_p">
+                            <div class="pledge_content_p">Commitment:</div>
+                            <div class="pledge_content_p1">
                               {{ pledgeData.commitmentAmount }}
                             </div>
                           </div>
@@ -237,8 +233,8 @@
                             class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                             style="display: flex"
                           >
-                            <div class="pledge_content_p">Unit Class :</div>
-                            <div class="pledge_content_p">
+                            <div class="pledge_content_p">Unit Class:</div>
+                            <div class="pledge_content_p1">
                               {{ pledgeData.class }}
                             </div>
                           </div>
@@ -249,8 +245,8 @@
                             class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                             style="display: flex"
                           >
-                            <div class="pledge_content_p">Total Unit :</div>
-                            <div class="pledge_content_p">
+                            <div class="pledge_content_p">Total Unit:</div>
+                            <div class="pledge_content_p1">
                               {{ pledgeData.totalUnits }}
                             </div>
                           </div>
@@ -260,9 +256,9 @@
                             style="display: flex"
                           >
                             <div class="pledge_content_p">
-                              Total Pledged Units :
+                              Total Pledged Units:
                             </div>
-                            <div class="pledge_content_p">
+                            <div class="pledge_content_p1">
                               {{ pledgeData.unitsPledgeUnpledge }}
                             </div>
                           </div>
@@ -271,9 +267,9 @@
                             style="display: flex"
                           >
                             <div class="pledge_content_p">
-                              Available Units :
+                              Available Units:
                             </div>
-                            <div class="pledge_content_p">
+                            <div class="pledge_content_p1">
                               {{ pledgeData.unitsAvailable }}
                             </div>
                           </div>
@@ -300,7 +296,7 @@
                           />
                         </div>
                         <div>
-                          <p class="sub_heading">Unit to Pledge</p>
+                          <p  class="sub_heading" style="margin-top: 10px;" >Unit to Pledge</p>
                         </div>
                       </div>
 
@@ -347,7 +343,7 @@
                           />
                         </div>
                         <div>
-                          <p class="sub_heading">Financer Personal Details</p>
+                          <p class="sub_heading" style="margin-top: 10px;" >Financer Personal Details</p>
                         </div>
                       </div>
 
@@ -424,7 +420,7 @@
                           />
                         </div>
                         <div>
-                          <p class="sub_heading">Financer Bank Details</p>
+                          <p class="sub_heading" style="margin-top: 10px;">Financer Bank Details</p>
                         </div>
                       </div>
 
@@ -514,8 +510,8 @@
                           >
                             <p
                               style="
-                                font-size: 14px;
-                                font-weight: 500;
+                                font-size: 13px;
+                                font-weight: 600;
                                 text-transform: capitalize;
                               "
                             >
@@ -523,8 +519,7 @@
                             </p>
                             <p
                               style="
-                                font-size: 12px;
-                                font-weight: 200;
+                                font-size: 13px;
                                 text-transform: capitalize;
                                 margin-left: 1%;
                               "
@@ -556,7 +551,7 @@
                           />
                         </div>
                         <div>
-                          <p class="sub_heading">Financer Contact Details</p>
+                          <p class="sub_heading" style="margin-top: 10px;">Financer Contact Details</p>
                         </div>
                       </div>
 
@@ -716,17 +711,16 @@
 
               >
                 <div style="background-color: #ffffff">
-                  <div
-                    class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                    style="background-color: #ffffff; padding: 1%"
-                  >
-                    <p class="pledge_heading">UNPLEDGE</p>
-                  </div>
+
 
                   <div
                     class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                    style="padding: 2%"
+                    style="padding: 10px"
                   >
+                  <div
+                  >
+                    <p class="pledge_heading">UNPLEDGE</p>
+                  </div>
                     <div
                       class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
                       style="display: flex"
@@ -740,7 +734,7 @@
                         />
                       </div>
                       <div>
-                        <p class="sub_heading">Investor details</p>
+                        <p class="sub_heading" style="margin-top: 4px;">Investor details</p>
                       </div>
                     </div>
 
@@ -876,16 +870,16 @@
                           class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                           style="display: flex"
                         >
-                          <div class="pledge_content_p">Investor Name :</div>
-                          <div class="pledge_content_p">{{ pledgeData }}</div>
+                          <div class="pledge_content_p">Investor Name:</div>
+                          <div class="pledge_content_p1">{{ pledgeData }}</div>
                         </div>
 
                         <div
                           class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                           style="display: flex"
                         >
-                          <div class="pledge_content_p">Commitment :</div>
-                          <div class="pledge_content_p">
+                          <div class="pledge_content_p">Commitment:</div>
+                          <div class="pledge_content_p1">
                             {{ pledgeData.commitmentAmount }}
                           </div>
                         </div>
@@ -893,8 +887,8 @@
                           class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                           style="display: flex"
                         >
-                          <div class="pledge_content_p">Unit Class :</div>
-                          <div class="pledge_content_p">
+                          <div class="pledge_content_p">Unit Class:</div>
+                          <div class="pledge_content_p1">
                             {{ pledgeData.class }}
                           </div>
                         </div>
@@ -905,8 +899,8 @@
                           class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                           style="display: flex"
                         >
-                          <div class="pledge_content_p">Total Unit :</div>
-                          <div class="pledge_content_p">
+                          <div class="pledge_content_p">Total Unit:</div>
+                          <div class="pledge_content_p1">
                             {{ pledgeData.inv_TotalUnits }}
                           </div>
                         </div>
@@ -916,9 +910,9 @@
                           style="display: flex"
                         >
                           <div class="pledge_content_p">
-                            Total Pledged Units :
+                            Total Pledged Units:
                           </div>
-                          <div class="pledge_content_p">
+                          <div class="pledge_content_p1">
                             {{ pledgeData.inv_UnitsPledged }}
                           </div>
                         </div>
@@ -926,9 +920,9 @@
                           class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                           style="display: flex"
                         >
-                          <div class="pledge_content_p">Available Units :</div>
-                          <div class="pledge_content_p">
-                            {{ pledgeData.inv_AvailableUnits }}
+                          <div class="pledge_content_p">Available Units:</div>
+                          <div class="pledge_content_p11">
+                            {{ pledgeData.inv_Availabl1eUnits }}
                           </div>
                         </div>
                       </div>
@@ -954,7 +948,7 @@
                         />
                       </div>
                       <div>
-                        <p class="sub_heading">Unit to Pledge</p>
+                        <p class="sub_heading" style="margin-top: 10px;">Unit to Pledge</p>
                       </div>
                     </div>
 
@@ -1146,6 +1140,7 @@
               <button
                 class="btn btn-white"
                 (click)="showsavedSuccessfully(savedSuccessfully); save()"
+
               >
                 Save
               </button>
