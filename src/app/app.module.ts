@@ -23,6 +23,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { PledgeComponent } from './pledge/pledge.component';
 import { UnpledgeComponent } from './unpledge/unpledge.component';
 import { KycdocumentComponent } from './kycdocument/kycdocument.component';
+import { UpdateComponent } from './update/update.component';
+import { UpdateOtpComponent } from './update-otp/update-otp.component';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { KycdocumentComponent } from './kycdocument/kycdocument.component';
     PledgeComponent,
     UnpledgeComponent,
     KycdocumentComponent,
+    UpdateComponent,
+    UpdateOtpComponent,
    
   ],
   imports: [
