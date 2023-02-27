@@ -18,6 +18,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class VerifyApplicationComponent implements OnInit, AfterViewInit {
   @ViewChild('iframe') iframe: ElementRef;
+
   applicationId: any = '';
   pledgeId: any = '';
   category: any = '';
@@ -50,6 +51,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
 
   comment: string = '';
   checklist: any = [];
+  checklistError: boolean = false;
 
   modalRef: BsModalRef | undefined;
   modalRef1: BsModalRef | undefined;
@@ -58,13 +60,15 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
   modalRef4: BsModalRef | undefined;
   modalRef5: BsModalRef | undefined;
 
-  @ViewChild('confirmSubmit', { static: false }) confirmSubmit:
-    | TemplateRef<any>
-    | undefined;
+  @ViewChild('confirmSubmit', { static: false }) confirmSubmit: any;
 
-  @ViewChild('savedSuccessfully', { static: false }) savedSuccessfully:
-    | TemplateRef<any>
-    | undefined;
+  @ViewChild('confirmReSubmit', { static: false }) confirmReSubmit: any;
+
+  @ViewChild('savedSuccessfully', { static: false }) savedSuccessfully: any;
+
+  @ViewChild('verified', { static: false }) verified: any;
+
+  @ViewChild('ReSubmit', { static: false }) ReSubmit: any;
 
   constructor(
     private modalService: BsModalService,
@@ -125,6 +129,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
         };
         this.logs(logsinput);
         this.comment = this.showData.remarks;
+
         // console.log(
         //   'verify application',
         //   this.activatedRoute.snapshot.params['id'],
@@ -188,6 +193,40 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
 
   showConfirmModal(template: TemplateRef<any>) {
     this.resubmitted = false;
+    this.checklistError = false;
+
+    if (this.category == 'Pledge') {
+      let checklistvalue: any = [];
+      this.checklist.map((item: any) => {
+        if (item.value == 0 || item.value == 1) {
+          checklistvalue.push('');
+          return;
+        }
+      });
+      if (checklistvalue.length !== this.checklist.length) {
+        console.log(checklistvalue);
+        console.log('select alll check list');
+        this.checklistError = true;
+        return;
+      }
+    }
+
+    if (this.category == 'Unpledge') {
+      let checklistvalue: any = [];
+      this.checklist.map((item: any) => {
+        if (item.value == 0 || item.value == 1) {
+          checklistvalue.push('');
+          return;
+        }
+      });
+      if (checklistvalue.length !== this.checklist.length) {
+        console.log(checklistvalue);
+        console.log('select alll check list');
+        this.checklistError = true;
+        return;
+      }
+    }
+    this.checklistError = false;
     this.modalRef = this.modalService.show(
       template,
       Object.assign({ class: 'gray modal-lg' })
@@ -199,7 +238,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       template,
       Object.assign({ class: 'gray modal-lg' })
     );
-    return;
+
     setTimeout(() => {
       this.modalService.hide();
       this.router.navigate(['dashboard']);
@@ -211,7 +250,41 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       this.resubmitted = true;
       return;
     }
+
+    if (this.category == 'Pledge') {
+      let checklistvalue: any = [];
+      this.checklist.map((item: any) => {
+        if (item.value == 0 || item.value == 1) {
+          checklistvalue.push('');
+          return;
+        }
+      });
+      if (checklistvalue.length !== this.checklist.length) {
+        console.log(checklistvalue);
+        console.log('select alll check list');
+        this.checklistError = true;
+        return;
+      }
+    }
+
+    if (this.category == 'Unpledge') {
+      let checklistvalue: any = [];
+      this.checklist.map((item: any) => {
+        if (item.value == 0 || item.value == 1) {
+          checklistvalue.push('');
+          return;
+        }
+      });
+      if (checklistvalue.length !== this.checklist.length) {
+        console.log(checklistvalue);
+        console.log('select alll check list');
+        this.checklistError = true;
+        return;
+      }
+    }
+
     this.resubmitted = false;
+    this.checklistError = false;
 
     this.modalRef2 = this.modalService.show(
       template,
@@ -278,12 +351,14 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       // InvestmentId: 1490,
       // UserId: this.showData.userId,
       InvestmentId: this.showData.investmentID,
+      Doctype: '',
       UserId: this.showData.userId,
     };
 
     if (this.category == 'Pledge') {
       input = {
-        InvestmentId: +this.pledgeId,
+        Pledgeid: +this.pledgeId,
+        InvestmentId: +this.showData.investmentID,
         UserId: +this.showData.userId,
         Doctype: 'pledge',
       };
@@ -291,9 +366,10 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
 
     if (this.category == 'Unpledge') {
       input = {
-        InvestmentId: +this.pledgeId,
+        InvestmentId: +this.showData.investmentID,
+        Pledgeid: +this.pledgeId,
         UserId: +this.showData.userId,
-        Doctype: 'unpledge',
+        Doctype: 'pledge',
       };
     }
 
@@ -333,23 +409,28 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       UserId: this.showData.userId,
       Remark: this.comment,
       type: 'save',
+      RequestType: 'Cams',
+      PledgeId: 0,
     };
 
     if (this.category == 'Pledge') {
       input = {
         InvestmentId: this.showData.investmentID,
         UserId: this.showData.userId,
-        Remarks: this.comment,
-        type: 'save',
+        Remark: this.comment,
+        type: '',
         RequestType: 'pledge',
         PledgeId: +this.pledgeId,
         checkList: [],
       };
+      console.log('default checklist', this.checklist);
       this.checklist.map((item: any) => {
-        return input.checkList.push({
-          checkListId: item.checkListId,
-          checkListVal: +item.value,
-        });
+        if (item.value == 0 || item.value == 1) {
+          return input.checkList.push({
+            checkListId: item.checkListId,
+            checkListVal: +item.value,
+          });
+        }
       });
     }
 
@@ -357,21 +438,27 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       input = {
         InvestmentId: this.showData.investmentID,
         UserId: this.showData.userId,
-        Remarks: this.comment,
-        type: 'save',
+        Remark: this.comment,
+        type: '',
         RequestType: 'unpledge',
         PledgeId: +this.pledgeId,
         checkList: [],
       };
       this.checklist.map((item: any) => {
-        return input.checkList.push({
-          checkListId: item.checkListId,
-          checkListVal: +item.value,
-        });
+        if (item.value == 0 || item.value == 1) {
+          return input.checkList.push({
+            checkListId: item.checkListId,
+            checkListVal: +item.value,
+          });
+        }
       });
     }
 
     console.log(input);
+
+    // have to rearrage after fixing issue
+
+    // testing
 
     // console.log(input);
     // setTimeout(() => {
@@ -381,6 +468,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
     this.authservice.submit(input).subscribe(
       (res) => {
         // console.log(res);
+        this.showsavedSuccessfully(this.savedSuccessfully);
         let data: any = localStorage.getItem('userdetails');
         let userDetails = JSON.parse(data);
         let logsinput = {
@@ -403,23 +491,27 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       UserId: this.showData.userId,
       Remark: this.comment,
       type: 'recheck',
+      RequestType: 'Cams',
+      PledgeId: 0,
     };
 
     if (this.category == 'Pledge') {
       input = {
         InvestmentId: this.showData.investmentID,
         UserId: this.showData.userId,
-        Remarks: this.comment,
+        Remark: this.comment,
         type: 'recheck',
         RequestType: 'pledge',
         PledgeId: +this.pledgeId,
         checkList: [],
       };
       this.checklist.map((item: any) => {
-        return input.checkList.push({
-          checkListId: item.checkListId,
-          checkListVal: +item.value,
-        });
+        if (item.value == 0 || item.value == 1) {
+          return input.checkList.push({
+            checkListId: item.checkListId,
+            checkListVal: +item.value,
+          });
+        }
       });
     }
 
@@ -427,26 +519,29 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       input = {
         InvestmentId: this.showData.investmentID,
         UserId: this.showData.userId,
-        Remarks: this.comment,
+        Remark: this.comment,
         type: 'recheck',
         RequestType: 'unpledge',
         PledgeId: +this.pledgeId,
         checkList: [],
       };
       this.checklist.map((item: any) => {
-        return input.checkList.push({
-          checkListId: item.checkListId,
-          checkListVal: +item.value,
-        });
+        if (item.value == 0 || item.value == 1) {
+          return input.checkList.push({
+            checkListId: item.checkListId,
+            checkListVal: +item.value,
+          });
+        }
       });
     }
 
     console.log(input);
 
-
     this.authservice.submit(input).subscribe(
       (res) => {
         // console.log(res);
+        this.showSuccessfullyResubmitModal(this.ReSubmit);
+
         let data: any = localStorage.getItem('userdetails');
         let userDetails = JSON.parse(data);
         let logsinput = {
@@ -467,25 +562,29 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
     let input: any = {
       InvestmentId: this.showData.investmentID,
       UserId: this.showData.userId,
-      Remarks: this.comment,
+      Remark: this.comment,
       type: 'approve',
+      RequestType: 'Cams',
+      PledgeId: 0,
     };
 
     if (this.category == 'Pledge') {
       input = {
         InvestmentId: this.showData.investmentID,
         UserId: this.showData.userId,
-        Remarks: this.comment,
+        Remark: this.comment,
         type: 'approve',
         RequestType: 'pledge',
         PledgeId: +this.pledgeId,
         checkList: [],
       };
       this.checklist.map((item: any) => {
-        return input.checkList.push({
-          checkListId: item.checkListId,
-          checkListVal: +item.value,
-        });
+        if (item.value == 0 || item.value == 1) {
+          return input.checkList.push({
+            checkListId: item.checkListId,
+            checkListVal: +item.value,
+          });
+        }
       });
     }
 
@@ -493,24 +592,27 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       input = {
         InvestmentId: this.showData.investmentID,
         UserId: this.showData.userId,
-        Remarks: this.comment,
+        Remark: this.comment,
         type: 'approve',
         RequestType: 'unpledge',
         PledgeId: +this.pledgeId,
         checkList: [],
       };
       this.checklist.map((item: any) => {
-        return input.checkList.push({
-          checkListId: item.checkListId,
-          checkListVal: +item.value,
-        });
+        if (item.value == 0 || item.value == 1) {
+          return input.checkList.push({
+            checkListId: item.checkListId,
+            checkListVal: +item.value,
+          });
+        }
       });
     }
-    console.log(input);
 
+    console.log(input);
 
     this.authservice.submit(input).subscribe(
       (res) => {
+        this.showVerifiedModal(this.verified);
         // console.log(res);
         let data: any = localStorage.getItem('userdetails');
         let userDetails = JSON.parse(data);
@@ -550,13 +652,35 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       (res) => {
         this.pledgeData = res[0];
         console.log('pledge data', this.pledgeData);
-        this.getChecklst();
+        this.getUnpledgeinvestordata();
+
+        this.getChecklst(data);
+        this.getChecklist2(data);
       },
       (err) => {}
     );
   }
 
-  getChecklst() {
+  getUnpledgeinvestordata() {
+    this.authservice.irdashboardData().subscribe(
+      (res) => {
+        let irdata = res;
+        let output = irdata.filter((item: any) => {
+          return (
+            item.pan == this.pledgeData.pan &&
+            item.folioNo == this.pledgeData.folioNo &&
+            item.fundId == this.pledgeData.fundId &&
+            item.financerName == this.pledgeData.financerName &&
+            item.requestStatus == 'Done'
+          );
+        });
+        console.log('irdata and filterdata', irdata, output);
+      },
+      (err) => {}
+    );
+  }
+
+  async getChecklst(id: any) {
     let input = {
       ListType: this.category,
     };
@@ -564,7 +688,9 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
     this.authservice.irChecklist(input).subscribe(
       (res) => {
         this.checklist = res;
+
         console.log(res, 'checklist');
+        this.getChecklist2(id);
       },
       (err) => {}
     );
@@ -572,5 +698,34 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
 
   consolecheck() {
     console.log(this.checklist);
+  }
+
+  getChecklist2(id: any) {
+    let input = {
+      ListType: this.category,
+      PledgeId: +id,
+    };
+
+    this.authservice.irChecklistwithId(input).subscribe(
+      (res) => {
+        if (res.length == 0) {
+          // this.getChecklst();
+        }
+        if (res.length !== 0) {
+          let reponse = res;
+          // this.checklist = res;
+
+          this.checklist.forEach((item: any, index: any) => {
+            item.value =
+              reponse[
+                reponse.findIndex((i: any) => i.checkListId == item.checkListId)
+              ].checkListValue.toString();
+          });
+        }
+
+        console.log('checklist preselect', this.checklist);
+      },
+      (err) => {}
+    );
   }
 }

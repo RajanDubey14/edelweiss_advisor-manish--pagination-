@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthServiceService } from '../auth-service.service';
+import { UpdateComponent } from '../update/update.component';
+import { DatashareService } from '../datashare.service';
 
 @Component({
   selector: 'app-update-otp',
@@ -9,6 +11,11 @@ import { AuthServiceService } from '../auth-service.service';
   styleUrls: ['./update-otp.component.css'],
 })
 export class UpdateOtpComponent implements OnInit {
+  Userdataraw: any = localStorage.getItem('userdetails');
+  Userdata: any = JSON.parse(this.Userdataraw);
+  Userfundsraw: any = localStorage.getItem('userFunds');
+  Userfunds: any = JSON.parse(this.Userfundsraw);
+  userDetails: any;
   registerForm: FormGroup;
   showSuccessSignin = false;
   submitted = false;
@@ -21,22 +28,17 @@ export class UpdateOtpComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.checkLogin();
     this.registerForm = this.formBuilder.group({
       otp: ['', [Validators.required, Validators.pattern('[0-9 ]{4}')]],
     });
     this.getAdmin(null);
-  }
-
-  checkLogin() {
-    const token = localStorage.getItem('session-token');
-    if (token) {
-      this.router.navigate(['dashboard']);
-    }
+    this.getUserDetails();
+    console.log('userdata', this.Userdata);
+    console.log('userfunds', this.Userfunds);
   }
 
   getAdmin(data: null) {
-    let details: any = localStorage.getItem('singupResponse');
+    let details: any = localStorage.getItem('UpdateResponse');
     let adminDetails = JSON.parse(details);
     this.authservice.getAdminList(data).subscribe(
       (res) => {
@@ -67,13 +69,8 @@ export class UpdateOtpComponent implements OnInit {
     this.verify();
   }
 
-  test() {
-    let data: any = localStorage.getItem('userdetails');
-    let session = JSON.parse(data);
-    console.log(session);
-  }
   resendOtp() {
-    let data: any = localStorage.getItem('singupDetails');
+    let data: any = localStorage.getItem('UpdateDetails');
     let userDetails = JSON.parse(data);
     let input = {
       email: userDetails.email,
@@ -98,33 +95,37 @@ export class UpdateOtpComponent implements OnInit {
   }
 
   verify() {
-    let data: any = localStorage.getItem('singupDetails');
-    let userDetails = JSON.parse(data);
+    let data: any = localStorage.getItem('UpdateDetails');
+    let userDetailsLocal = JSON.parse(data);
     let input = {
-      otp: Number(this.f.otp.value),
-      email: userDetails.email,
-      adminid: userDetails.adminid,
-      name: userDetails.name,
-      Action: userDetails.Action,
-      fundList: userDetails.fundList,
+      OTP: Number(this.f.otp.value),
+      email: this.userDetails.email,
+      AdminId: userDetailsLocal.adminid,
+      Name: this.userDetails.name,
+      UserId: this.userDetails.id,
+      userFundsLists: userDetailsLocal.fundList,
     };
-    console.log('verify otp', input);
 
-    this.authservice.verifySignupOtp(input).subscribe(
+    console.log('update funds input ', input);
+
+    this.authservice.updateProfileSetUserFunds(input).subscribe(
       (res) => {
-        console.log(res);
+        localStorage.removeItem('UpdateDetails');
+        localStorage.removeItem('UpdateResponse');
+        console.log('update profile response', res);
         let loginput = {
           UserId: 0,
-          EmailId: userDetails.email,
-          ActivityType: 'SignUp',
+          EmailId: this.userDetails.email,
+          ActivityType: 'Updateprofile',
           InvestmentId: '',
         };
         this.logs(loginput);
-        this.showSuccessSignin = true;
-        //localStorage.setItem('session-token', res.token);
-        setTimeout(() => {
-          this.router.navigate(['login']);
-        }, 3000);
+        this.router.navigate(['dashboard']);
+        // this.showSuccessSignin = true;
+        // //localStorage.setItem('session-token', res.token);
+        // setTimeout(() => {
+        //   this.router.navigate(['dashboard']);
+        // }, 3000);
       },
       (err) => {
         this.invalidOtp = true;
@@ -143,5 +144,42 @@ export class UpdateOtpComponent implements OnInit {
         console.log(err.error);
       }
     );
+  }
+  getUserDetails() {
+    let input = {
+      UserId: +this.Userdata.userUuid,
+    };
+    this.authservice.updateProfileGetDetails(input).subscribe(
+      (res) => {
+        this.userDetails = res[0];
+
+        console.log('user details ', this.userDetails);
+      },
+      (err) => {}
+    );
+  }
+
+  updatefunds() {
+    let input = {
+      UserId: this.userDetails.id,
+      Name: this.userDetails.name,
+      emailId: this.userDetails.email,
+      userFundsLists: [{}],
+    };
+    this.Userfunds.map((item: any) => {
+      input.userFundsLists.push({ fundId: item });
+    });
+
+    console.log('input for update funds', input);
+    return;
+
+    this.authservice.updateProfileSetUserFunds(input).subscribe(
+      (res) => {},
+      (err) => {}
+    );
+  }
+
+  testdatapass() {
+    console.log('its works');
   }
 }

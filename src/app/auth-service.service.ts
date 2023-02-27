@@ -57,6 +57,11 @@ export class AuthServiceService {
       'https://uatapis.edelweissalternatives.com/v1/api/Fund/getSwiftChildFund'
     );
   }
+  getAllfundListDashboard(): Observable<any> {
+    return this.http.get(
+      'https://uatapis.edelweissalternatives.com/swiftapi/api/v1/cams/getApplicationFunds'
+    );
+  }
 
   getAdminList(data: null): Observable<any> {
     return this.http.post(
@@ -89,6 +94,12 @@ export class AuthServiceService {
   getCategories(): Observable<any> {
     return this.http.get(
       `https://uatapis.edelweissalternatives.com/swiftapi/api/v1/cams/ApplicationCategories`
+    );
+  }
+  getDomain(): Observable<any> {
+    return this.http.post(
+      `https://uatapis.edelweissalternatives.com/swiftapi/api/v1/cams/getCamsEmailDomains`,
+      null
     );
   }
   getApplication(id: any): Observable<any> {
@@ -140,6 +151,43 @@ export class AuthServiceService {
     return this.http.post(
       'https://uatapis.edelweissalternatives.com/swiftapi/api/v1/cams/getPledgeUnpledgeCheckListMaster',
       data
+    );
+  }
+  irChecklistwithId(data: any): Observable<any> {
+    return this.http.post(
+      'https://uatapis.edelweissalternatives.com/swiftapi/api/v1/cams/getPledgeUnpledgeCheckListById',
+      data
+    );
+  }
+  updateProfileGetDetails(data: any): Observable<any> {
+    return this.http.post(
+      'https://uatapis.edelweissalternatives.com/swiftapi/api/v1/cams/getUserMasterDetails',
+      data
+    );
+  }
+  updateProfileGetUserFunds(data: any): Observable<any> {
+    return this.http.post(
+      'https://uatapis.edelweissalternatives.com/swiftapi/api/v1/cams/getUserMasterDetails',
+      data
+    );
+  }
+  updateProfileGetAllFunds(data: any): Observable<any> {
+    return this.http.post(
+      'https://uatapis.edelweissalternatives.com/swiftapi/api/v1/cams/getUserFundsIds',
+      data
+    );
+  }
+  updateProfileSetUserFunds(data: any): Observable<any> {
+    return this.http.post(
+      'https://uatapis.edelweissalternatives.com/swiftapi/api/v1/cams/updateUserDetails',
+      data
+    );
+  }
+
+  irdashboardData(): Observable<any> {
+    return this.http.post(
+      'https://uatapis.edelweissalternatives.com/swiftapi/api/v1/Pledge/getPledeUnpledgeRquestListIR',
+      null
     );
   }
 }

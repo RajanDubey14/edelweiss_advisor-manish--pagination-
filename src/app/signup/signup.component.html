@@ -67,7 +67,8 @@
                   [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
                   style="border: 0px solid !important"
                 />
-                <span
+
+                <!-- <span
                   style="
                     padding-right: 10px;
                     margin: auto;
@@ -75,7 +76,45 @@
                     font-size: 17px;
                   "
                   >@camsonline.com</span
+                > -->
+
+                <ng-select
+                  placeholder="Select Domain"
+                  [items]="DomainList"
+                  bindLabel="emailDomain"
+                  bindValue="emailDomain"
+                  formControlName="domain"
+                  [multiple]="false"
+                  class="form-control input-style"
+                  clearAllText="Clear"
+                  [clearable]="false"
+                  style="border: none !important"
                 >
+                </ng-select>
+
+                <!-- <select>
+                  <option value="" default>Select Domain</option>
+                  <option
+                    *ngFor="let domain of DomainList"
+                    [value]="domain"
+                    style="font-size: 18px"
+                  >
+                    {{ domain }}
+                  </option>
+                </select> -->
+                <!-- <ng-select
+                  [items]="DomainList"
+                  placeholder="Select Domain"
+                  formControlName="fund"
+                  class="form-control input-style"
+                  style="
+                    padding-right: 10px;
+                    margin: auto;
+                    color: #212529;
+                    font-size: 17px;
+                  "
+                >
+                </ng-select> -->
               </div>
               <div
                 *ngIf="submitted && f.email.errors"
@@ -115,7 +154,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <ng-select
-                    [items]="fundList"
+                    [items]="fundlistfordomain"
                     placeholder="Select Fund"
                     bindLabel="fundName"
                     bindValue="fundID"
@@ -125,7 +164,10 @@
                     clearAllText="Clear"
                     [clearable]="false"
                   >
-                    <!-- <ng-template ng-label-tmp let-item="item">
+                    <ng-template ng-label-tmp let-item="item" let-clear="clear">
+                      <span class="ng-value-icon right" (click)="clear(item)"
+                        >×</span
+                      >
                       <span
                         class="ng-value-label"
                         [attr.title]="item.fundName"
@@ -138,7 +180,7 @@
                         [attr.title]="item.fundName"
                         >{{ item.fundName }}</span
                       >
-                    </ng-template> -->
+                    </ng-template>
                   </ng-select>
                   <div *ngIf="submitted && f.fund.errors" class="">
                     <div *ngIf="f.fund.errors.required">
@@ -160,7 +202,7 @@
                 <div class="form-group">
                   <ng-select
                     placeholder="Select Admin"
-                    [items]="adminList"
+                    [items]="adminListdomain"
                     bindLabel="name"
                     bindValue="id"
                     formControlName="admin"

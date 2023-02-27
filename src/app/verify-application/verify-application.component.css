@@ -82,15 +82,14 @@ hr.style1 {
   text-align: center;
 }
 
-
-.thead th{
+.thead th {
   font-size: 12px;
   font-weight: 600;
   font-family: sans-serif;
   text-transform: uppercase;
 }
 
-.tbody td{
+.tbody td {
   font-size: 14px;
   font-family: sans-serif;
   text-transform: capitalize;
@@ -107,7 +106,6 @@ hr.style1 {
   background: #ddd;
   padding: 5px;
 }
-
 
 .comment-box {
   margin-top: 1%;
@@ -133,7 +131,7 @@ hr.style1 {
 }
 
 .buttons {
-  margin-right: 2%;
+  margin-right: 1%;
 }
 
 .submit-btns {
@@ -178,26 +176,22 @@ hr.style1 {
   text-transform: capitalize;
   box-shadow: 0px 2.5px 2.5px 0.5px #ccc;
   border: 1px solid #d1cfcf;
-
 }
-
-
-
 
 .btn-white {
   background-color: #ffffff;
   color: #5a607f;
-  border: 1px solid #d7dbec;
+  /* border: 1px solid #d7dbec; */
 }
 
-.comment_label{
-   font-size: 12px;
-   font-family: sans-serif;
-   font-weight: 500;
-   padding: 10px;
+.comment_label {
+  font-size: 12px;
+  font-family: sans-serif;
+  font-weight: 500;
+  padding: 10px;
 }
 
-.comment_textarea{
+.comment_textarea {
   font-size: 14px;
   font-family: sans-serif;
 }
@@ -261,23 +255,19 @@ hr.style1 {
 }
 
 .pledge_heading {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 600;
-  margin-left: 2%;
-  padding: 1%;
   font-family: sans-serif;
 }
-
 
 .sub_heading {
   font-size: 14px;
   font-family: sans-serif;
   margin-top: 6px;
-
 }
 
 .pdf-header {
-  background: #1d409d;
+  background: #034ea2;
   display: flex;
   justify-content: space-between;
   place-items: center;
@@ -333,9 +323,6 @@ hr.style1 {
   width: 100% !important;
 }
 
-
-
-
 /* .sub_heading {
   font-size: 14px;
   margin-top: 6px;
@@ -343,7 +330,7 @@ hr.style1 {
 
 } */
 .sub_heading2 {
-  font-size: 12px;
+  font-size: 14px;
   font-family: sans-serif;
   font-weight: 500;
   margin-top: 1%;
@@ -357,8 +344,14 @@ hr.style1 {
 }
 
 .pledge_content_p {
-  font-size: 14px;
-  margin-left: 1%;
+  font-size: 13px;
+  font-weight: 600;
+  /* margin-left: 1%; */
+}
+
+.pledge_content_p1 {
+  font-size: 13px;
+  margin-left: 3px;
 }
 
 .pledge_check_content {
@@ -378,10 +371,9 @@ hr.style1 {
   font-size: 14px;
   height: 2.5em;
   padding: 5px;
-  box-shadow: 0px 2.5px 2.5px 0.5px #ccc;
+  /* box-shadow: 0px 2.5px 2.5px 0.5px #ccc; */
   border: 1px solid #d1cfcf;
   background-color: #fff;
-
 }
 .inputfields_pledge2 {
   width: 18em;
@@ -390,11 +382,9 @@ hr.style1 {
   font-size: 14px;
   height: 2.5em;
   padding: 5px;
-  box-shadow: 0px 2.5px 2.5px 0.5px #ccc;
+  /* box-shadow: 0px 2.5px 2.5px 0.5px #ccc; */
   border: 1px solid #d1cfcf;
   background-color: #fff;
-
-
 }
 
 .selectfields_pledge {
@@ -404,11 +394,9 @@ hr.style1 {
   font-family: sans-serif;
   font-size: 14px;
   padding: 5px;
-  box-shadow: 0px 2.5px 2.5px 0.5px #ccc;
+  /* box-shadow: 0px 2.5px 2.5px 0.5px #ccc; */
   border: 1px solid #d1cfcf;
   background-color: #fff;
-
-
 }
 
 .inputfields_pledge3 {
@@ -418,11 +406,9 @@ hr.style1 {
   font-family: sans-serif;
   font-size: 14px;
   padding: 5px;
-  box-shadow: 0px 2.5px 2.5px 0.5px #ccc;
+  /* box-shadow: 0px 2.5px 2.5px 0.5px #ccc; */
   border: 1px solid #d1cfcf;
   background-color: #fff;
-
-
 }
 
 .inputfields_account_type {
@@ -432,11 +418,9 @@ hr.style1 {
   font-size: 14px;
   height: 2.5em;
   border-radius: 5px;
-  box-shadow: 0px 2.5px 2.5px 0.5px #ccc;
+  /* box-shadow: 0px 2.5px 2.5px 0.5px #ccc; */
   border: 1px solid #d1cfcf;
   background-color: #fff;
-
-
 }
 
 .selectfields_account_type {
@@ -446,13 +430,10 @@ hr.style1 {
   border-radius: 5px;
   font-family: sans-serif;
   font-size: 14px;
-  box-shadow: 0px 2.5px 2.5px 0.5px #ccc;
+  /* box-shadow: 0px 2.5px 2.5px 0.5px #ccc; */
   border: 1px solid #d1cfcf;
   background-color: #fff;
-
-
 }
-
 
 .inputfields_unpledge2 {
   width: 15em;
@@ -461,11 +442,9 @@ hr.style1 {
   font-family: sans-serif;
   font-size: 14px;
   padding: 5px;
-  box-shadow: 0px 2.5px 2.5px 0.5px #ccc;
+  /* box-shadow: 0px 2.5px 2.5px 0.5px #ccc; */
   border: 1px solid #d1cfcf;
   background-color: #fff;
-
-
 }
 
 .selectfields_unpledge {
@@ -475,37 +454,33 @@ hr.style1 {
   font-family: sans-serif;
   font-size: 14px;
   padding: 5px;
-  box-shadow: 0px 2.5px 2.5px 0.5px #ccc;
+  /* box-shadow: 0px 2.5px 2.5px 0.5px #ccc; */
   border: 1px solid #d1cfcf;
   background-color: #fff;
-
-
 }
 
-.selectfields_unpledge2{
+.selectfields_unpledge2 {
   width: 17em;
   height: 2.5em !important;
   border-radius: 5px;
   font-family: sans-serif;
   font-size: 14px;
   padding: 5px;
-  box-shadow: 0px 2.5px 2.5px 0.5px #ccc;
+  /* box-shadow: 0px 2.5px 2.5px 0.5px #ccc; */
   border: 1px solid #d1cfcf;
   background-color: #fff;
-
 }
 
-.inputfields_unpledge2{
+.inputfields_unpledge2 {
   width: 17em;
   height: 2.5em !important;
   border-radius: 5px;
   font-family: sans-serif;
   font-size: 14px;
   padding: 5px;
-  box-shadow: 0px 2.5px 2.5px 0.5px #ccc;
+  /* box-shadow: 0px 2.5px 2.5px 0.5px #ccc; */
   border: 1px solid #d1cfcf;
   background-color: #fff;
-
 }
 
 @media screen and (max-width: 1760px) {
@@ -516,7 +491,6 @@ hr.style1 {
     width: 15em;
   }
 }
-
 
 @media screen and (max-width: 1700px) {
   .inputfields_pledge {
@@ -541,25 +515,21 @@ hr.style1 {
     width: 12em;
   }
 
-
-
   .inputfields_unpledge2 {
     width: 12em;
-
   }
 
   .selectfields_unpledge {
     width: 12em;
   }
 
-  .selectfields_unpledge2{
+  .selectfields_unpledge2 {
     width: 15em;
   }
 
-  .inputfields_unpledge2{
+  .inputfields_unpledge2 {
     width: 15em;
   }
-
 }
 
 @media screen and (max-width: 1560px) {
@@ -588,7 +558,6 @@ hr.style1 {
     margin-right: 1%;
   }
 
-
   .selectfields_account_type {
     width: 14em;
   }
@@ -596,100 +565,84 @@ hr.style1 {
     width: 14em;
   }
 
-
   .inputfields_unpledge2 {
     width: 10em;
-
   }
 
   .selectfields_unpledge {
     width: 10em;
   }
 
-  .selectfields_unpledge2{
+  .selectfields_unpledge2 {
     width: 13em;
   }
 
-  .inputfields_unpledge2{
+  .inputfields_unpledge2 {
     width: 13em;
   }
 }
 
 @media screen and (max-width: 1218px) {
-
   .inputfields_unpledge2 {
     width: 11em;
-
   }
 
   .selectfields_unpledge {
     width: 11em;
   }
 
-  .selectfields_unpledge2{
+  .selectfields_unpledge2 {
     width: 11em;
   }
 
-  .inputfields_unpledge2{
+  .inputfields_unpledge2 {
     width: 11em;
   }
 }
-
-
-
 
 @media screen and (max-width: 1190px) {
   .inputfields_account_type {
     width: 15em;
-
   }
 
   .selectfields_account_type {
     width: 15em;
-
   }
 
   .inputfields_unpledge2 {
     width: 15em;
-
   }
 
   .selectfields_unpledge {
     width: 18em;
   }
 
-  .selectfields_unpledge2{
+  .selectfields_unpledge2 {
     width: 18em;
   }
 
-  .inputfields_unpledge2{
+  .inputfields_unpledge2 {
     width: 18em;
   }
 }
-
 
 @media screen and (max-width: 1120px) {
-
-
   .inputfields_unpledge2 {
     width: 10em;
-
   }
 
   .selectfields_unpledge {
     width: 15em;
   }
 
-  .selectfields_unpledge2{
+  .selectfields_unpledge2 {
     width: 15em;
   }
 
-  .inputfields_unpledge2{
+  .inputfields_unpledge2 {
     width: 15em;
   }
 }
-
-
 
 @media screen and (max-width: 998px) {
   .inputfields_pledge {
@@ -738,48 +691,40 @@ hr.style1 {
     border-radius: 5px;
   }
 
-
-
   .inputfields_unpledge2 {
     width: 20em;
-
   }
 
   .selectfields_unpledge {
     width: 20em;
   }
 
-  .selectfields_unpledge2{
+  .selectfields_unpledge2 {
     width: 20em;
   }
 
-  .inputfields_unpledge2{
+  .inputfields_unpledge2 {
     width: 20em;
   }
 }
-
 
 @media screen and (max-width: 760px) {
-
-
   .inputfields_unpledge2 {
     width: 24em;
-
   }
 
   .selectfields_unpledge {
     width: 24em;
   }
 
-  .selectfields_unpledge2{
+  .selectfields_unpledge2 {
     width: 24em;
   }
 
-  .inputfields_unpledge2{
+  .inputfields_unpledge2 {
     width: 24em;
   }
 }
-
 
 @media screen and (max-width: 720px) {
   .inputfields_pledge {
@@ -800,7 +745,6 @@ hr.style1 {
 
   .selectfields_account_type {
     width: 24em;
-
   }
   .inputfields_pledge3 {
     width: 24em;
@@ -813,10 +757,13 @@ hr.style1 {
 @media screen and (max-width: 450px) {
 }
 
-
 .unpledge_check_content_p {
   font-size: 14px;
-  font-family: sans-serif;
-  font-weight: 200;
+  font-weight: 500;
 }
 
+.star {
+  color: red;
+  font-size: 14px;
+  margin-left: 1px;
+}

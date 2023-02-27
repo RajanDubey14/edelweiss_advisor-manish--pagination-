@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   invalidEmail = false;
+  domain: any;
+  DomainList: any = ['@camsonline.com', '@kfintech.com', '@gmail.com'];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,11 +31,12 @@ export class LoginComponent implements OnInit {
           // Validators.email,
           // Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
           // Validators.pattern('^[a-z0-9._%+-]+@camsonline.com$'),
-          Validators.pattern('^[a-z0-9._%+-]+$'),
+          Validators.pattern('^[a-zA-Z0-9._-]+$'),
           Validators.minLength(5),
           Validators.maxLength(100),
         ],
       ],
+      domain: [null, [Validators.required]],
     });
   }
 
@@ -53,7 +56,9 @@ export class LoginComponent implements OnInit {
     // console.log(this.registerForm.controls);
     if (this.registerForm.invalid) {
       // stop here if form is invalid
-      console.log(this.f.email);
+      console.log('invalid', this.f.email);
+      console.log('invalid', this.f.domain);
+
       return;
     }
     console.log(this.f.email);
@@ -64,9 +69,11 @@ export class LoginComponent implements OnInit {
   login() {
     let input = {
       action: 'login',
-      email: this.f.email.value + '@camsonline.com',
+      email: this.f.email.value + this.f.domain.value,
+      // email: 'raghvendra@binmile.com',
     };
     console.log(input);
+
     this.authservice.login(input).subscribe(
       (res) => {
         this.invalidEmail = false;
@@ -91,6 +98,18 @@ export class LoginComponent implements OnInit {
       },
       (err) => {
         this.invalidEmail = true;
+        console.log(err.error);
+      }
+    );
+  }
+
+  getAllDomain() {
+    this.authservice.getDomain().subscribe(
+      (res) => {
+        this.DomainList = res;
+        console.log('all domain', this.DomainList);
+      },
+      (err) => {
         console.log(err.error);
       }
     );

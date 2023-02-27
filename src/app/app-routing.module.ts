@@ -9,6 +9,7 @@ import { SignupComponent } from './signup/signup.component';
 import { VerifyApplicationComponent } from './verify-application/verify-application.component';
 import { AuthGuard } from './auth.guard';
 import { UpdateComponent } from './update/update.component';
+import { UpdateOtpComponent } from './update-otp/update-otp.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'update',
     component: UpdateComponent,
+  },
+  {
+    path: 'update-otp',
+    component: UpdateOtpComponent,
   },
   {
     path: 'confirm-otp',

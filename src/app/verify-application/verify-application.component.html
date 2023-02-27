@@ -1,12 +1,12 @@
 <div class="display">
   <app-header></app-header>
 
-  <div class="container-fluid" style="padding: 2%">
+  <div class="container-fluid">
     <div class="row">
       <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div
           class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 tableCard card"
-          style="margin-bottom: 15px; margin-top: 15px"
+          style="margin-bottom: 4px"
         >
           <div class="table-container">
             <table class="table table-borderless mb-0">
@@ -96,61 +96,53 @@
                 *ngIf="category == 'Pledge'"
                 class="pdf-container scrollbar"
                 id="custumscroll"
-                style="padding: 1% ; background-color: #F3F3F9;"
-
+                style="padding: 1%; background-color: #f3f3f9"
               >
-
-                  <div style="background-color: #ffffff">
+                <div style="background-color: #ffffff">
+                  <div
+                    class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                    style="padding: 10px"
+                  >
+                    <p class="pledge_heading">PLEDGE</p>
                     <div
                       class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                      style="background-color: #ffffff;"
+                      style="display: flex"
                     >
-                      <p class="pledge_heading">PLEDGE</p>
+                      <div class="sub_heading_img">
+                        <img
+                          class="edelWeisslogo"
+                          style="width: 80%; height: 80%"
+                          src="assets/images/pledgeicon.svg"
+                          alt="logo"
+                        />
+                      </div>
+                      <div style="margin-top: 4px">
+                        <p class="sub_heading">Investor details</p>
+                      </div>
                     </div>
 
-                    <div
-                      class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                      style="padding: 2%"
-                    >
+                    <div class="row">
                       <div
-                        class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                        style="display: flex"
+                        class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
                       >
-                        <div class="sub_heading_img">
-                          <img
-                            class="edelWeisslogo"
-                            style="width: 80%; height: 80%"
-                            src="assets/images/pledgeicon.svg"
-                            alt="logo"
-                          />
-                        </div>
-                        <div>
-                          <p class="sub_heading">Investor details</p>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <div
-                          class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
-                        >
-                          <div class="row">
-                            <div
-                              class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12"
-                            >
-                              <div class="sub_heading2">Enter Folio Number</div>
-                              <div>
-                                <input
-                                  type="email"
-                                  class="inputfields_pledge2"
-                                  name="loginEmail"
-                                  id="loginEmail"
-                                  [value]="pledgeData.folioNo"
-                                  [readOnly]="true"
-                                />
-                              </div>
+                        <div class="row">
+                          <div
+                            class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12"
+                          >
+                            <div class="sub_heading2">Enter Folio Number</div>
+                            <div>
+                              <input
+                                type="email"
+                                class="inputfields_pledge2"
+                                name="loginEmail"
+                                id="loginEmail"
+                                [value]="pledgeData.folioNo"
+                                [readOnly]="true"
+                              />
                             </div>
+                          </div>
 
-                            <!-- <div
+                          <!-- <div
                               class="col col-xxl-1 col-xl-1 col-lg-1 col-md-1 col-sm-12"
                               style="align-self: center"
                             >
@@ -166,196 +158,198 @@
                               </div>
                             </div> -->
 
-                            <div
-                              class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12"
-                            >
-                              <div class="sub_heading2">PAN Number</div>
-                              <div>
-                                <input
-                                  type="email"
-                                  class="inputfields_pledge"
-                                  name="loginEmail"
-                                  id="loginEmail"
-                                  [value]="pledgeData.pan"
-                                  [readOnly]="true"
-                                />
-                              </div>
-                            </div>
-
-                            <div
-                              class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12"
-                            >
-                              <div class="sub_heading2">Fund</div>
-                              <div>
-                                <select class="selectfields_pledge">
-                                  <option selected>
-                                    {{ pledgeData.fundName }}
-                                  </option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div
-                        class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
-                        style="
-                          background-color: #f7f7f7;
-                          margin-top: 2%;
-                          margin-bottom: 2%;
-                          padding: 1%;
-                        "
-                      >
-                        <div class="row pledge_content">
                           <div
-                            class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
-                            style="display: flex"
+                            class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12"
                           >
-                            <div class="pledge_content_p">Investor Name :</div>
-                            <div class="pledge_content_p">
-                              {{
-                                pledgeData.firstName +
-                                  " " +
-                                  pledgeData.middleName +
-                                  " " +
-                                  pledgeData.lastName
-                              }}
-                            </div>
-                          </div>
-
-                          <div
-                            class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
-                            style="display: flex"
-                          >
-                            <div class="pledge_content_p">Commitment :</div>
-                            <div class="pledge_content_p">
-                              {{ pledgeData.commitmentAmount }}
-                            </div>
-                          </div>
-                          <div
-                            class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
-                            style="display: flex"
-                          >
-                            <div class="pledge_content_p">Unit Class :</div>
-                            <div class="pledge_content_p">
-                              {{ pledgeData.class }}
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="row pledge_content">
-                          <div
-                            class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
-                            style="display: flex"
-                          >
-                            <div class="pledge_content_p">Total Unit :</div>
-                            <div class="pledge_content_p">
-                              {{ pledgeData.totalUnits }}
-                            </div>
-                          </div>
-
-                          <div
-                            class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
-                            style="display: flex"
-                          >
-                            <div class="pledge_content_p">
-                              Total Pledged Units :
-                            </div>
-                            <div class="pledge_content_p">
-                              {{ pledgeData.unitsPledgeUnpledge }}
-                            </div>
-                          </div>
-                          <div
-                            class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
-                            style="display: flex"
-                          >
-                            <div class="pledge_content_p">
-                              Available Units :
-                            </div>
-                            <div class="pledge_content_p">
-                              {{ pledgeData.unitsAvailable }}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <hr style="margin-top: 2%; margin-bottom: 1%" />
-
-                    <div
-                      class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                      style="padding: 2%"
-                    >
-                      <div
-                        class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                        style="display: flex"
-                      >
-                        <div class="sub_heading_img">
-                          <img
-                            class="edelWeisslogo"
-                            style="width: 85%; height: 85%"
-                            src="assets/images/pledgeicon.svg"
-                            alt="logo"
-                          />
-                        </div>
-                        <div>
-                          <p class="sub_heading">Unit to Pledge</p>
-                        </div>
-                      </div>
-
-                      <div>
-                        <div
-                          class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
-                          style="display: flex; justify-content: space-between"
-                        >
-                          <div>
-                            <div class="sub_heading2">
-                              Enter Unit to be Pledge
-                            </div>
+                            <div class="sub_heading2">PAN Number</div>
                             <div>
                               <input
                                 type="email"
-                                class="inputfields_pledge2"
+                                class="inputfields_pledge"
                                 name="loginEmail"
                                 id="loginEmail"
-                                [value]="pledgeData.unitsPledgeUnpledge"
+                                [value]="pledgeData.pan"
                                 [readOnly]="true"
                               />
                             </div>
                           </div>
+
+                          <div
+                            class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12"
+                          >
+                            <div class="sub_heading2">Fund</div>
+                            <div>
+                              <select class="selectfields_pledge">
+                                <option selected>
+                                  {{ pledgeData.fundName }}
+                                </option>
+                              </select>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
 
-                    <hr style="margin-top: 2%; margin-bottom: 1%" />
-
                     <div
-                      class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                      style="padding: 2%"
+                      class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
+                      style="
+                        background-color: #f7f7f7;
+                        margin-top: 2%;
+                        margin-bottom: 2%;
+                        padding: 1%;
+                      "
                     >
-                      <div
-                        class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                        style="display: flex"
-                      >
-                        <div class="sub_heading_img">
-                          <img
-                            class="edelWeisslogo"
-                            style="width: 85%; height: 85%"
-                            src="assets/images/pledgeicon.svg"
-                            alt="logo"
-                          />
+                      <div class="row pledge_content">
+                        <div
+                          class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
+                          style="display: flex"
+                        >
+                          <div class="pledge_content_p">Investor Name:</div>
+                          <div class="pledge_content_p1">
+                            {{
+                              pledgeData.firstName +
+                                " " +
+                                pledgeData.middleName +
+                                " " +
+                                pledgeData.lastName
+                            }}
+                          </div>
                         </div>
-                        <div>
-                          <p class="sub_heading">Financer Personal Details</p>
+
+                        <div
+                          class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
+                          style="display: flex"
+                        >
+                          <div class="pledge_content_p">Commitment:</div>
+                          <div class="pledge_content_p1">
+                            {{ pledgeData.commitmentAmount | customnumber }}
+                          </div>
+                        </div>
+                        <div
+                          class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
+                          style="display: flex"
+                        >
+                          <div class="pledge_content_p">Unit Class:</div>
+                          <div class="pledge_content_p1">
+                            {{ pledgeData.class }}
+                          </div>
                         </div>
                       </div>
 
+                      <div class="row pledge_content">
+                        <div
+                          class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
+                          style="display: flex"
+                        >
+                          <div class="pledge_content_p">Total Unit:</div>
+                          <div class="pledge_content_p1">
+                            {{ pledgeData.inv_TotalUnits }}
+                          </div>
+                        </div>
+
+                        <div
+                          class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
+                          style="display: flex"
+                        >
+                          <div class="pledge_content_p">
+                            Total Pledged Units:
+                          </div>
+                          <div class="pledge_content_p1">
+                            {{ pledgeData.inv_UnitsPledged }}
+                          </div>
+                        </div>
+                        <div
+                          class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
+                          style="display: flex"
+                        >
+                          <div class="pledge_content_p">Available Units:</div>
+                          <div class="pledge_content_p1">
+                            {{ pledgeData.inv_AvailableUnits }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr style="margin-top: 2%; margin-bottom: 1%" />
+
+                  <div
+                    class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                    style="padding: 2%"
+                  >
+                    <div
+                      class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                      style="display: flex"
+                    >
+                      <div class="sub_heading_img">
+                        <img
+                          class="edelWeisslogo"
+                          style="width: 85%; height: 85%"
+                          src="assets/images/pledgeicon.svg"
+                          alt="logo"
+                        />
+                      </div>
+                      <div>
+                        <p class="sub_heading" style="margin-top: 10px">
+                          Unit to Pledge
+                        </p>
+                      </div>
+                    </div>
+
+                    <div>
                       <div
                         class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
+                        style="display: flex; justify-content: space-between"
                       >
-                         <div class="row">
-                          <div
+                        <div>
+                          <div class="sub_heading2">
+                            Enter Unit to be Pledge
+                          </div>
+                          <div>
+                            <input
+                              type="email"
+                              class="inputfields_pledge2"
+                              name="loginEmail"
+                              id="loginEmail"
+                              [value]="pledgeData.unitsPledgeUnpledge"
+                              [readOnly]="true"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr style="margin-top: 2%; margin-bottom: 1%" />
+
+                  <div
+                    class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                    style="padding: 2%"
+                  >
+                    <div
+                      class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                      style="display: flex"
+                    >
+                      <div class="sub_heading_img">
+                        <img
+                          class="edelWeisslogo"
+                          style="width: 85%; height: 85%"
+                          src="assets/images/pledgeicon.svg"
+                          alt="logo"
+                        />
+                      </div>
+                      <div>
+                        <p class="sub_heading" style="margin-top: 10px">
+                          Financer Personal Details
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
+                    >
+                      <div class="row">
+                        <div
                           class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"
                         >
                           <div class="sub_heading2">Enter PAN</div>
@@ -386,322 +380,335 @@
                             />
                           </div>
                         </div>
-                         </div>
-                      </div>
-
-                      <div
-                        class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
-                        style="
-                          background-color: #f7f7f7;
-                          margin-top: 2%;
-                          border: 1px solid #f7f7f7;
-                        "
-                      >
-                        <div style="padding: 1%">
+                        <div
+                          class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                          style="margin-top: 13px"
+                        >
+                          <div class="sub_heading2">Enter Name</div>
                           <div>
-                            <p style="font-size: 13px">Save Personal name</p>
+                            <input
+                              type="text"
+                              class="inputfields_account_type"
+                              name="loginEmail"
+                              id="loginEmail"
+                              [value]="pledgeData.financerName"
+                              [readOnly]="true"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                          style="margin-top: 13px"
+                        >
+                          <div class="sub_heading2">Enter Email</div>
+                          <div>
+                            <input
+                              type="email"
+                              class="inputfields_account_type"
+                              name="loginEmail"
+                              id="loginEmail"
+                              [value]="pledgeData.financerEmail"
+                              [readOnly]="true"
+                            />
                           </div>
                         </div>
                       </div>
                     </div>
-
-                    <hr style="margin-top: 2%; margin-bottom: 1%" />
-
-                    <div
-                      class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                      style="padding: 2%"
-                    >
-                      <div
-                        class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                        style="display: flex"
-                      >
-                        <div class="sub_heading_img">
-                          <img
-                            class="edelWeisslogo"
-                            style="width: 85%; height: 85%"
-                            src="assets/images/pledgeicon.svg"
-                            alt="logo"
-                          />
-                        </div>
-                        <div>
-                          <p class="sub_heading">Financer Bank Details</p>
-                        </div>
-                      </div>
-
-                      <div
-                        class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
-                        style="padding: 1%"
-                      >
-                        <div class="row">
-                          <div
-                            class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"
-                            style="margin-top: 4px"
-                          >
-                            <div class="sub_heading2">Account Type</div>
-                            <div>
-                              <select class="selectfields_account_type">
-                                <option selected>
-                                  {{ pledgeData.accountType }}
-                                </option>
-                              </select>
-                            </div>
-                          </div>
-
-                          <div
-                            class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"
-                            style="margin-top: 1%; margin-bottom: 1%"
-                          >
-                            <div class="sub_heading2">Account Number</div>
-                            <div>
-                              <input
-                                type="email"
-                                class="inputfields_account_type"
-                                name="loginEmail"
-                                id="loginEmail"
-                                [value]="pledgeData.accountNo"
-                                [readOnly]="true"
-                              />
-                            </div>
-                          </div>
-
-                          <div
-                            class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"
-                            style="margin-top: 1%; margin-bottom: 1%"
-                          >
-                            <div class="sub_heading2">IFSC Code</div>
-                            <div>
-                              <input
-                                type="email"
-                                class="inputfields_account_type"
-                                name="loginEmail"
-                                id="loginEmail"
-                                [value]="pledgeData.ifsc"
-                                [readOnly]="true"
-                              />
-                            </div>
-                          </div>
-
-                          <div
-                            class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"
-                            style="margin-top: 1%; margin-bottom: 1%"
-                          >
-                            <div class="sub_heading2">MICR Code</div>
-                            <div>
-                              <input
-                                type="email"
-                                class="inputfields_account_type"
-                                name="loginEmail"
-                                id="loginEmail"
-                                [value]="pledgeData.micrCode"
-                                [readOnly]="true"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div
-                        class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
-                        style="
-                          background-color: #f7f7f7;
-                          margin-top: 1%;
-                          border: 1px solid #f7f7f7;
-                        "
-                      >
-                        <div style="padding: 1%">
-                          <div
-                            style="display: flex;"
-                          >
-                            <p
-                              style="
-                                font-size: 14px;
-                                font-weight: 500;
-                                text-transform: capitalize;
-                              "
-                            >
-                              BANK OF INDIA:
-                            </p>
-                            <p
-                              style="
-                                font-size: 12px;
-                                font-weight: 200;
-                                text-transform: capitalize;
-                                margin-left: 1%;
-                              "
-                            >
-                              Branch Name Mira Bhayander, JAIN BUNGALOw 100 FT.
-                              Road New Golden Nest, PIN-401204
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <hr style="margin-top: 2%; margin-bottom: 1%" />
-
-                    <div
-                      class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                      style="padding: 2%"
-                    >
-                      <div
-                        class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                        style="display: flex"
-                      >
-                        <div class="sub_heading_img">
-                          <img
-                            class="edelWeisslogo"
-                            style="width: 85%; height: 85%"
-                            src="assets/images/pledgeicon.svg"
-                            alt="logo"
-                          />
-                        </div>
-                        <div>
-                          <p class="sub_heading">Financer Contact Details</p>
-                        </div>
-                      </div>
-
-                      <div
-                        class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
-                        style="padding: 1%"
-                      >
-                        <div class="row">
-                          <div
-                            class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"
-                            style="margin-top: 1%; margin-bottom: 1%"
-                          >
-                            <div class="sub_heading2">Enter Name</div>
-                            <div>
-                              <input
-                                type="text"
-                                class="inputfields_account_type"
-                                name="loginEmail"
-                                id="loginEmail"
-                                [value]="pledgeData.financerName"
-                                [readOnly]="true"
-                              />
-                            </div>
-                          </div>
-
-                          <div
-                            class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"
-                            style="margin-top: 1%; margin-bottom: 1%"
-                          >
-                            <div class="sub_heading2">Phone Number</div>
-                            <div>
-                              <input
-                                type="tel"
-                                class="inputfields_account_type"
-                                name="loginEmail"
-                                id="loginEmail"
-                                [value]="pledgeData.fC_Mobile"
-                                [readOnly]="true"
-                              />
-                            </div>
-                          </div>
-
-                          <div
-                            class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
-                            style="margin-top: 1%; margin-bottom: 1%"
-                          >
-                            <div class="sub_heading2">Email</div>
-                            <div>
-                              <input
-                                type="email"
-                                class="inputfields_account_type"
-                                name="loginEmail"
-                                id="loginEmail"
-                                [value]="pledgeData.fC_EMail"
-                                [readOnly]="true"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <br
-                      style="margin-top: 1%; margin-bottom: 1%; width: 100%"
-                    />
                   </div>
 
-                  <br/>
+                  <hr style="margin-top: 2%; margin-bottom: 1%" />
 
-                  <div style="background-color: #ffffff; padding: 1%">
-                    <div class="row">
+                  <div
+                    class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                    style="padding: 2%"
+                  >
+                    <div
+                      class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                      style="display: flex"
+                    >
+                      <div class="sub_heading_img">
+                        <img
+                          class="edelWeisslogo"
+                          style="width: 85%; height: 85%"
+                          src="assets/images/pledgeicon.svg"
+                          alt="logo"
+                        />
+                      </div>
                       <div>
-                        <ol type="1">
-                          <li
-                            style="margin-top: 2%; margin-bottom: 2%"
-                            *ngFor="let list of checklist; let i = index"
+                        <p class="sub_heading" style="margin-top: 10px">
+                          Financer Bank Details
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
+                      style="padding: 1%"
+                    >
+                      <div class="row">
+                        <div
+                          class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                          style="margin-top: 4px"
+                        >
+                          <div class="sub_heading2">Account Type</div>
+                          <div>
+                            <select class="selectfields_account_type">
+                              <option selected>
+                                {{ pledgeData.accountType }}
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div
+                          class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                          style="margin-top: 1%; margin-bottom: 1%"
+                        >
+                          <div class="sub_heading2">Account Number</div>
+                          <div>
+                            <input
+                              type="email"
+                              class="inputfields_account_type"
+                              name="loginEmail"
+                              id="loginEmail"
+                              [value]="pledgeData.accountNo"
+                              [readOnly]="true"
+                            />
+                          </div>
+                        </div>
+
+                        <div
+                          class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                          style="margin-top: 1%; margin-bottom: 1%"
+                        >
+                          <div class="sub_heading2">IFSC Code</div>
+                          <div>
+                            <input
+                              type="email"
+                              class="inputfields_account_type"
+                              name="loginEmail"
+                              id="loginEmail"
+                              [value]="pledgeData.ifsc"
+                              [readOnly]="true"
+                            />
+                          </div>
+                        </div>
+
+                        <div
+                          class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                          style="margin-top: 1%; margin-bottom: 1%"
+                        >
+                          <div class="sub_heading2">MICR Code</div>
+                          <div>
+                            <input
+                              type="email"
+                              class="inputfields_account_type"
+                              name="loginEmail"
+                              id="loginEmail"
+                              [value]="pledgeData.micrCode"
+                              [readOnly]="true"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
+                      style="
+                        background-color: #f7f7f7;
+                        margin-top: 1%;
+                        border: 1px solid #f7f7f7;
+                      "
+                    >
+                      <div style="padding: 1%">
+                        <div style="display: flex">
+                          <p
+                            style="
+                              font-size: 13px;
+                              font-weight: 600;
+                              text-transform: capitalize;
+                            "
                           >
-                            <div
-                              style="display: flex;">
-                              <div
-                                class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6"
-                              >
-                                <p class="unpledge_check_content_p">
-                                  {{ list.checkListDesc }}
-                                </p>
-                              </div>
-
-                              <div
-                                class="col col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4"
-                                style="
-                                  display: flex;
-                                  justify-content: space-evenly;
-                                "
-                              >
-                                <div class="custom-control custom-radio">
-                                  <input
-                                    id="yes"
-                                    type="radio"
-                                    class="custom-control-input"
-                                    value="1"
-                                    name="{{ list.checkListId }}"
-                                    required
-                                    [(ngModel)]="list.value"
-                                  />
-                                  <label
-                                    class="custom-control-label"
-                                    for="{{ list.checkListId }}"
-                                    style="margin-left: 5px;"
-                                    class="unpledge_check_content_p"
-                                    >Yes</label
-                                  >
-                                </div>
-
-                                <div class="custom-control custom-radio">
-                                  <input
-                                    id="no"
-                                    type="radio"
-                                    class="custom-control-input"
-                                    value="0"
-                                    name="{{ list.checkListId }}"
-                                    required
-                                    [(ngModel)]="list.value"
-
-                                  />
-                                  <label
-                                    class="custom-control-label"
-                                    style="margin-left: 5px;"
-                                    for="{{ list.checkListId }}"
-                                    class="unpledge_check_content_p"
-                                    >No</label
-                                  >
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                        </ol>
+                            BANK OF INDIA:
+                          </p>
+                          <p
+                            style="
+                              font-size: 13px;
+                              text-transform: capitalize;
+                              margin-left: 1%;
+                            "
+                          >
+                            Branch Name Mira Bhayander, JAIN BUNGALOw 100 FT.
+                            Road New Golden Nest, PIN-401204
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <!-- checklist end -->
+                  <hr style="margin-top: 2%; margin-bottom: 1%" />
 
+                  <div
+                    class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                    style="padding: 2%"
+                  >
+                    <div
+                      class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                      style="display: flex"
+                    >
+                      <div class="sub_heading_img">
+                        <img
+                          class="edelWeisslogo"
+                          style="width: 85%; height: 85%"
+                          src="assets/images/pledgeicon.svg"
+                          alt="logo"
+                        />
+                      </div>
+                      <div>
+                        <p class="sub_heading" style="margin-top: 10px">
+                          Financer Contact Details
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
+                      style="padding: 1%"
+                    >
+                      <div class="row">
+                        <div
+                          class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                          style="margin-top: 1%; margin-bottom: 1%"
+                        >
+                          <div class="sub_heading2">Enter Name</div>
+                          <div>
+                            <input
+                              type="text"
+                              class="inputfields_account_type"
+                              name="loginEmail"
+                              id="loginEmail"
+                              [value]="pledgeData.fC_Name"
+                              [readOnly]="true"
+                            />
+                          </div>
+                        </div>
+
+                        <div
+                          class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"
+                          style="margin-top: 1%; margin-bottom: 1%"
+                        >
+                          <div class="sub_heading2">Phone Number</div>
+                          <div>
+                            <input
+                              type="tel"
+                              class="inputfields_account_type"
+                              name="loginEmail"
+                              id="loginEmail"
+                              [value]="pledgeData.fC_Mobile"
+                              [readOnly]="true"
+                            />
+                          </div>
+                        </div>
+
+                        <div
+                          class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
+                          style="margin-top: 1%; margin-bottom: 1%"
+                        >
+                          <div class="sub_heading2">Email</div>
+                          <div>
+                            <input
+                              type="email"
+                              class="inputfields_account_type"
+                              name="loginEmail"
+                              id="loginEmail"
+                              [value]="pledgeData.fC_EMail"
+                              [readOnly]="true"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <br style="margin-top: 1%; margin-bottom: 1%; width: 100%" />
+                </div>
+
+                <br />
+
+                <div style="background-color: #ffffff; padding: 1%">
+                  <div class="row">
+                    <div>
+                      <ol type="1">
+                        <li
+                          style="margin-top: 2%; margin-bottom: 2%"
+                          *ngFor="let list of checklist; let i = index"
+                        >
+                          <div style="display: flex">
+                            <div
+                              class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6"
+                            >
+                              <p class="unpledge_check_content_p">
+                                {{ list.checkListDesc }}
+                                <span class="star">*</span>
+                              </p>
+                            </div>
+
+                            <div
+                              class="col col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4"
+                              style="
+                                display: flex;
+                                justify-content: space-evenly;
+                              "
+                            >
+                              <div class="custom-control custom-radio">
+                                <input
+                                  id="yes"
+                                  type="radio"
+                                  class="custom-control-input"
+                                  value="1"
+                                  name="{{ list.checkListId }}"
+                                  required
+                                  [(ngModel)]="list.value"
+                                />
+                                <label
+                                  class="custom-control-label"
+                                  for="{{ list.checkListId }}"
+                                  style="margin-left: 5px"
+                                  class="unpledge_check_content_p"
+                                  >Yes</label
+                                >
+                              </div>
+
+                              <div class="custom-control custom-radio">
+                                <input
+                                  id="no"
+                                  type="radio"
+                                  class="custom-control-input"
+                                  value="0"
+                                  name="{{ list.checkListId }}"
+                                  required
+                                  [(ngModel)]="list.value"
+                                />
+                                <label
+                                  class="custom-control-label"
+                                  style="margin-left: 5px"
+                                  for="{{ list.checkListId }}"
+                                  class="unpledge_check_content_p"
+                                  >No</label
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- checklist end -->
               </div>
               <!-- pledge end -->
-
 
               <!-- unpledge  start -->
 
@@ -712,21 +719,16 @@
                 *ngIf="category == 'Unpledge'"
                 class="pdf-container scrollbar"
                 id="custumscroll"
-                style="padding: 1% ; background-color: #F3F3F9; "
-
+                style="padding: 1%; background-color: #f3f3f9"
               >
                 <div style="background-color: #ffffff">
                   <div
                     class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                    style="background-color: #ffffff; padding: 1%"
+                    style="padding: 10px"
                   >
-                    <p class="pledge_heading">UNPLEDGE</p>
-                  </div>
-
-                  <div
-                    class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                    style="padding: 2%"
-                  >
+                    <div>
+                      <p class="pledge_heading">UNPLEDGE</p>
+                    </div>
                     <div
                       class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
                       style="display: flex"
@@ -740,7 +742,9 @@
                         />
                       </div>
                       <div>
-                        <p class="sub_heading">Investor details</p>
+                        <p class="sub_heading" style="margin-top: 4px">
+                          Investor details
+                        </p>
                       </div>
                     </div>
 
@@ -814,52 +818,40 @@
                             </div>
                           </div>
 
+                          <div
+                            class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12"
+                            style="margin-top: 1%"
+                          >
+                            <div class="sub_heading2">Financer</div>
+                            <div>
+                              <select class="selectfields_unpledge2">
+                                <option selected>
+                                  {{ pledgeData.financerName }}
+                                </option>
+                              </select>
+                            </div>
+                          </div>
 
                           <div
-                          class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12"
-                          style="margin-top: 1%;"
-                        >
-                          <div class="sub_heading2">Financer</div>
-                          <div>
-                            <select
-                              class="selectfields_unpledge2"
-
-                            >
-                              <option selected>
-                                {{ pledgeData.financerName }}
-                              </option>
-                            </select>
+                            class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12"
+                            style="margin-top: 1%"
+                          >
+                            <div class="sub_heading2">Unit Pledged</div>
+                            <div>
+                              <input
+                                type="email"
+                                class="inputfields_unpledge2"
+                                name="loginEmail"
+                                id="loginEmail"
+                                [readOnly]="true"
+                                [value]="pledgeData.unitsPledge"
+                                required
+                                autofocus
+                              />
+                            </div>
                           </div>
-                        </div>
-
-                        <div
-                          class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12"
-                          style="margin-top: 1%;"
-                        >
-                          <div class="sub_heading2">Unit Pledged</div>
-                          <div>
-                            <input
-                              type="email"
-                              class="inputfields_unpledge2"
-                              name="loginEmail"
-                              id="loginEmail"
-                              [readOnly]="true"
-                              [value]="pledgeData.unitsPledgeUnpledge"
-                              required
-                              autofocus
-                            />
-                          </div>
-                        </div>
-
-
                         </div>
                       </div>
-
-
-
-
-
-
                     </div>
 
                     <div
@@ -876,25 +868,33 @@
                           class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                           style="display: flex"
                         >
-                          <div class="pledge_content_p">Investor Name :</div>
-                          <div class="pledge_content_p">{{ pledgeData }}</div>
+                          <div class="pledge_content_p">Investor Name:</div>
+                          <div class="pledge_content_p1">
+                            {{
+                              pledgeData.firstName +
+                                " " +
+                                pledgeData.middleName +
+                                " " +
+                                pledgeData.lastName
+                            }}
+                          </div>
                         </div>
 
                         <div
                           class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                           style="display: flex"
                         >
-                          <div class="pledge_content_p">Commitment :</div>
-                          <div class="pledge_content_p">
-                            {{ pledgeData.commitmentAmount }}
+                          <div class="pledge_content_p">Commitment:</div>
+                          <div class="pledge_content_p1">
+                            {{ pledgeData.commitmentAmount | customnumber }}
                           </div>
                         </div>
                         <div
                           class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                           style="display: flex"
                         >
-                          <div class="pledge_content_p">Unit Class :</div>
-                          <div class="pledge_content_p">
+                          <div class="pledge_content_p">Unit Class:</div>
+                          <div class="pledge_content_p1">
                             {{ pledgeData.class }}
                           </div>
                         </div>
@@ -905,9 +905,30 @@
                           class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                           style="display: flex"
                         >
-                          <div class="pledge_content_p">Total Unit :</div>
-                          <div class="pledge_content_p">
+                          <div class="pledge_content_p">Total Unit:</div>
+                          <div class="pledge_content_p1">
                             {{ pledgeData.inv_TotalUnits }}
+                          </div>
+                        </div>
+
+                        <!-- <div
+                          class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
+                          style="display: flex"
+                        >
+                          <div class="pledge_content_p">
+                            Total Pledged Units:
+                          </div>
+                          <div class="pledge_content_p1">
+                            {{ pledgeData.inv_UnitsPledged }}
+                          </div>
+                        </div> -->
+                        <div
+                          class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
+                          style="display: flex"
+                        >
+                          <div class="pledge_content_p">Available Units:</div>
+                          <div class="pledge_content_p11">
+                            {{ pledgeData.inv_AvailableUnits }}
                           </div>
                         </div>
 
@@ -915,27 +936,13 @@
                           class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
                           style="display: flex"
                         >
-                          <div class="pledge_content_p">
-                            Total Pledged Units :
-                          </div>
-                          <div class="pledge_content_p">
-                            {{ pledgeData.inv_UnitsPledged }}
-                          </div>
-                        </div>
-                        <div
-                          class="col col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6"
-                          style="display: flex"
-                        >
-                          <div class="pledge_content_p">Available Units :</div>
-                          <div class="pledge_content_p">
-                            {{ pledgeData.inv_AvailableUnits }}
-                          </div>
+                          <div class="pledge_content_p"></div>
+                          <div class="pledge_content_p1"></div>
                         </div>
                       </div>
                     </div>
                     <hr style="margin-top: 2%; margin-bottom: 1%" />
                   </div>
-
 
                   <div
                     class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
@@ -954,7 +961,9 @@
                         />
                       </div>
                       <div>
-                        <p class="sub_heading">Unit to Pledge</p>
+                        <p class="sub_heading" style="margin-top: 10px">
+                          Unit to Pledge
+                        </p>
                       </div>
                     </div>
 
@@ -985,8 +994,6 @@
                   <hr style="" />
                 </div>
 
-
-
                 <div style="background-color: #ffffff; padding: 1%">
                   <div class="row">
                     <div>
@@ -997,13 +1004,14 @@
                         >
                           <div
                             class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                            style="display: flex; "
+                            style="display: flex"
                           >
                             <div
                               class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6"
                             >
                               <p class="unpledge_check_content_p">
                                 {{ list.checkListDesc }}
+                                <span class="star">*</span>
                               </p>
                             </div>
 
@@ -1028,7 +1036,7 @@
                                   class="custom-control-label"
                                   for="{{ list.checkListId }}"
                                   class="unpledge_check_content_p"
-                                  style="margin-left: 5px;"
+                                  style="margin-left: 5px"
                                   >Yes</label
                                 >
                               </div>
@@ -1046,7 +1054,7 @@
                                 <label
                                   class="custom-control-label"
                                   for="{{ list.checkListId }}"
-                                  style="margin-left: 5px;"
+                                  style="margin-left: 5px"
                                   class="unpledge_check_content_p"
                                   >No</label
                                 >
@@ -1062,7 +1070,6 @@
               </div>
 
               <!-- unpledge  end  -->
-
             </div>
           </div>
 
@@ -1111,7 +1118,6 @@
               </div>
             </div>
           </div>
-
         </div>
 
         <div class="row comment-box">
@@ -1119,7 +1125,7 @@
             <div class="comment">
               <label for="" class="comment_label">Comment</label>
               <textarea
-              class="comment_textarea"
+                class="comment_textarea"
                 [(ngModel)]="comment"
                 rows="3"
                 placeholder="Do not enter comments if there is no discrepancy"
@@ -1135,6 +1141,14 @@
                 Comments are required
               </p>
             </div>
+            <div *ngIf="checklistError">
+              <p
+                class=""
+                style="color: #b70000; font-size: 14px; font-weight: 400"
+              >
+                Please Fill all the checklist
+              </p>
+            </div>
           </div>
         </div>
 
@@ -1143,17 +1157,13 @@
             class="submit-btns col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
           >
             <div class="buttons">
-              <button
-                class="btn btn-white"
-                (click)="showsavedSuccessfully(savedSuccessfully); save()"
-              >
-                Save
-              </button>
+              <button class="btn btn-white" (click)="save()">Save</button>
             </div>
 
             <div class="buttons">
               <button
                 class="btn btn-primary"
+                style="background-color: #034ea2"
                 (click)="showResubmitModal(confirmReSubmit)"
               >
                 Resubmit
@@ -1163,6 +1173,7 @@
             <div class="buttons">
               <button
                 class="btn btn-primary"
+                style="background-color: #034ea2"
                 (click)="showConfirmModal(confirmSubmit)"
               >
                 Approve
@@ -1192,9 +1203,7 @@
                 </button>
                 <button
                   class="btn btn-primary mt-1"
-                  (click)="
-                    modalRef?.hide(); showVerifiedModal(verified); submit()
-                  "
+                  (click)="modalRef?.hide(); submit()"
                 >
                   Confirm
                 </button>
@@ -1223,11 +1232,7 @@
                 </button>
                 <button
                   class="btn btn-primary mt-1"
-                  (click)="
-                    modalRef2?.hide();
-                    showSuccessfullyResubmitModal(ReSubmit);
-                    resubmit()
-                  "
+                  (click)="modalRef2?.hide(); resubmit()"
                 >
                   Confirm
                 </button>

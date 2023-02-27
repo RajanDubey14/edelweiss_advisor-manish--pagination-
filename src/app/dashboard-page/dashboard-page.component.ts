@@ -15,6 +15,7 @@ export class DashboardPageComponent implements OnInit {
   month: string;
   year: number;
   category: string;
+  fund: string;
   globalsearch: string;
   downloadsrc: string;
 
@@ -22,10 +23,13 @@ export class DashboardPageComponent implements OnInit {
   pageSlice: any = [];
   monthandyear: any = [];
   categories: any;
+  userFunds: any = [];
 
   Resubmittedbutton: string = 'Resubmitted';
   verifiedbutton: string = 'Verified';
   onboardedbutton: string = 'Onboarded';
+  pledgebutton: string = 'Pledge';
+  unpledgebutton: string = 'Unpledge';
 
   getData: any = [];
   searchText: any;
@@ -61,6 +65,7 @@ export class DashboardPageComponent implements OnInit {
     this.getDatas();
     this.getmonthandyear();
     this.getCategories();
+    this.getFunds();
     // this.default(null);
     this.SubmittedtoCams();
 
@@ -91,8 +96,14 @@ export class DashboardPageComponent implements OnInit {
     this.authservice.getmonthandyear().subscribe(
       (res) => {
         this.monthandyear = res.data;
+        console.log('month and year', res.data);
         this.monthandyear.map((item: any) => {
           item.monthname = item.monthname.split(' ')[3];
+        });
+        this.monthandyear.sort((a: any, b: any) => {
+          const aMonth = new Date(`01 ${a.monthname}`).getTime();
+          const bMonth = new Date(`01 ${b.monthname}`).getTime();
+          return bMonth - aMonth;
         });
         // console.log('month and year', this.monthandyear);
       },
@@ -110,6 +121,19 @@ export class DashboardPageComponent implements OnInit {
         });
 
         // console.log('categories', this.categories);
+      },
+      (err) => {
+        console.log(err.error);
+      }
+    );
+  }
+
+  getFunds() {
+    this.authservice.getAllfundListDashboard().subscribe(
+      (res) => {
+        this.userFunds = res.data;
+
+        console.log('userfunds', this.userFunds);
       },
       (err) => {
         console.log(err.error);
@@ -241,6 +265,12 @@ export class DashboardPageComponent implements OnInit {
     // console.log('category', this.category);
     this.global();
   }
+  fundchange(event: any) {
+    let input = event.target.value;
+    this.fund = input;
+    // console.log('category', this.category);
+    this.global();
+  }
 
   monthchange(event: any) {
     let input = event.target.value;
@@ -258,6 +288,7 @@ export class DashboardPageComponent implements OnInit {
       year: this.year,
       category: this.category,
       globalsearch: this.globalsearch,
+      fundName: this.fund,
     };
     // console.log('global', input);
     this.authservice.getApplicationsWithFilter(input).subscribe(

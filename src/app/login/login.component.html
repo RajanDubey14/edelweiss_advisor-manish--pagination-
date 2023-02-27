@@ -22,7 +22,7 @@
   </div>
   <div class="right-side">
     <div class="content-wrap login">
-      <h3 class="heading weight600 bmargin10">CAMS Login</h3>
+      <h3 class="heading weight600 bmargin10">R&T Login</h3>
       <p class="subheading bmargin30">
         Welcome Edelweiss Alternative Asset<br />
         Advisors Limited
@@ -51,7 +51,7 @@
                   [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
                   style="border: 0px solid !important"
                 />
-                <span
+                <!-- <span
                   style="
                     padding-right: 10px;
                     margin: auto;
@@ -59,8 +59,33 @@
                     font-size: 17px;
                   "
                   >@camsonline.com</span
+                > -->
+                <ng-select
+                  placeholder="Select Domain"
+                  [items]="DomainList"
+                  bindLabel="emailDomain"
+                  bindValue="emailDomain"
+                  formControlName="domain"
+                  [multiple]="false"
+                  class="form-control input-style"
+                  clearAllText="Clear"
+                  [clearable]="false"
+                  style="border: none !important"
                 >
+                </ng-select>
+
+                <!-- <select>
+                  <option value="" default>Select Domain</option>
+                  <option
+                    *ngFor="let domain of DomainList"
+                    [value]="domain"
+                    style="font-size: 18px"
+                  >
+                    {{ domain }}
+                  </option>
+                </select> -->
               </div>
+
               <!-- main input -->
               <!-- <input
                 type="text"
@@ -70,16 +95,29 @@
                 class="form-control input-style"
                 [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
               /> -->
-              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div
+                *ngIf="submitted && f.email.errors"
+                style="color: #b70000; font-size: 14px; font-weight: 400"
+              >
                 <div *ngIf="f.email.errors.required">Email is required</div>
                 <div *ngIf="f.email.errors.email || f.email.errors.pattern">
                   Email must be a valid email address
                 </div>
               </div>
+              <div
+                *ngIf="submitted && f.domain.errors"
+                style="color: #b70000; font-size: 14px; font-weight: 400"
+              >
+                <div *ngIf="f.domain.errors.required">Domain is required</div>
+              </div>
             </div>
           </div>
           <div class="col-md-9 tmargin20">
-            <button class="btn btn-primary mt-1 loginbtn" (click)="onSubmit()">
+            <button
+              class="btn btn-primary mt-1 loginbtn"
+              style="background-color: #034ea2"
+              (click)="onSubmit()"
+            >
               Send OTP
             </button>
           </div>
@@ -87,7 +125,7 @@
           <div class="tmargin20 signupLink">
             <span
               >Create a new account?
-              <a routerLink="/signup"> Sign Up </a>
+              <a routerLink="/signup" style="color: #034ea2"> Sign Up </a>
             </span>
           </div>
         </div>

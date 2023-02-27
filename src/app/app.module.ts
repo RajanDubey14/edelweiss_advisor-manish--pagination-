@@ -25,7 +25,8 @@ import { UnpledgeComponent } from './unpledge/unpledge.component';
 import { KycdocumentComponent } from './kycdocument/kycdocument.component';
 import { UpdateComponent } from './update/update.component';
 import { UpdateOtpComponent } from './update-otp/update-otp.component';
-
+import { DatashareService } from './datashare.service';
+import { CustomnumberPipe } from './customnumber.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { UpdateOtpComponent } from './update-otp/update-otp.component';
     KycdocumentComponent,
     UpdateComponent,
     UpdateOtpComponent,
-   
+    CustomnumberPipe,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +61,7 @@ import { UpdateOtpComponent } from './update-otp/update-otp.component';
     BsDropdownModule.forRoot(),
   ],
   providers: [
+    DatashareService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
