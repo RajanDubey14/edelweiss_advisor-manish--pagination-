@@ -313,7 +313,7 @@
                 <td>{{ data.schemeName }}</td>
                 <td>{{ data.type }}</td>
                 <td>{{ data.checkerName }}</td>
-                <td>{{ data.status }}</td>
+                <td>{{ data.status | status }}</td>
                 <td>
                   {{ data.lastModified | date : "d/MM/y" }}
                 </td>

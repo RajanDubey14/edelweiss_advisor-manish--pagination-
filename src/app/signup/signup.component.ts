@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
   emailexists: boolean = false;
   token: any;
   DomainList: any = [];
-  // DomainList: any = ['@camsonline.com', '@kfintech.com', '@gmail.com'];
+
   adminList: any;
   adminListdomain: any;
 

@@ -38,7 +38,10 @@
         <div class="row">
           <!-- left pdf start  -->
 
-          <div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+          <div
+            class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12"
+            style="height: 780px"
+          >
             <div class="pdf-view-left">
               <!-- normal pdf viewer -->
               <div
@@ -66,7 +69,7 @@
                   </div>
                 </div>
 
-                <div id="outerContainer">
+                <div id="outerContainer1">
                   <div class="pdf-container scrollbar" id="custumscroll">
                     <div *ngIf="!src" style="color: black">
                       Application is loading
@@ -1075,16 +1078,19 @@
 
           <!-- left pdf end -->
 
-          <div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-            <div class="pdf-view-right">
+          <div
+            class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12"
+            style="height: 780px"
+          >
+            <div class="pdf-view-right" style="margin-top: 2%; height: 500px">
               <div class="pdf-header">
                 <div class="pdf-heading">KYC Document</div>
 
                 <div class="pdf-buttons"></div>
               </div>
 
-              <div id="outerContainer">
-                <div class="pdf-container scrollbar overflow-auto">
+              <div id="outerContainer2">
+                <div class="pdf-container2 scrollbar">
                   <div class="img-view-hideen">
                     <div
                       class="ivh-item"
@@ -1117,13 +1123,64 @@
                 </div>
               </div>
             </div>
+            <!-- multiple checkbox start -->
+
+            <!-- <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 " >
+              <table class="table table-borderless" style="">
+                <tbody class="multiple_check_box">
+                  <tr>
+                    <td *ngFor="let item of scrRight; let i = index">
+                      <div class="col col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3  form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" />
+                        <label
+                          class="form-check-label multiple_check_box_text"
+                          for="inlineCheckbox1"
+                          (click)="showdocument(i)"
+                          style="font-size: 14px;"
+                          >{{ item.documentType }}</label
+                        >
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div> -->
+
+            <div class="multiple_check_box" style="height: 195px">
+              <div class="row">
+                <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div class="row">
+                    <div
+                      class="col col-xl-2.5 col-lg-2.5 col-md-2.5 col-sm-2.5 col-2.5 form-check form-check-inline"
+                      *ngFor="let item of scrRight; let i = index"
+                    >
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        [(ngModel)]="item.checked"
+                      />
+                      <label
+                        class="form-check-label multiple_check_box_text"
+                        [ngClass]="{ selected: selectedItem === i }"
+                        for="inlineCheckbox1"
+                        (click)="showdocument(i)"
+                        style="font-size: 13px; border-radius: 5px"
+                        >{{ item.documentType }}</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="row comment-box">
           <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="comment">
-              <label for="" class="comment_label">Comment</label>
+              <div>
+                <label for="" class="comment_label">Comment</label>
+              </div>
               <textarea
                 class="comment_textarea"
                 [(ngModel)]="comment"

@@ -33,6 +33,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
   zoom: number = 75;
   zoommodal: number = 1;
   resubmitted: boolean = false;
+  selectedItem: any;
 
   src: any = '';
   pdflink: any = this.sanitizer.bypassSecurityTrustResourceUrl(
@@ -116,6 +117,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
           );
         })[0];
         console.log('showdata ...................', this.showData);
+
         if (this.pledgeId !== '') {
           this.pledgeAndunpledge(this.pledgeId);
         }
@@ -373,7 +375,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       };
     }
 
-    // console.log(input);
+    console.log(input);
     this.authservice.getPDFFile(input).subscribe(
       (res) => {
         // console.log('right side data', res);
@@ -404,6 +406,14 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
   }
 
   save() {
+    let discripancy: any = [];
+    this.scrRight.forEach((item: any) => {
+      if (!item.checked) {
+        discripancy.push({ docName: item.documentType, discripancyStatus: 0 });
+      } else {
+        discripancy.push({ docName: item.documentType, discripancyStatus: 1 });
+      }
+    });
     let input: any = {
       InvestmentId: this.showData.investmentID,
       UserId: this.showData.userId,
@@ -411,6 +421,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       type: 'save',
       RequestType: 'Cams',
       PledgeId: 0,
+      docDiscrepancyStatuses: discripancy,
     };
 
     if (this.category == 'Pledge') {
@@ -422,6 +433,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
         RequestType: 'pledge',
         PledgeId: +this.pledgeId,
         checkList: [],
+        docDiscrepancyStatuses: discripancy,
       };
       console.log('default checklist', this.checklist);
       this.checklist.map((item: any) => {
@@ -443,6 +455,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
         RequestType: 'unpledge',
         PledgeId: +this.pledgeId,
         checkList: [],
+        docDiscrepancyStatuses: discripancy,
       };
       this.checklist.map((item: any) => {
         if (item.value == 0 || item.value == 1) {
@@ -455,8 +468,6 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
     }
 
     console.log(input);
-
-    // have to rearrage after fixing issue
 
     // testing
 
@@ -486,6 +497,15 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
   }
 
   resubmit() {
+    let discripancy: any = [];
+    this.scrRight.forEach((item: any) => {
+      if (!item.checked) {
+        discripancy.push({ docName: item.documentType, discripancyStatus: 0 });
+      } else {
+        discripancy.push({ docName: item.documentType, discripancyStatus: 1 });
+      }
+    });
+
     let input: any = {
       InvestmentId: this.showData.investmentID,
       UserId: this.showData.userId,
@@ -493,6 +513,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       type: 'recheck',
       RequestType: 'Cams',
       PledgeId: 0,
+      docDiscrepancyStatuses: discripancy,
     };
 
     if (this.category == 'Pledge') {
@@ -504,6 +525,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
         RequestType: 'pledge',
         PledgeId: +this.pledgeId,
         checkList: [],
+        docDiscrepancyStatuses: discripancy,
       };
       this.checklist.map((item: any) => {
         if (item.value == 0 || item.value == 1) {
@@ -524,6 +546,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
         RequestType: 'unpledge',
         PledgeId: +this.pledgeId,
         checkList: [],
+        docDiscrepancyStatuses: discripancy,
       };
       this.checklist.map((item: any) => {
         if (item.value == 0 || item.value == 1) {
@@ -559,6 +582,14 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
   }
 
   submit() {
+    let discripancy: any = [];
+    this.scrRight.forEach((item: any) => {
+      if (!item.checked) {
+        discripancy.push({ docName: item.documentType, discripancyStatus: 0 });
+      } else {
+        discripancy.push({ docName: item.documentType, discripancyStatus: 1 });
+      }
+    });
     let input: any = {
       InvestmentId: this.showData.investmentID,
       UserId: this.showData.userId,
@@ -566,6 +597,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       type: 'approve',
       RequestType: 'Cams',
       PledgeId: 0,
+      docDiscrepancyStatuses: discripancy,
     };
 
     if (this.category == 'Pledge') {
@@ -577,6 +609,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
         RequestType: 'pledge',
         PledgeId: +this.pledgeId,
         checkList: [],
+        docDiscrepancyStatuses: discripancy,
       };
       this.checklist.map((item: any) => {
         if (item.value == 0 || item.value == 1) {
@@ -597,6 +630,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
         RequestType: 'unpledge',
         PledgeId: +this.pledgeId,
         checkList: [],
+        docDiscrepancyStatuses: discripancy,
       };
       this.checklist.map((item: any) => {
         if (item.value == 0 || item.value == 1) {
@@ -727,5 +761,37 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       },
       (err) => {}
     );
+  }
+
+  showdocument(index: any) {
+    this.selectedItem = index;
+    this.scrRightImages = [];
+    this.scrRightPdf = [];
+
+    let output = this.scrRight[index];
+
+    if (!output.documentName.includes('.pdf')) {
+      this.scrRightImages.push(output);
+      console.log('click image work', output.documentName, this.scrRightImages);
+    } else {
+      this.scrRightPdf.push(output);
+      console.log('click pdf work', output.documentName, this.scrRightPdf);
+    }
+  }
+
+  check() {
+    let discripancy: any = [];
+    this.scrRight.forEach((item: any) => {
+      if (!item.checked) {
+        discripancy.push({ docName: item.documentType, discripancyStatus: 0 });
+      } else {
+        discripancy.push({ docName: item.documentType, discripancyStatus: 1 });
+      }
+    });
+    console.log(discripancy);
+  }
+
+  selectItem(item: any) {
+    this.selectedItem = item;
   }
 }

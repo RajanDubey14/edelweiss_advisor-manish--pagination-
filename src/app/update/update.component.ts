@@ -18,7 +18,7 @@ export class UpdateComponent implements OnInit {
   emailexists: boolean = false;
   token: any;
   userDetails: any;
-  DomainList: any = ['@camsonline.com', '@kfintech.com', '@gmail.com'];
+  DomainList: any = [];
   userDomain: any;
 
   adminList: any;
@@ -61,6 +61,7 @@ export class UpdateComponent implements OnInit {
       admin: [null, [Validators.required]],
       domain: [null, [Validators.required]],
     });
+    this.getAllDomain();
   }
   get f() {
     return this.registerForm.controls;
@@ -311,5 +312,17 @@ export class UpdateComponent implements OnInit {
     this.getUserFunds();
 
     console.log('update domain', this.fundlistfordomain, this.adminListdomain);
+  }
+
+  getAllDomain() {
+    this.authservice.getDomain().subscribe(
+      (res) => {
+        this.DomainList = res;
+        console.log('all domain', this.DomainList);
+      },
+      (err) => {
+        console.log(err.error);
+      }
+    );
   }
 }

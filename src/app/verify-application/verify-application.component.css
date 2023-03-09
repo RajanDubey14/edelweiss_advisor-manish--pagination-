@@ -36,7 +36,15 @@
 .pdf-container {
   margin: auto;
   width: 100%;
-  height: 472px;
+  height: 100vh;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+.pdf-container2 {
+  margin: auto;
+  width: 100%;
+  height: 100vh;
   margin-top: 10px;
   border-radius: 3px;
 }
@@ -101,14 +109,26 @@ hr.style1 {
   margin-bottom: 1%;
 }
 
-.pdf-view-modal {
+.pdf-view-left {
+  /* height: 100%; */
+  overflow: auto;
+  overflow-y: hidden;
+}
+
+.pdf-view-right {
+  /* height: 311px; */
+  overflow: auto;
+  overflow-y: hidden;
+}
+
+/* .pdf-view-modal {
   width: 100%;
   background: #ddd;
   padding: 5px;
-}
+} */
 
 .comment-box {
-  margin-top: 1%;
+  /* margin-top: 1%; */
 }
 
 .comment-box .comment label {
@@ -161,10 +181,18 @@ hr.style1 {
   padding: 5px;
   width: 55px;
 }
-#outerContainer {
+#outerContainer1 {
   background-color: #ffffff;
-  margin: 0px 8px;
-  padding-right: 4px;
+  /* margin: 0px 8px; */
+  height: 650px;
+  /* padding-right: 4px; */
+}
+
+#outerContainer2 {
+  background-color: #ffffff;
+  height: 650px;
+  /* margin: 0px 8px; */
+  /* padding-right: 4px; */
 }
 
 .btn {
@@ -215,7 +243,11 @@ hr.style1 {
 }
 
 .scrollbar {
-  max-height: 472px;
+  max-height: 672px !important;
+  overflow: scroll;
+}
+.scrollbar[_ngcontent-qvc-c80] {
+  max-height: 100% !important;
   overflow: scroll;
 }
 
@@ -766,4 +798,35 @@ hr.style1 {
   color: red;
   font-size: 14px;
   margin-left: 1px;
+}
+
+.multiple_check_box {
+  height: 28vh;
+  overflow-y: scroll;
+  background-color: #fff;
+  padding: 4%;
+}
+
+.multiple_check_box_text {
+  font-size: 12px;
+  font-family: sans-serif;
+  text-transform: capitalize;
+  background-color: #034ea2;
+  color: #fff;
+
+  padding-left: 7px;
+  padding-right: 7px;
+  min-width: 85px;
+  max-width: 140px;
+}
+
+.form-check-input:checked {
+  background-color: #65c829;
+  border-color: #65c829;
+}
+
+.selected {
+  background-color: #49b1ba;
+
+  color: white;
 }

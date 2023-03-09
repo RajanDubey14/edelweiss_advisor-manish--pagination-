@@ -27,6 +27,7 @@ import { UpdateComponent } from './update/update.component';
 import { UpdateOtpComponent } from './update-otp/update-otp.component';
 import { DatashareService } from './datashare.service';
 import { CustomnumberPipe } from './customnumber.pipe';
+import { StatusPipe } from './status.pipe';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { CustomnumberPipe } from './customnumber.pipe';
     UpdateComponent,
     UpdateOtpComponent,
     CustomnumberPipe,
+    StatusPipe,
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   invalidEmail = false;
   domain: any;
-  DomainList: any = ['@camsonline.com', '@kfintech.com', '@gmail.com'];
+  DomainList: any = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
       ],
       domain: [null, [Validators.required]],
     });
+    this.getAllDomain();
   }
 
   get f() {
@@ -56,12 +57,12 @@ export class LoginComponent implements OnInit {
     // console.log(this.registerForm.controls);
     if (this.registerForm.invalid) {
       // stop here if form is invalid
-      console.log('invalid', this.f.email);
-      console.log('invalid', this.f.domain);
+      //    console.log('invalid', this.f.email);
+      //console.log('invalid', this.f.domain);
 
       return;
     }
-    console.log(this.f.email);
+    //  console.log(this.f.email);
     this.submitted = false;
     this.login();
   }
@@ -72,7 +73,7 @@ export class LoginComponent implements OnInit {
       email: this.f.email.value + this.f.domain.value,
       // email: 'raghvendra@binmile.com',
     };
-    console.log(input);
+    // console.log(input);
 
     this.authservice.login(input).subscribe(
       (res) => {
@@ -107,7 +108,7 @@ export class LoginComponent implements OnInit {
     this.authservice.getDomain().subscribe(
       (res) => {
         this.DomainList = res;
-        console.log('all domain', this.DomainList);
+        //console.log('all domain', this.DomainList);
       },
       (err) => {
         console.log(err.error);
