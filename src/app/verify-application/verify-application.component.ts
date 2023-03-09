@@ -30,7 +30,7 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
   user_name: string = 'User_Name';
   zoomleft: number = 1;
   zoomright: number = 1;
-  zoom: number = 75;
+  zoom: number = 70;
   zoommodal: number = 1;
   resubmitted: boolean = false;
   selectedItem: any;
@@ -380,6 +380,11 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
       (res) => {
         // console.log('right side data', res);
         this.scrRight = res.data;
+        this.scrRight.sort(
+          (a: any, b: any) => a.documentType.length - b.documentType.length
+        );
+        console.log('all documents', this.scrRight);
+
         this.scrRightImages = res.data.filter(
           (item: any) => !item.documentName.includes('.pdf')
         );

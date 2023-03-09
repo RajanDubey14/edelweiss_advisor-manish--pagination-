@@ -40,9 +40,9 @@
 
           <div
             class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12"
-            style="height: 780px"
+            style="height: 730px"
           >
-            <div class="pdf-view-left">
+            <div class="pdf-view-left" style="height: 99%; width: 99%">
               <!-- normal pdf viewer -->
               <div
                 *ngIf="category == 'Normal' || category == 'Topup'"
@@ -70,7 +70,11 @@
                 </div>
 
                 <div id="outerContainer1">
-                  <div class="pdf-container scrollbar" id="custumscroll">
+                  <div
+                    class="pdf-container scrollbar"
+                    style="height: 100%; overflow: hidden !important"
+                    id="custumscroll"
+                  >
                     <div *ngIf="!src" style="color: black">
                       Application is loading
                     </div>
@@ -1080,9 +1084,9 @@
 
           <div
             class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12"
-            style="height: 780px"
+            style="height: 730px"
           >
-            <div class="pdf-view-right" style="margin-top: 2%; height: 500px">
+            <div class="pdf-view-right" style="margin-top: 2%; height: 480px">
               <div class="pdf-header">
                 <div class="pdf-heading">KYC Document</div>
 
@@ -1146,12 +1150,12 @@
               </table>
             </div> -->
 
-            <div class="multiple_check_box" style="height: 195px">
+            <div class="multiple_check_box" style="height: 180px">
               <div class="row">
                 <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                   <div class="row">
                     <div
-                      class="col col-xl-2.5 col-lg-2.5 col-md-2.5 col-sm-2.5 col-2.5 form-check form-check-inline"
+                      class="col col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 form-check form-check-inline"
                       *ngFor="let item of scrRight; let i = index"
                     >
                       <input
@@ -1164,13 +1168,23 @@
                         [ngClass]="{ selected: selectedItem === i }"
                         for="inlineCheckbox1"
                         (click)="showdocument(i)"
-                        style="font-size: 13px; border-radius: 5px"
+                        style="
+                          font-size: 12px;
+                          border-radius: 5px;
+                          align-items: center;
+                        "
                         >{{ item.documentType }}</label
                       >
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+            <div style="background-color: white; height: 35px">
+              <p style="color: red; padding: 10px">
+                Note: Please click on the checkbox only if there is no
+                discrepancy in the document
+              </p>
             </div>
           </div>
         </div>
@@ -1230,7 +1244,7 @@
             <div class="buttons">
               <button
                 class="btn btn-primary"
-                style="background-color: #034ea2"
+                style="background-color: #0ed20e"
                 (click)="showConfirmModal(confirmSubmit)"
               >
                 Approve
