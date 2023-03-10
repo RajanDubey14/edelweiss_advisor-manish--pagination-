@@ -814,8 +814,8 @@ hr.style1 {
   background-color: #034ea2;
   color: #fff;
 
-  padding-left: 7px;
-  padding-right: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
   min-width: 85px;
   max-width: 140px;
 }
@@ -829,4 +829,17 @@ hr.style1 {
   background-color: #49b1ba;
 
   color: white;
+}
+
+.modal-backdrop {
+  --bs-backdrop-zindex: 1050;
+  --bs-backdrop-bg: #fff !important;
+  --bs-backdrop-opacity: 1 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--bs-backdrop-zindex);
+  width: 100vw;
+  height: 100vh;
+  background-color: white !important;
 }

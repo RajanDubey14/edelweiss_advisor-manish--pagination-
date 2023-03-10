@@ -490,4 +490,21 @@ button.profile-image:hover .username_tooltip {
   color: #ffffff !important;
 }
 
+.modal-backdrop {
+  --bs-backdrop-zindex: 1050;
+  --bs-backdrop-bg: #fff !important;
+  --bs-backdrop-opacity: 0.95 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--bs-backdrop-zindex);
+  width: 100vw;
+  height: 100vh;
+  background-color: white !important;
+}
+
+.modal-content {
+  background-color: #ffffff00 !important;
+}
+
 /* dashborad css */
