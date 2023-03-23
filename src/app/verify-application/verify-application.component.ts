@@ -19,6 +19,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class VerifyApplicationComponent implements OnInit, AfterViewInit {
   @ViewChild('iframe') iframe: ElementRef;
 
+  checker1: boolean = false;
+  checker2: boolean = true;
   applicationId: any = '';
   pledgeId: any = '';
   category: any = '';
@@ -798,5 +800,88 @@ export class VerifyApplicationComponent implements OnInit, AfterViewInit {
 
   selectItem(item: any) {
     this.selectedItem = item;
+  }
+
+  submittochecker2() {
+    let discripancy: any = [];
+    this.scrRight.forEach((item: any) => {
+      if (!item.checked) {
+        discripancy.push({ docName: item.documentType, discripancyStatus: 0 });
+      } else {
+        discripancy.push({ docName: item.documentType, discripancyStatus: 1 });
+      }
+    });
+    let input: any = {
+      InvestmentId: this.showData.investmentID,
+      UserId: this.showData.userId,
+      Remark: this.comment,
+      type: 'approve',
+      RequestType: 'Cams',
+      PledgeId: 0,
+      docDiscrepancyStatuses: discripancy,
+    };
+
+    if (this.category == 'Pledge') {
+      input = {
+        InvestmentId: this.showData.investmentID,
+        UserId: this.showData.userId,
+        Remark: this.comment,
+        type: 'approve',
+        RequestType: 'pledge',
+        PledgeId: +this.pledgeId,
+        checkList: [],
+        docDiscrepancyStatuses: discripancy,
+      };
+      this.checklist.map((item: any) => {
+        if (item.value == 0 || item.value == 1) {
+          return input.checkList.push({
+            checkListId: item.checkListId,
+            checkListVal: +item.value,
+          });
+        }
+      });
+    }
+
+    if (this.category == 'Unpledge') {
+      input = {
+        InvestmentId: this.showData.investmentID,
+        UserId: this.showData.userId,
+        Remark: this.comment,
+        type: 'approve',
+        RequestType: 'unpledge',
+        PledgeId: +this.pledgeId,
+        checkList: [],
+        docDiscrepancyStatuses: discripancy,
+      };
+      this.checklist.map((item: any) => {
+        if (item.value == 0 || item.value == 1) {
+          return input.checkList.push({
+            checkListId: item.checkListId,
+            checkListVal: +item.value,
+          });
+        }
+      });
+    }
+
+    console.log(input);
+
+    this.authservice.submit(input).subscribe(
+      (res) => {
+        this.showVerifiedModal(this.verified);
+        // console.log(res);
+        let data: any = localStorage.getItem('userdetails');
+        let userDetails = JSON.parse(data);
+        let logsinput = {
+          UserId: +userDetails.userUuid,
+          EmailId: userDetails.email,
+          ActivityType: 'Approved',
+          InvestmentId: this.showData.investmentID.toString(),
+        };
+        this.logs(logsinput);
+      },
+      (err) => {
+        console.log(err.error);
+      }
+    );
   }
 }

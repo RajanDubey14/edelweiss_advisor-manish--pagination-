@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="369" height="108" viewBox="0 0 369 108">
+  <defs>
+    <filter id="Bgg" x="0" y="0" width="369" height="108" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-color="#152232" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_422" data-name="Group 422" transform="translate(-34 -204)">
+    <g transform="matrix(1, 0, 0, 1, 34, 204)" filter="url(#Bgg)">
+      <rect id="Bgg-2" data-name="Bgg" width="357" height="96" rx="6" transform="translate(6 5)" fill="#1d409d"/>
+    </g>
+    <g id="Data" transform="translate(64 225)">
+      <text id="_27632" data-name="$27632" transform="translate(0 53)" fill="#fff" font-size="28" font-family="Poppins-SemiBold, Poppins" font-weight="600" letter-spacing="0.004em"><tspan x="0" y="0">12 New</tspan></text>
+      <text id="Sales" transform="translate(0 17)" fill="#fff" font-size="16" font-family="Poppins-Regular, Poppins" letter-spacing="0.006em"><tspan x="0" y="0">Submitted to CAMS</tspan></text>
+    </g>
+    <g id="ic-sessions" transform="translate(326 242)">
+      <g id="Oval" fill="#f3f3f9" stroke="rgba(0,88,255,0.1)" stroke-width="1">
+        <circle cx="22" cy="22" r="22" stroke="none"/>
+        <circle cx="22" cy="22" r="21.5" fill="none"/>
+      </g>
+      <g id="layer1" transform="translate(12.495 15.082)">
+        <path id="path12972" d="M2.957,291.707a.863.863,0,1,0,0,1.726H14.082a3.031,3.031,0,0,1,2.472.955,4.422,4.422,0,0,1,.962,2.942,4,4,0,0,1-.918,2.885,3.278,3.278,0,0,1-2.534.981H3.213l1.114-1.114A.863.863,0,1,0,3.1,298.865L.519,301.449a.863.863,0,0,0,0,1.223L3.1,305.257a.865.865,0,1,0,1.223-1.222L3.208,302.92H14.064a5.079,5.079,0,0,0,3.8-1.535,5.747,5.747,0,0,0,1.377-4.088,6.11,6.11,0,0,0-1.407-4.062,4.857,4.857,0,0,0-3.783-1.528Z" transform="translate(-0.265 -291.706)" fill="#1d409d" stroke="#1d409d" stroke-width="0.5"/>
+      </g>
+    </g>
+  </g>
+</svg>

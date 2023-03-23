@@ -1231,7 +1231,16 @@
               <button class="btn btn-white" (click)="save()">Save</button>
             </div>
 
-            <div class="buttons">
+            <div class="buttons" *ngIf="checker1">
+              <button
+                class="btn btn-primary"
+                style="background-color: #034ea2"
+                (click)="showResubmitModal(confirmReSubmit)"
+              >
+                Submit to checker 2
+              </button>
+            </div>
+            <div class="buttons" *ngIf="!checker1">
               <button
                 class="btn btn-primary"
                 style="background-color: #034ea2"
@@ -1241,7 +1250,7 @@
               </button>
             </div>
 
-            <div class="buttons">
+            <div class="buttons" *ngIf="!checker1">
               <button
                 class="btn btn-primary"
                 style="background-color: #0ed20e"
